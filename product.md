@@ -18,11 +18,11 @@ Open: leeftijdsgrenzen en of er ook een aanbod voor jongeren of kinderen komt (m
 
 ## Product Purpose
 
-Tarralazil is de praktijk van Tarra, die ceremonies met planten begeleidt: truffel-, paddenstoelen- en ayahuascaceremonies. De missie in de woorden van de eigenaar: "mensen jong en oud helpen die stukken te helen". Het gaat om de diepe lagen uit de vroege jeugd waar iedereen mee te maken heeft. De website moet vertrouwen wekken, uitleggen hoe de begeleiding werkt en bezoekers rustig naar de intake of het contactformulier leiden.
+Tarra Lanzilli is de merknaam van de praktijk van Nathalie, die ceremonies met planten begeleidt: truffel-, paddenstoelen- en ayahuascaceremonies. De missie in de woorden van de eigenaar: "mensen jong en oud helpen die stukken te helen". Het gaat om de diepe lagen uit de vroege jeugd waar iedereen mee te maken heeft. De website moet vertrouwen wekken, uitleggen hoe de begeleiding werkt en bezoekers rustig naar de intake of het contactformulier leiden.
 
 ## Positioning
 
-De praktijk werkt met de lagen onder de oppervlakte: de jeugdpatronen die vormen hoe iemand nu leeft. Tarra werkt met planten: truffels, paddenstoelen en ayahuasca, met zorgvuldige begeleiding voor, tijdens en na de ceremonie. Daarnaast biedt ze ademwerk aan, een eigen aanbod zonder planten. Op de site heet het aanbod "Ceremonies" (niet "diensten").
+De praktijk werkt met de lagen onder de oppervlakte: de jeugdpatronen die vormen hoe iemand nu leeft. Nathalie werkt met planten: truffels, paddenstoelen en ayahuasca, met zorgvuldige begeleiding voor, tijdens en na de ceremonie. Daarnaast biedt ze ademwerk aan, een eigen aanbod zonder planten. Op de site heet het aanbod "Ceremonies" (niet "diensten").
 
 ## Operating Context
 
@@ -34,16 +34,16 @@ De praktijk werkt met de lagen onder de oppervlakte: de jeugdpatronen die vormen
 ## Capabilities and Constraints
 
 - Aanbod (`src/content/ceremonies.json`): Truffelceremonie, Paddenstoelenceremonie, Ayahuascaceremonie en Ademwerk. URL's onder `/ceremonies/`; `/diensten/` en `/agenda/` sturen door. Op de homepage heet de sectie "Wat ik je kan bieden".
-- Open: waar de ceremonies plaatsvinden (NL/buitenland), vorm (individueel/groep), duur, prijzen, screening, nazorg, en de opleiding/ervaring van Tarra.
-- Nog niet ingevuld: achternaam van Tarra en haar persoonlijke verhaal (komt van haarzelf), prijzen, duur, locatie, adres, e-mail, telefoon, WhatsApp en KvK.
+- Open: waar de ceremonies plaatsvinden (NL/buitenland), vorm (individueel/groep), duur, prijzen, screening, nazorg, en de opleiding/ervaring van Nathalie.
+- Nog niet ingevuld: het persoonlijke verhaal van Nathalie (komt van haarzelf), prijzen, duur, volledig adres en KvK. Bekend (van tarralanzilli.com): Tarralanzilli@gmail.com, 06 28 17 98 81, Sappemeer.
 - Plantenwerk (gewijzigd 2026-11-04 op verzoek van de opdrachtgever): truffels, paddenstoelen en ayahuasca mogen genoemd worden als ceremonies. Er is gewezen op het juridische risico (Opiumwet Lijst I/II en art. 3b, reclameverbod); juridisch advies is aangeraden. Blijft gelden: geen informatie over dosering of bereiding; ceremoniebegeleiding heet geen behandeling of therapie.
-- Geen genezingsbeloftes of medische claims. Jeugdpatronen worden gepresenteerd als visie van Tarralazil, niet als wetenschappelijk feit.
+- Geen genezingsbeloftes of medische claims. Jeugdpatronen worden gepresenteerd als visie van Tarra Lanzilli, niet als wetenschappelijk feit.
 - Geen beschermde methodenamen of ®-tekens, tenzij aangeleverd.
 - Alle content (teksten, ceremonies, prijzen, agenda, ervaringen) staat in aparte contentbestanden.
 
 ## Brand Commitments
 
-- Naam: Tarralazil (deze spelling is bevestigd).
+- Merknaam: Tarra Lanzilli (bevestigd 2026-11-04; eerder werkte de site met "Tarralazil"). De begeleider zelf heet Nathalie.
 - Teksten zijn warm en origineel, in de ik-vorm, in het Nederlands.
 - De briefing hieronder legt een designconcept vast ("Wat onder de oppervlakte groeit"). Latere keuzes van de opdrachtgever gaan voor: hero met eigen foto (`photos/hero.webp`) in plaats van getekende jungle; warmer palet (notenhout, amber, honingmos); rustiger beeld (weinig decoratie); minder zakelijk, persoonlijker toon met het verhaal van Tarra.
 
