@@ -108,13 +108,13 @@
     width: 100%;
     max-width: 76rem;
     margin-inline: auto;
-    padding-inline: 1.625rem 1rem; /* links ruimte voor de wortellijn */
+    padding-inline: 1.25rem;
   }
   @media (min-width: 768px) {
     .container-woud { padding-inline: 3.5rem; }
   }
 
-  /* Knoppen: warme gloed bij hover en focus */
+  /* Knoppen: rustig, zonder gloed */
   .knop {
     display: inline-flex;
     align-items: center;
@@ -131,19 +131,16 @@
   .knop-zon {
     background: var(--zonlicht-400);
     color: var(--woud-950);
-    box-shadow: 0 6px 18px -8px rgb(240 176 63 / 0.5);
   }
   .knop-zon:hover, .knop-zon:focus-visible {
     background: var(--zonlicht-200);
-    box-shadow: 0 8px 20px -10px rgb(240 176 63 / 0.6);
-    transform: translateY(-1px);
   }
   .knop-rand {
     color: var(--dauw-50);
     box-shadow: inset 0 0 0 1.5px rgb(247 239 220 / 0.55);
   }
   .knop-rand:hover, .knop-rand:focus-visible {
-    box-shadow: inset 0 0 0 1.5px var(--zonlicht-400), 0 8px 30px -10px rgb(240 176 63 / 0.55);
+    box-shadow: inset 0 0 0 1.5px var(--zonlicht-400);
     color: var(--zonlicht-200);
   }
   .licht .knop-rand {
@@ -152,8 +149,8 @@
   }
   .licht .knop-rand:hover, .licht .knop-rand:focus-visible {
     color: var(--woud-950);
-    box-shadow: inset 0 0 0 1.5px var(--jungle-800), 0 8px 30px -10px rgb(240 176 63 / 0.8);
-    background: rgb(240 176 63 / 0.18);
+    box-shadow: inset 0 0 0 1.5px var(--jungle-800);
+    background: rgb(12 74 56 / 0.06);
   }
   .knop svg { width: 1.1em; height: 1.1em; flex: none; transition: transform 0.6s var(--ease-adem); }
   .knop:hover svg { transform: translateX(3px); }
@@ -182,11 +179,10 @@
 /* Rustig infaden, alleen als JS draait en beweging gewenst is */
 .js [data-groei] {
   opacity: 0;
-  transform: translateY(18px);
-  filter: blur(3px);
-  transition: opacity 1.6s var(--ease-adem), transform 1.8s var(--ease-adem), filter 1.6s var(--ease-adem);
+  transform: translateY(10px);
+  transition: opacity 0.8s var(--ease-adem), transform 0.8s var(--ease-adem);
 }
-.js [data-groei].is-zichtbaar { opacity: 1; transform: none; filter: none; }
+.js [data-groei].is-zichtbaar { opacity: 1; transform: none; }
 
 @keyframes wiegen {
   0%, 100% { transform: rotate(var(--wieg-van, -0.8deg)); }

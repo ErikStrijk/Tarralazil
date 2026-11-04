@@ -16,7 +16,7 @@ const { hero, intro, waarom, cta } = home;
 const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24h30M28 14c3 5 7 8 11 10-4 2-8 5-11 10"/></svg>';
 ---
 <Base titel={home.seo.titel} beschrijving={home.seo.beschrijving}>
-  <svg data-wortellijn class="pointer-events-none absolute left-0 top-0 z-[5]" aria-hidden="true"></svg>
+  <svg data-wortellijn class="pointer-events-none absolute left-0 top-0 z-[5] hidden lg:block" aria-hidden="true"></svg>
 
   <!-- 1. Hero met foto -->
   <section class="relative isolate flex items-center overflow-hidden bg-woud-950 pb-12 pt-28 md:min-h-[64svh] md:pb-20 md:pt-32 lg:min-h-[70svh]" aria-labelledby="hero-kop" data-knoop="start">
@@ -113,9 +113,6 @@ const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="cu
   <!-- 6. De open plek -->
   <section class="licht open-plek relative overflow-x-clip bg-dauw-50 pb-32 pt-28 text-woud-950 md:pb-40 md:pt-36" aria-labelledby="cta-kop" data-knoop="licht">
     <LeafEdge kleur="#f7efdc" achter="#f3e2b8" seed={71} omgekeerd />
-    <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      <div class="zonplek absolute left-1/2 top-[-10%] h-[120%] w-[min(1100px,140vw)] -translate-x-1/2"></div>
-    </div>
     <div class="container-woud relative text-center" data-groei>
       <svg viewBox="0 0 120 120" class="mx-auto h-24 w-24 md:h-28 md:w-28" data-wortel-einde aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path d="M60 104V58" stroke="#0f5c46" stroke-width="2" />
@@ -157,11 +154,4 @@ const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="cu
   .aanbod:has(.aanbod-link:focus-visible) { outline: 2px solid var(--zonlicht-400); outline-offset: 4px; }
   .aanbod-pijl { transition: transform 0.6s var(--ease-adem); }
   .aanbod:hover .aanbod-pijl { transform: translateX(4px); }
-  .zonplek {
-    background:
-      radial-gradient(45% 38% at 50% 30%, rgb(240 176 63 / 0.28), transparent 70%),
-      radial-gradient(70% 55% at 50% 35%, rgb(248 214 143 / 0.22), transparent 75%),
-      conic-gradient(from 160deg at 50% 0%, transparent 0deg, rgb(248 214 143 / 0.16) 8deg, transparent 16deg, transparent 22deg, rgb(248 214 143 / 0.12) 28deg, transparent 36deg, transparent 44deg, rgb(248 214 143 / 0.14) 50deg, transparent 58deg);
-    mask: linear-gradient(180deg, #000 0%, #000 50%, transparent 95%);
-  }
 </style>

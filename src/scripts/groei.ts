@@ -36,6 +36,8 @@ function rnd(seed: number) {
 
 function bouwLijn() {
   if (!svg) return;
+  // alleen op desktop: daar staat de lijn in de lege rand, naast de tekst
+  if (getComputedStyle(svg).display === 'none') { svg.replaceChildren(); hoofd = null; knopen = []; zijtakken = []; return; }
   const host = svg.parentElement!;
   const breedte = host.clientWidth;
   const hoogte = host.offsetHeight;
