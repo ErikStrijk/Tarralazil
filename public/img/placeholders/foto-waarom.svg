@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+<defs>
+<radialGradient id="l" cx="30%" cy="30%" r="80%"><stop offset="0" stop-color="#ecdcb6"/><stop offset=".45" stop-color="#73583a"/><stop offset="1" stop-color="#3b2c1c"/></radialGradient>
+<filter id="z"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<rect width="800" height="1000" fill="url(#l)"/>
+<g filter="url(#z)"></g>
+<g font-family="system-ui, sans-serif" text-anchor="middle" fill="#0b1f18">
+<rect x="110" y="430" width="580" height="140" rx="70" fill="#f5f2e1" opacity=".88"/>
+<text x="400" y="490" font-size="40" font-weight="700" letter-spacing="2">[FOTO]</text>
+<text x="400" y="538" font-size="32">Portret eigenaar</text>
+</g>
+</svg>

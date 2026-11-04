@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsApp from '../components/WhatsApp.astro';
+import site from '../content/site.json';
+
+interface Props {
+  titel: string;
+  beschrijving: string;
+  ogBeeld?: string;
+}
+const { titel, beschrijving, ogBeeld = '/og-tarralazil.png' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {/* Voorbeeldversie: niet laten indexeren door zoekmachines. Verwijder deze regel bij livegang. */}
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{titel}</title>
+    <meta name="description" content={beschrijving} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#1a120c" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:site_name" content={site.naam} />
+    <meta property="og:title" content={titel} />
+    <meta property="og:description" content={beschrijving} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogBeeld, Astro.site)} />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body class="textuur">
+    <a href="#inhoud" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-zonlicht-400 focus:px-5 focus:py-3 focus:font-semibold focus:text-woud-950">Ga naar de inhoud</a>
+    <Header />
+    <main id="inhoud" class="relative">
+      <slot />
+    </main>
+    <Footer />
+    <WhatsApp />
+    <script>
+      import '../scripts/groei.ts';
+    </script>
+  </body>
+</html>

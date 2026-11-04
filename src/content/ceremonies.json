@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "truffelceremonie",
+    "titel": "Truffel­ceremonie",
+    "kort": "Een reis naar binnen met truffels, in een rustige en veilige ruimte. Ik begeleid je voor, tijdens en na de ceremonie.",
+    "icoon": "truffel",
+    "soort": "ceremonie"
+  },
+  {
+    "slug": "paddenstoelenceremonie",
+    "titel": "Paddenstoelen­ceremonie",
+    "kort": "Voor wie dieper wil kijken naar wat onder de oppervlakte ligt. Met een zorgvuldige intake vooraf en ruimte om na afloop te landen.",
+    "icoon": "paddenstoel",
+    "soort": "ceremonie"
+  },
+  {
+    "slug": "ayahuascaceremonie",
+    "titel": "Ayahuasca­ceremonie",
+    "kort": "Een eeuwenoude plantenbrouw uit het Amazonegebied. Dit vraagt om voorbereiding en vertrouwen; we voelen samen of dit jouw pad is.",
+    "icoon": "liaan",
+    "soort": "ceremonie"
+  },
+  {
+    "slug": "ademwerk",
+    "titel": "Ademwerk",
+    "kort": "Met bewuste ademhaling breng je je aandacht van je hoofd naar je lichaam. Zonder planten, en vaak verrassend diep.",
+    "icoon": "adem",
+    "soort": "ademwerk"
+  }
+]

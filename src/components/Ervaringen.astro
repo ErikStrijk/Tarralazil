@@ -1,0 +1,24 @@
+---
+// Ervaringen van deelnemers (overgenomen van tarralanzilli.com, ingekort; weglatingen met …).
+// Basis en rustig: drie gelijke kolommen in leestekst, een dunne lijn erboven, geen carrousel.
+import ervaringen from '../content/ervaringen.json';
+interface Props { kop: string }
+const { kop } = Astro.props;
+---
+<h2 id="ervaringen-kop" class="text-[clamp(2.1rem,4.4vw,3.6rem)] text-woud-950">{kop}</h2>
+
+<ul class="mt-12 grid gap-10 md:mt-14 md:grid-cols-3 md:gap-10 lg:gap-14">
+  {ervaringen.map((e) => (
+    <li>
+      <figure class="flex h-full flex-col border-t border-jungle-800/25 pt-7">
+        <blockquote class="flex-1 text-[1.0625rem] leading-relaxed text-woud-950">
+          <p>“{e.tekst}”</p>
+        </blockquote>
+        <figcaption class="mt-6 text-base leading-snug">
+          <span class="block font-semibold text-woud-950">{e.naam}</span>
+          <span class="block text-jungle-800">{e.ceremonie}</span>
+        </figcaption>
+      </figure>
+    </li>
+  ))}
+</ul>

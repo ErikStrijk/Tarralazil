@@ -1,0 +1,18 @@
+---
+// Logo: gouden levensboom met wortels (photos/logo.webp, aangeleverd door de eigenaar) en het woordmerk.
+import { Image } from 'astro:assets';
+import beeldmerk from '../assets/logo.webp';
+interface Props { class?: string; groot?: boolean }
+const { class: cls = '', groot = false } = Astro.props;
+---
+<span class={`inline-flex items-center gap-3 ${cls}`}>
+  <Image
+    src={beeldmerk}
+    alt=""
+    widths={[48, 96, 144]}
+    sizes={groot ? '64px' : '48px'}
+    class={`${groot ? 'h-16' : 'h-12 md:h-14'} w-auto flex-none`}
+    loading="eager"
+  />
+  <span class="font-kop text-[1.45rem] leading-none tracking-[-0.01em]">Tarralazil</span>
+</span>

@@ -1,0 +1,12 @@
+---
+// Organische sectieovergang: één rustige rij lage bladpunten in de kleur van de sectie eronder.
+import { leafEdge } from '../lib/botany';
+interface Props { kleur: string; achter?: string; seed?: number; omgekeerd?: boolean }
+const { kleur, seed = 7, omgekeerd = false } = Astro.props;
+const voor = leafEdge(seed, 1440, 110, 11);
+---
+<div class="pointer-events-none absolute inset-x-0 -top-[clamp(30px,3.6vw,58px)] h-[clamp(32px,3.8vw,60px)]" aria-hidden="true" style={omgekeerd ? 'transform: scaleX(-1)' : undefined}>
+  <svg viewBox="0 0 1440 110" preserveAspectRatio="none" class="absolute inset-0 h-full w-full">
+    <path d={voor} fill={kleur} />
+  </svg>
+</div>

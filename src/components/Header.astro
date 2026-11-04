@@ -1,0 +1,263 @@
+---
+import Logo from './Logo.astro';
+import site from '../content/site.json';
+import aanbod from '../content/ceremonies.json';
+const ceremonies = aanbod.filter((d) => d.soort === 'ceremonie');
+
+const pad = Astro.url.pathname;
+const isActief = (href: string) =>
+  href === '/' ? pad === '/' : href === '/ceremonies/' ? pad.startsWith(href) && !pad.startsWith('/ceremonies/ademwerk/') : pad.startsWith(href);
+---
+<header id="kop" class="fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-700" data-kop>
+  <div class="container-woud flex h-[4.75rem] items-center justify-between gap-6">
+    <a href="/" class="rounded-full text-dauw-50 no-underline" aria-label={`${site.naam}, naar de homepage`}>
+      <Logo />
+    </a>
+
+    <nav aria-label="Hoofdmenu" class="hidden lg:block">
+      <ul class="flex items-center gap-1">
+        {site.menu.map((item) =>
+          item.ceremonies ? (
+            <li class="relative" data-dropdown>
+              <div class="flex items-center">
+                <a href={item.href} class:list={['navlink', { 'is-actief': isActief(item.href) }]} aria-current={isActief(item.href) ? 'page' : undefined}>{item.label}</a>
+                <button type="button" class="navpijl" aria-expanded="false" aria-controls="dropdown-ceremonies" data-dropdown-knop>
+                  <span class="sr-only">Toon de ceremonies</span>
+                  <svg viewBox="0 0 16 16" class="h-3.5 w-3.5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 6.5 8 10l4-3.5" /></svg>
+                </button>
+              </div>
+              <ul id="dropdown-ceremonies" class="dropdown" hidden data-dropdown-menu>
+                {ceremonies.map((d) => (
+                  <li><a href={`/ceremonies/${d.slug}/`} class="dropdown-link">{d.titel}</a></li>
+                ))}
+                <li class="mt-1 border-t border-dauw-50/15 pt-1"><a href="/ceremonies/#agenda" class="dropdown-link text-zonlicht-200">Bekijk de agenda</a></li>
+              </ul>
+            </li>
+          ) : (
+            <li><a href={item.href} class:list={['navlink', { 'is-actief': isActief(item.href) }]} aria-current={isActief(item.href) ? 'page' : undefined}>{item.label}</a></li>
+          )
+        )}
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="/intake/" class="knop knop-rand hidden !min-h-11 !px-5 !py-2.5 !text-base sm:inline-flex">Intakeformulier</a>
+      <button type="button" class="menuknop lg:hidden" aria-expanded="false" aria-controls="mobiel-menu" data-menu-knop>
+        <span class="sr-only" data-menu-label>Open menu</span>
+        <svg viewBox="0 0 28 28" class="h-7 w-7" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <path class="menu-lijn-1" d="M5 9.5c6-1.2 12-1.2 18 0" />
+          <path class="menu-lijn-2" d="M5 14c5 .6 13 .6 18 0" />
+          <path class="menu-lijn-3" d="M8 18.5c5 1 10 1 15 0" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobiel-menu" class="mobiel-menu lg:hidden" hidden data-menu>
+    <nav aria-label="Mobiel menu" class="container-woud flex min-h-full flex-col pb-10 pt-24">
+      <ul class="flex flex-col gap-1">
+        {site.menu.map((item) =>
+          item.ceremonies ? (
+            <li>
+              <div class="flex items-center justify-between">
+                <a href={item.href} class="mobiel-link">{item.label}</a>
+                <button type="button" class="mobiel-uitklap" aria-expanded="false" aria-controls="mobiel-ceremonies" data-uitklap>
+                  <span class="sr-only">Toon de ceremonies</span>
+                  <svg viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 9.5 12 15l6-5.5" /></svg>
+                </button>
+              </div>
+              <ul id="mobiel-ceremonies" class="mb-3 ml-1 flex flex-col border-l border-zonlicht-400/30 pl-5" hidden>
+                {ceremonies.map((d) => (
+                  <li><a href={`/ceremonies/${d.slug}/`} class="block py-2.5 text-lg text-dauw-200 no-underline hover:text-zonlicht-200">{d.titel}</a></li>
+                ))}
+                <li><a href="/ceremonies/#agenda" class="block py-2.5 text-lg text-zonlicht-200 no-underline">Bekijk de agenda</a></li>
+              </ul>
+            </li>
+          ) : (
+            <li><a href={item.href} class="mobiel-link" aria-current={isActief(item.href) ? 'page' : undefined}>{item.label}</a></li>
+          )
+        )}
+      </ul>
+      <a href="/intake/" class="knop knop-rand mt-auto self-start">Intakeformulier</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  [data-kop].is-vast {
+    background: rgb(26 18 12 / 0.94);
+    box-shadow: 0 10px 30px -18px rgb(0 0 0 / 0.6);
+  }
+  .navlink {
+    display: block;
+    padding: 0.55rem 0.85rem;
+    border-radius: 999px;
+    color: var(--dauw-50);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.4s, background-color 0.4s;
+  }
+  .navlink:hover { color: var(--zonlicht-200); }
+  .navlink.is-actief { color: var(--zonlicht-400); }
+  .navpijl {
+    display: grid;
+    place-items: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    margin-left: -0.55rem;
+    border-radius: 999px;
+    color: var(--dauw-200);
+    transition: transform 0.5s var(--ease-adem), color 0.4s;
+  }
+  .navpijl:hover { color: var(--zonlicht-200); }
+  .navpijl[aria-expanded='true'] { transform: rotate(180deg); color: var(--zonlicht-400); }
+  .dropdown {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 0.5rem);
+    min-width: 17rem;
+    padding: 0.5rem;
+    border-radius: 1.25rem 1.6rem 1.25rem 1.4rem;
+    background: var(--woud-900);
+    box-shadow: 0 24px 50px -20px rgb(0 0 0 / 0.7), inset 0 0 0 1px rgb(240 176 63 / 0.18);
+  }
+  .dropdown-link {
+    display: block;
+    padding: 0.65rem 0.9rem;
+    border-radius: 0.8rem;
+    color: var(--dauw-50);
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  .dropdown-link:hover, .dropdown-link:focus-visible { background: rgb(240 176 63 / 0.12); color: var(--zonlicht-200); }
+  .menuknop {
+    display: grid;
+    place-items: center;
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: 999px;
+    color: var(--dauw-50);
+  }
+  @media (min-width: 1024px) {
+    .menuknop { display: none; }
+  }
+  .menuknop path { transition: transform 0.6s var(--ease-adem), opacity 0.4s; transform-origin: 14px 14px; }
+  .menuknop[aria-expanded='true'] .menu-lijn-1 { transform: translateY(4.5px) rotate(40deg); }
+  .menuknop[aria-expanded='true'] .menu-lijn-2 { opacity: 0; }
+  .menuknop[aria-expanded='true'] .menu-lijn-3 { transform: translate(-1.5px, -4.5px) rotate(-40deg); }
+  .mobiel-menu {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow-y: auto;
+    background:
+      radial-gradient(60% 40% at 85% 100%, rgb(110 74 34 / 0.45), transparent 70%),
+      radial-gradient(50% 30% at 10% 0%, rgb(240 176 63 / 0.1), transparent 70%),
+      var(--woud-950);
+  }
+  .mobiel-menu:not([hidden]) { animation: menu-in 0.9s var(--ease-adem); }
+  @keyframes menu-in { from { opacity: 0; } to { opacity: 1; } }
+  .mobiel-link {
+    display: block;
+    padding: 0.6rem 0;
+    font-family: var(--font-kop);
+    font-size: 2.1rem;
+    line-height: 1.15;
+    color: var(--dauw-50);
+    text-decoration: none;
+  }
+  .mobiel-link:hover, .mobiel-link[aria-current='page'] { color: var(--zonlicht-400); }
+  .mobiel-uitklap {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    color: var(--dauw-50);
+    transition: transform 0.5s var(--ease-adem);
+  }
+  .mobiel-uitklap[aria-expanded='true'] { transform: rotate(180deg); color: var(--zonlicht-400); }
+</style>
+
+<script>
+  const kop = document.querySelector<HTMLElement>('[data-kop]')!;
+  const zetVast = () => kop.classList.toggle('is-vast', window.scrollY > 40);
+  zetVast();
+  window.addEventListener('scroll', zetVast, { passive: true });
+
+  // Dropdown (toetsenbord: Enter/Spatie opent, pijltjes navigeren, Escape sluit)
+  document.querySelectorAll<HTMLElement>('[data-dropdown]').forEach((wrap) => {
+    const knop = wrap.querySelector<HTMLButtonElement>('[data-dropdown-knop]')!;
+    const menu = wrap.querySelector<HTMLElement>('[data-dropdown-menu]')!;
+    const links = () => Array.from(menu.querySelectorAll<HTMLAnchorElement>('a'));
+    let sluitTimer: number | undefined;
+    const open = (focusEerste = false) => {
+      clearTimeout(sluitTimer);
+      menu.hidden = false;
+      knop.setAttribute('aria-expanded', 'true');
+      if (focusEerste) links()[0]?.focus();
+    };
+    const sluit = (focusKnop = false) => {
+      menu.hidden = true;
+      knop.setAttribute('aria-expanded', 'false');
+      if (focusKnop) knop.focus();
+    };
+    knop.addEventListener('click', () => (menu.hidden ? open() : sluit()));
+    knop.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); open(true); }
+    });
+    menu.addEventListener('keydown', (e) => {
+      const l = links();
+      const i = l.indexOf(document.activeElement as HTMLAnchorElement);
+      if (e.key === 'ArrowDown') { e.preventDefault(); l[(i + 1) % l.length].focus(); }
+      if (e.key === 'ArrowUp') { e.preventDefault(); l[(i - 1 + l.length) % l.length].focus(); }
+      if (e.key === 'Home') { e.preventDefault(); l[0].focus(); }
+      if (e.key === 'End') { e.preventDefault(); l[l.length - 1].focus(); }
+    });
+    wrap.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) sluit(true); });
+    wrap.addEventListener('focusout', (e) => { if (!wrap.contains(e.relatedTarget as Node)) sluit(); });
+    wrap.addEventListener('mouseenter', () => open());
+    wrap.addEventListener('mouseleave', () => { sluitTimer = window.setTimeout(() => sluit(), 280); });
+  });
+
+  // Mobiel menu
+  const menuKnop = document.querySelector<HTMLButtonElement>('[data-menu-knop]')!;
+  const menu = document.querySelector<HTMLElement>('[data-menu]')!;
+  const label = menuKnop.querySelector('[data-menu-label]')!;
+  const zetMenu = (open: boolean) => {
+    menu.hidden = !open;
+    menuKnop.setAttribute('aria-expanded', String(open));
+    label.textContent = open ? 'Sluit menu' : 'Open menu';
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+    if (open) menu.querySelector<HTMLAnchorElement>('a')?.focus();
+  };
+  menuKnop.addEventListener('click', () => zetMenu(menu.hidden));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !menu.hidden) { zetMenu(false); menuKnop.focus(); }
+  });
+  menu.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const f = Array.from(menu.querySelectorAll<HTMLElement>('a, button')).filter((el) => el.offsetParent !== null);
+    const items = [menuKnop, ...f];
+    const i = items.indexOf(document.activeElement as HTMLElement);
+    if (e.shiftKey && i <= 0) { e.preventDefault(); items[items.length - 1].focus(); }
+    else if (!e.shiftKey && i === items.length - 1) { e.preventDefault(); items[0].focus(); }
+  });
+  menuKnop.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && !e.shiftKey && !menu.hidden) {
+      e.preventDefault();
+      menu.querySelector<HTMLElement>('a, button')?.focus();
+    }
+  });
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (m) => { if (m.matches) zetMenu(false); });
+
+  document.querySelectorAll<HTMLButtonElement>('[data-uitklap]').forEach((b) => {
+    const doel = document.getElementById(b.getAttribute('aria-controls')!)!;
+    b.addEventListener('click', () => {
+      const open = b.getAttribute('aria-expanded') !== 'true';
+      b.setAttribute('aria-expanded', String(open));
+      doel.hidden = !open;
+    });
+  });
+</script>

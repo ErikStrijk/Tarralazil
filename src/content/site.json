@@ -1,0 +1,46 @@
+{
+  "naam": "Tarralazil",
+  "eigenaar": "Tarra Lanzilli",
+  "footerTekst": "Ik begeleid mensen, jong en oud, bij het helen van oude patronen. In je eigen tempo, met aandacht voor lichaam en gevoel.",
+  "contact": {
+    "plaats": "Sappemeer",
+    "email": "Tarralanzilli@gmail.com",
+    "telefoon": "06 28 17 98 81",
+    "telefoonLink": "+31628179881",
+    "whatsapp": "31628179881",
+    "kvk": "[KVK-NUMMER]"
+  },
+  "menu": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Ceremonies",
+      "href": "/ceremonies/",
+      "ceremonies": true
+    },
+    {
+      "label": "Ademwerk",
+      "href": "/ceremonies/ademwerk/"
+    },
+    {
+      "label": "Over mij",
+      "href": "/over-mij/"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact/"
+    }
+  ],
+  "juridisch": [
+    {
+      "label": "Privacyverklaring",
+      "href": "/privacyverklaring/"
+    },
+    {
+      "label": "Algemene voorwaarden",
+      "href": "/algemene-voorwaarden/"
+    }
+  ]
+}

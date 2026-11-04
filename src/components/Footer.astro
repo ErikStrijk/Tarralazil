@@ -1,0 +1,55 @@
+﻿---
+import Logo from './Logo.astro';
+import LeafEdge from './LeafEdge.astro';
+import site from '../content/site.json';
+import ceremonies from '../content/ceremonies.json';
+import { roots } from '../lib/botany';
+
+const jaar = new Date().getFullYear();
+const draden = [roots(77, 380, -10, 200, 2), roots(91, 1180, -10, 180, 2)];
+const linkKlasse = 'text-dauw-200 no-underline transition-colors hover:text-zonlicht-200';
+---
+<footer class="relative bg-woud-950 text-dauw-50">
+  <LeafEdge kleur="#1a120c" achter="#4a3a22" seed={83} />
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="xMidYMin slice" class="absolute inset-x-0 top-0 h-[320px] w-full text-zonlicht-200/10" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+      {draden.map((d) => <path d={d} />)}
+    </svg>
+  </div>
+  <div class="container-woud relative grid gap-12 pb-10 pt-24 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:pt-28">
+    <div>
+      <a href="/" class="text-dauw-50 no-underline" aria-label={`${site.naam}, naar de homepage`}><Logo groot /></a>
+      <p class="mt-5 max-w-[34ch] text-base text-dauw-200">{site.footerTekst}</p>
+    </div>
+    <nav aria-labelledby="footer-links">
+      <h2 id="footer-links" class="text-xl text-zonlicht-200">Links</h2>
+      <ul class="mt-4 space-y-2.5 text-base">
+        {site.menu.map((m) => <li><a href={m.href} class={linkKlasse}>{m.label}</a></li>)}
+        <li><a href="/intake/" class={linkKlasse}>Intakeformulier</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="footer-ceremonies">
+      <h2 id="footer-ceremonies" class="text-xl text-zonlicht-200">Aanbod</h2>
+      <ul class="mt-4 space-y-2.5 text-base">
+        {ceremonies.map((d) => <li><a href={`/ceremonies/${d.slug}/`} class={linkKlasse}>{d.titel}</a></li>)}
+      </ul>
+    </nav>
+    <div>
+      <h2 class="text-xl text-zonlicht-200">Contact</h2>
+      <address class="mt-4 space-y-2.5 text-base not-italic text-dauw-200">
+        <p>{site.contact.plaats}</p>
+        <p><a href={`mailto:${site.contact.email}`} class={linkKlasse}>{site.contact.email}</a></p>
+        <p><a href={`tel:${site.contact.telefoonLink}`} class={linkKlasse}>{site.contact.telefoon}</a></p>
+        <p>KvK {site.contact.kvk}</p>
+      </address>
+    </div>
+  </div>
+  <div class="container-woud relative">
+    <div class="flex flex-col gap-3 border-t border-dauw-50/12 py-7 text-sm text-dauw-200 sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; {jaar} {site.naam}. Alle rechten voorbehouden.</p>
+      <ul class="flex flex-wrap gap-x-6 gap-y-2">
+        {site.juridisch.map((j) => <li><a href={j.href} class={linkKlasse}>{j.label}</a></li>)}
+      </ul>
+    </div>
+  </div>
+</footer>

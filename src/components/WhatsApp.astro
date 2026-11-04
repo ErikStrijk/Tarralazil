@@ -1,0 +1,72 @@
+---
+// Zwevende WhatsApp-knop. Rustig: verschijnt pas na de hero, trekt zich terug bij de footer
+// (daar staan de contactgegevens al) en zit nergens permanent over de tekst heen.
+import site from '../content/site.json';
+---
+<a
+  href={`https://wa.me/${site.contact.whatsapp}`}
+  class="whatsapp"
+  rel="noopener"
+  target="_blank"
+  data-whatsapp
+>
+  <svg viewBox="0 0 24 24" class="h-6 w-6 sm:h-[1.65rem] sm:w-[1.65rem]" aria-hidden="true" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+  </svg>
+  <span class="sr-only">Stuur Tarra een WhatsApp-bericht (opent in een nieuw venster)</span>
+</a>
+
+<style>
+  .whatsapp {
+    position: fixed;
+    right: 1rem;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    z-index: 40;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    background: var(--jungle-800);
+    color: var(--dauw-50);
+    box-shadow: 0 6px 16px -6px rgb(0 0 0 / 0.45), inset 0 0 0 1px rgb(247 239 220 / 0.18);
+    transition: opacity 0.5s var(--ease-adem), transform 0.5s var(--ease-adem), background-color 0.3s, color 0.3s, visibility 0s linear 0s;
+  }
+  @media (min-width: 640px) {
+    .whatsapp { right: 1.5rem; bottom: 1.5rem; width: 3.25rem; height: 3.25rem; }
+  }
+  .whatsapp:hover, .whatsapp:focus-visible {
+    background: var(--zonlicht-400);
+    color: var(--woud-950);
+  }
+  .whatsapp:focus-visible { outline: 2px solid var(--zonlicht-200); outline-offset: 3px; }
+
+  /* verborgen boven de hero en bij de footer (alleen als JavaScript draait) */
+  :global(html.js) .whatsapp.is-weg {
+    opacity: 0;
+    transform: translateY(0.75rem);
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 0.4s var(--ease-adem), transform 0.4s var(--ease-adem), visibility 0s linear 0.4s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .whatsapp, :global(html.js) .whatsapp.is-weg { transform: none; transition: opacity 0.2s, visibility 0s; }
+  }
+</style>
+
+<script>
+  const knop = document.querySelector<HTMLElement>('[data-whatsapp]');
+  if (knop) {
+    const footer = document.querySelector('footer');
+    let footerZichtbaar = false;
+    const werkBij = () => {
+      const naHero = window.scrollY > window.innerHeight * 0.6;
+      knop.classList.toggle('is-weg', !naHero || footerZichtbaar);
+    };
+    if (footer) {
+      new IntersectionObserver(([e]) => { footerZichtbaar = e.isIntersecting; werkBij(); }).observe(footer);
+    }
+    window.addEventListener('scroll', werkBij, { passive: true });
+    werkBij();
+  }
+</script>
