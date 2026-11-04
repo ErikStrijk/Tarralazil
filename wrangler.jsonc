@@ -1,0 +1,10 @@
+{
+  // Statische site: Cloudflare serveert de map dist/ (geen server, geen adapter nodig).
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "tarralazil",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
