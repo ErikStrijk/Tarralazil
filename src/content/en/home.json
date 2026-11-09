@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "titel": "Tarra Lanzilli — ceremonies and breathwork, for what grows beneath the surface",
+    "beschrijving": "Truffle, mushroom, and ayahuasca ceremonies with thoughtful guidance. For people, young and old, who want to explore old patterns and what lies beneath them."
+  },
+  "hero": {
+    "kop": "What grows beneath the surface shapes everything above",
+    "tekst": "Sometimes you notice that something old is still steering you. A pattern, a fear, a belief you never chose. I help you gently get to know those roots, at your own pace.",
+    "knop": "Schedule an introduction",
+    "link": "See what's possible"
+  },
+  "intro": {
+    "kop": "You're not broken. You grew around what was there.",
+    "tekst": [
+      "The way I see it, many of our patterns originate in early childhood. Not because something is wrong with you, but because as a child you became clever at surviving. What once protected you may now be holding you back.",
+      "In a ceremony we look together at what lies beneath the surface. Not to dwell in the past, but to make space for what wants to grow now."
+    ],
+    "beeld": {
+      "alt": "A resilient tree in a tranquil forest with moss-covered roots growing over and embracing a weathered stone into the earth."
+    }
+  },
+  "ceremonies": {
+    "kop": "What I can offer you",
+    "tekst": "I work with plants and with the breath. Each opens a different door. Not sure what suits you? We'll feel that out together during the introduction.",
+    "knop": "View all ceremonies",
+    "kaartKnop": "Read more"
+  },
+  "waarom": {
+    "label": "About Nathalie",
+    "kop": "Why I do this",
+    "quote": "Real change doesn't begin with force, but with the stillness to feel what has been resting beneath the surface all along.",
+    "tekst": [
+      "Much of how we react, feel, and make choices has its roots in early childhood. As children, we develop patterns and protective mechanisms that were essential to keep us safe. What once protected you can later in adult life quietly hold you back.",
+      "When I began my own journey with plant medicine and breathwork, I discovered what happens when you stop fighting old layers and meet them with gentle awareness. Space, breath, and a deep trust in my own foundation emerged.",
+      "That is what I want to offer you: a safe, non-judgmental space to journey inward at your own pace. So that what once took root beneath the surface can transform into ease, clarity, and freedom."
+    ],
+    "knop": "Read more about me",
+    "portret": {
+      "alt": "Portrait of Nathalie, smiling, with long dark hair",
+      "naam": "Nathalie",
+      "rol": "Ceremony guide & breathwork coach"
+    }
+  },
+  "ervaringen": {
+    "label": "Stories & Experiences",
+    "kop": "What participants experienced",
+    "subtitel": "Real stories from people who took the journey inward. On slowing down, breaking through old patterns, and returning home to yourself.",
+    "leesMeer": "Read the full story",
+    "sluitVerhaal": "Show less",
+    "uitnodigingKop": "Room for your own story",
+    "uitnodigingTekst": "Every process is unique and moves at its own pace. You are welcome to explore what fits your journey.",
+    "uitnodigingKnop": "Schedule an introduction"
+  },
+  "cta": {
+    "kop": "Shall we get to know each other?",
+    "tekst": "You don't have to decide anything yet. In a no-obligation conversation, we get to know each other and feel together whether this is right for you right now. If it feels good, the intake follows after that.",
+    "knop": "Schedule an introduction",
+    "intakeKnop": "Go to the intake form"
+  }
+}

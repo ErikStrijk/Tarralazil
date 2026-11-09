@@ -1,0 +1,60 @@
+---
+import { languages, langLabels, langNames, switchLangUrl, type Lang } from '../lib/i18n';
+
+interface Props {
+  currentLang: Lang;
+  class?: string;
+  mobile?: boolean;
+}
+
+const { currentLang, class: className = '', mobile = false } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+{
+  mobile ? (
+    <div class={`flex items-center gap-2 py-4 ${className}`} role="group" aria-label="Taalkeuze">
+      {languages.map((l) => {
+        const isCurrent = l === currentLang;
+        const targetUrl = switchLangUrl(currentPath, l);
+        return (
+          <a
+            href={targetUrl}
+            class:list={[
+              'rounded-full px-3.5 py-1.5 text-base font-semibold no-underline transition-colors',
+              isCurrent
+                ? 'bg-zonlicht-400 text-woud-950 font-bold'
+                : 'text-dauw-200 hover:text-zonlicht-200 bg-woud-900/60 border border-dauw-50/10'
+            ]}
+            aria-current={isCurrent ? 'true' : undefined}
+            title={langNames[l]}
+          >
+            {langLabels[l]}
+          </a>
+        );
+      })}
+    </div>
+  ) : (
+    <div class={`inline-flex items-center rounded-full border border-dauw-50/20 bg-woud-900/60 p-1 text-xs backdrop-blur-sm ${className}`} role="group" aria-label="Taalkeuze">
+      {languages.map((l) => {
+        const isCurrent = l === currentLang;
+        const targetUrl = switchLangUrl(currentPath, l);
+        return (
+          <a
+            href={targetUrl}
+            class:list={[
+              'rounded-full px-2.5 py-1 font-semibold no-underline transition-all',
+              isCurrent
+                ? 'bg-zonlicht-400 text-woud-950 shadow-sm'
+                : 'text-dauw-200 hover:text-zonlicht-200'
+            ]}
+            aria-current={isCurrent ? 'true' : undefined}
+            title={langNames[l]}
+          >
+            {langLabels[l]}
+          </a>
+        );
+      })}
+    </div>
+  )
+}

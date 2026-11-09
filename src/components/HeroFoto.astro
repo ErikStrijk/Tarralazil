@@ -1,4 +1,4 @@
-﻿---
+---
 // Hero met foto (photos/hero.webp, aangeleverd door de eigenaar).
 // Rustig gehouden: de foto staat gedempt aan de rechterkant, de tekst heeft links een egale, warme ondergrond.
 import { Picture } from 'astro:assets';
@@ -14,19 +14,19 @@ import heroFoto from '../assets/hero.webp';
       alt=""
       loading="eager"
       fetchpriority="high"
-      class="h-full w-full object-cover object-[68%_50%] md:object-[62%_50%]"
+      class="h-full w-full object-cover object-center"
     />
   </div>
 
   <!-- warme sluier: dempt het contrast van de foto, zodat het oog bij de tekst kan rusten -->
-  <div class="absolute inset-0 bg-[linear-gradient(180deg,rgb(26_18_12/.7)_0%,rgb(26_18_12/.88)_45%,rgb(26_18_12/.93)_100%)] lg:bg-[linear-gradient(90deg,rgb(26_18_12/.4),rgb(26_18_12/.3))]"></div>
-  <div class="absolute inset-x-0 bottom-0 h-[30%] bg-[linear-gradient(180deg,transparent,rgb(26_18_12/.9))]"></div>
-  <div class="absolute inset-x-0 top-0 h-40 bg-[linear-gradient(180deg,rgb(26_18_12/.75),transparent)]"></div>
+  <div class="absolute inset-0 bg-[linear-gradient(180deg,rgb(46_30_16/.5)_0%,rgb(46_30_16/.65)_45%,rgb(46_30_16/.72)_100%)] lg:bg-[linear-gradient(90deg,rgb(46_30_16/.3),rgb(46_30_16/.15))]"></div>
+  <div class="absolute inset-x-0 bottom-0 h-[30%] bg-[linear-gradient(180deg,transparent,rgb(46_30_16/.7))]"></div>
+  <div class="absolute inset-x-0 top-0 h-40 bg-[linear-gradient(180deg,rgb(46_30_16/.55),transparent)]"></div>
 </div>
 
 <style>
   .hero-foto :global(img) {
-    filter: saturate(0.85) brightness(0.97);
+    filter: saturate(0.9) brightness(1.08);
   }
   @media (min-width: 1024px) {
     .hero-foto {

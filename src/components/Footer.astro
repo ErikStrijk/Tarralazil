@@ -1,9 +1,15 @@
-﻿---
+---
 import Logo from './Logo.astro';
 import LeafEdge from './LeafEdge.astro';
-import site from '../content/site.json';
-import ceremonies from '../content/ceremonies.json';
+import { getContent, getLangFromUrl, localePath, type Lang } from '../lib/i18n';
 import { roots } from '../lib/botany';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = getLangFromUrl(Astro.url.pathname) } = Astro.props;
+const { site, ceremonies, ui } = getContent(lang);
 
 const jaar = new Date().getFullYear();
 const draden = [roots(77, 380, -10, 200, 2), roots(91, 1180, -10, 180, 2)];
@@ -18,35 +24,56 @@ const linkKlasse = 'text-dauw-200 no-underline transition-colors hover:text-zonl
   </div>
   <div class="container-woud relative grid gap-12 pb-10 pt-24 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:pt-28">
     <div>
-      <a href="/" class="text-dauw-50 no-underline" aria-label={`${site.naam}, naar de homepage`}><Logo groot /></a>
+      <a href={localePath('/', lang)} class="text-dauw-50 no-underline" aria-label={`${site.naam}, ${ui.naarHomepage}`}><Logo groot /></a>
       <p class="mt-5 max-w-[34ch] text-base text-dauw-200">{site.footerTekst}</p>
     </div>
     <nav aria-labelledby="footer-links">
-      <h2 id="footer-links" class="text-xl text-zonlicht-200">Links</h2>
+      <h2 id="footer-links" class="text-xl text-zonlicht-200">{ui.links}</h2>
       <ul class="mt-4 space-y-2.5 text-base">
         {site.menu.map((m) => <li><a href={m.href} class={linkKlasse}>{m.label}</a></li>)}
-        <li><a href="/intake/" class={linkKlasse}>Intakeformulier</a></li>
+        <li><a href={localePath('/intake/', lang)} class={linkKlasse}>{ui.intake}</a></li>
       </ul>
     </nav>
     <nav aria-labelledby="footer-ceremonies">
-      <h2 id="footer-ceremonies" class="text-xl text-zonlicht-200">Aanbod</h2>
+      <h2 id="footer-ceremonies" class="text-xl text-zonlicht-200">{ui.aanbod}</h2>
       <ul class="mt-4 space-y-2.5 text-base">
-        {ceremonies.map((d) => <li><a href={`/ceremonies/${d.slug}/`} class={linkKlasse}>{d.titel}</a></li>)}
+        {ceremonies.map((d) => <li><a href={localePath(`/ceremonies/${d.slug}/`, lang)} class={linkKlasse}>{d.titel}</a></li>)}
       </ul>
     </nav>
     <div>
-      <h2 class="text-xl text-zonlicht-200">Contact</h2>
+      <h2 class="text-xl text-zonlicht-200">{ui.contact}</h2>
       <address class="mt-4 space-y-2.5 text-base not-italic text-dauw-200">
         <p>{site.contact.plaats}</p>
         <p><a href={`mailto:${site.contact.email}`} class={linkKlasse}>{site.contact.email}</a></p>
         <p><a href={`tel:${site.contact.telefoonLink}`} class={linkKlasse}>{site.contact.telefoon}</a></p>
+        <p class="pt-1 flex items-center gap-2.5 text-sm">
+          <a
+            href={`https://wa.me/${site.contact.whatsapp}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-dauw-200 transition-colors hover:text-zonlicht-200"
+          >
+            <span class="h-2 w-2 rounded-full bg-[#25D366]" aria-hidden="true"></span>
+            <span>WhatsApp</span>
+          </a>
+          <span class="text-dauw-200/40" aria-hidden="true">•</span>
+          <a
+            href={site.contact.instagramUrl || `https://www.instagram.com/${site.contact.instagram}/`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-dauw-200 transition-colors hover:text-zonlicht-200"
+          >
+            <span class="h-2 w-2 rounded-full bg-[#E1306C]" aria-hidden="true"></span>
+            <span>Instagram</span>
+          </a>
+        </p>
         <p>KvK {site.contact.kvk}</p>
       </address>
     </div>
   </div>
   <div class="container-woud relative">
     <div class="flex flex-col gap-3 border-t border-dauw-50/12 py-7 text-sm text-dauw-200 sm:flex-row sm:items-center sm:justify-between">
-      <p>&copy; {jaar} {site.naam}. Alle rechten voorbehouden.</p>
+      <p>&copy; {jaar} {site.naam}. {ui.rechten}</p>
       <ul class="flex flex-wrap gap-x-6 gap-y-2">
         {site.juridisch.map((j) => <li><a href={j.href} class={linkKlasse}>{j.label}</a></li>)}
       </ul>

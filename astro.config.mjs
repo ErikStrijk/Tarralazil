@@ -7,6 +7,13 @@ export default defineConfig({
   // [DOMEIN INVULLEN] — nodig voor sitemap en Open Graph
   site: 'https://www.tarralazil.nl',
   trailingSlash: 'always',
+  i18n: {
+    defaultLocale: 'nl',
+    locales: ['nl', 'en', 'es'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   redirects: {
     '/agenda/': '/ceremonies/',
     '/diensten/': '/ceremonies/',

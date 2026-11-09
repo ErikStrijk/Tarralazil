@@ -16,7 +16,7 @@
       "In een ceremonie kijken we samen naar wat daar onder de oppervlakte ligt. Niet om in het verleden te blijven hangen, maar om ruimte te maken voor wat nu wil groeien."
     ],
     "beeld": {
-      "alt": "Een jonge boom op een groot rotsblok in het bos; de wortels zijn over en om de steen heen gegroeid tot in de grond."
+      "alt": "Een krachtige boom in een rustig bos waarvan de met mos bedekte wortels zich over een verweerde rots heen hebben gevormd en stevig in de aarde wortelen."
     }
   },
   "ceremonies": {
@@ -26,19 +26,30 @@
     "kaartKnop": "Lees meer"
   },
   "waarom": {
+    "label": "Over Nathalie",
     "kop": "Waarom ik dit doe",
+    "quote": "Echte verandering begint niet met forceren, maar met de rust om te voelen wat er al die tijd onder de oppervlakte lag.",
     "tekst": [
-      "[MIJN VERHAAL INVULLEN] Hier komt in een paar zinnen waarom ik dit werk doe: wat ik zelf heb meegemaakt en wat mij op dit pad heeft gebracht.",
-      "[VERVOLG] Wat het voor mij betekent om anderen te begeleiden, en waarom ik geloof dat iedereen, jong en oud, de stukken mag helen die hij of zij met zich meedraagt."
+      "Veel van hoe we reageren, voelen en keuzes maken, vindt zijn wortels in onze vroege jeugd. Als kind leer je patronen en beschermingsmechanismen aan die toen nodig waren om je staande te houden. Wat je toen beschermde, kan je later als volwassene ongemerkt in de weg gaan zitten.",
+      "Toen ik zelf met plantmedicijnen en ademwerk begon, ontdekte ik wat er gebeurt als je niet langer vecht tegen die oude lagen, maar ze met zachtheid durft aan te kijken. Er ontstond ruimte, adem en een diep vertrouwen in mijn eigen fundament.",
+      "Dat is wat ik jou wil bieden: een veilige en oordeelloze bedding om op jouw eigen tempo naar binnen te keren. Zodat wat ooit onder de oppervlakte groeide, getransformeerd mag worden naar rust, helderheid en vrijheid."
     ],
-    "knop": "Lees mijn verhaal",
+    "knop": "Lees meer over mij",
     "portret": {
       "alt": "Portret van Nathalie, glimlachend, met lang donker haar",
-      "naam": "Nathalie"
+      "naam": "Nathalie",
+      "rol": "Ceremoniebegeleider & ademcoach"
     }
   },
   "ervaringen": {
-    "kop": "Ervaringen van deelnemers"
+    "label": "Ervaringen & Verhalen",
+    "kop": "Wat deelnemers mochten ervaren",
+    "subtitel": "Echte verhalen van mensen die de reis naar binnen aandurfden. Over vertragen, oude patronen doorbreken en weer thuiskomen bij jezelf.",
+    "leesMeer": "Lees het hele verhaal",
+    "sluitVerhaal": "Minder tonen",
+    "uitnodigingKop": "Ruimte voor jouw eigen verhaal",
+    "uitnodigingTekst": "Ieder proces is uniek en vraagt om een eigen tempo. Voel je welkom om in alle rust te verkennen wat nu bij jou past.",
+    "uitnodigingKnop": "Plan een kennismaking"
   },
   "cta": {
     "kop": "Zullen we kennismaken?",

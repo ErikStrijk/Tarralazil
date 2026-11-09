@@ -1,0 +1,26 @@
+{
+  "naam": "Tarra Lanzilli",
+  "eigenaar": "Nathalie",
+  "footerTekst": "I guide people, young and old, in healing old patterns. At your own pace, with attention to body and feeling.",
+  "contact": {
+    "plaats": "Sappemeer",
+    "email": "Tarralanzilli@gmail.com",
+    "telefoon": "06 28 17 98 81",
+    "telefoonLink": "+31628179881",
+    "whatsapp": "31628179881",
+    "instagram": "tarralanzilli",
+    "instagramUrl": "https://www.instagram.com/tarralanzilli/",
+    "kvk": "[KVK-NUMMER]"
+  },
+  "menu": [
+    { "label": "Home", "href": "/en/" },
+    { "label": "Ceremonies", "href": "/en/ceremonies/", "ceremonies": true },
+    { "label": "Breathwork", "href": "/en/ceremonies/ademwerk/" },
+    { "label": "About me", "href": "/en/about-me/" },
+    { "label": "Contact", "href": "/en/contact/" }
+  ],
+  "juridisch": [
+    { "label": "Privacy policy", "href": "/en/privacy-policy/" },
+    { "label": "Terms and conditions", "href": "/en/terms-and-conditions/" }
+  ]
+}

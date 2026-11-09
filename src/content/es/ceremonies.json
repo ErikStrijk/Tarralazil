@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "truffelceremonie",
+    "titel": "Ceremonia de trufas",
+    "kort": "Un viaje hacia adentro con trufas, en un espacio tranquilo y seguro. Te acompaño antes, durante y después de la ceremonia.",
+    "icoon": "truffel",
+    "soort": "ceremonie"
+  },
+  {
+    "slug": "paddenstoelenceremonie",
+    "titel": "Ceremonia de setas",
+    "kort": "Para quienes quieren mirar más profundo hacia lo que yace bajo la superficie. Con una entrevista de admisión cuidadosa y espacio para aterrizar después.",
+    "icoon": "paddenstoel",
+    "soort": "ceremonie"
+  },
+  {
+    "slug": "ayahuascaceremonie",
+    "titel": "Ceremonia de ayahuasca",
+    "kort": "Una antigua infusión de plantas de la región amazónica. Esto requiere preparación y confianza; juntos sentimos si este es tu camino.",
+    "icoon": "liaan",
+    "soort": "ceremonie"
+  },
+  {
+    "slug": "ademwerk",
+    "titel": "Trabajo de respiración",
+    "kort": "Con la respiración consciente llevas tu atención de la cabeza al cuerpo. Sin plantas, y a menudo sorprendentemente profundo.",
+    "icoon": "adem",
+    "soort": "ademwerk"
+  }
+]

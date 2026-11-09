@@ -1,49 +1,48 @@
-﻿@import 'tailwindcss';
+@import 'tailwindcss';
 @import '@fontsource/young-serif/400.css';
 @import '@fontsource-variable/figtree';
 
 :root {
-  /* Basispalet uit de briefing, op verzoek warmer gemaakt:
-     de donkere gronden zijn notenhout/aarde in plaats van koel junglegroen */
-  --woud-950: #1a120c;
-  --jungle-700: #0f5c46;
-  --smaragd-500: #1e9a6d;
-  --limoen-300: #b7d65a;
-  --dauw-50: #f7efdc;
-  --zonlicht-400: #f0b03f;
-  --orchidee-500: #c2357f;
-  --paddenstoel-500: #d9542b;
+  /* Herfstpalet: warme aardetinten, roest, amber en bordeaux */
+  --woud-950: #1a110a;
+  --jungle-700: #8b3a1e;
+  --smaragd-500: #c4652a;
+  --limoen-300: #e2a826;
+  --dauw-50: #faf3e4;
+  --zonlicht-400: #e08b1a;
+  --orchidee-500: #a33248;
+  --paddenstoel-500: #c94420;
 
-  /* Afgeleide tinten: de weg van bladerdak naar open plek */
-  --woud-900: #22180f;
-  --woud-800: #2a2416;
-  --mos-200: #e6d8b2;
-  --mos-100: #f0e5c7;
-  --zonlicht-200: #f8d68f;
-  --dauw-200: #e3d4b8; /* gedempte tekst op donker, AA op woud-950 t/m jungle-700 */
-  --jungle-800: #0c4a38; /* tekst/links op licht, AA */
-  --orchidee-600: #a52a6a; /* AA op licht */
+  /* Afgeleide tinten: van bladval tot ochtendnevel */
+  --woud-900: #201408;
+  --woud-800: #2e1e10;
+  --mos-200: #e8d5a8;
+  --mos-100: #f2e4c2;
+  --zonlicht-200: #f0c36a;
+  --dauw-200: #dcc9a4; /* gedempte tekst op donker, AA op woud-950 t/m jungle-700 */
+  --jungle-800: #6e2e14; /* tekst/links op licht, AA */
+  --orchidee-600: #8b2840; /* AA op licht */
 
   --ease-adem: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme {
-  --color-woud-950: #1a120c;
-  --color-woud-900: #22180f;
-  --color-woud-800: #2a2416;
-  --color-jungle-700: #0f5c46;
-  --color-jungle-800: #0c4a38;
-  --color-smaragd-500: #1e9a6d;
-  --color-limoen-300: #b7d65a;
-  --color-mos-200: #e6d8b2;
-  --color-mos-100: #f0e5c7;
-  --color-dauw-50: #f7efdc;
-  --color-dauw-200: #e3d4b8;
-  --color-zonlicht-400: #f0b03f;
-  --color-zonlicht-200: #f8d68f;
-  --color-orchidee-500: #c2357f;
-  --color-orchidee-600: #a52a6a;
-  --color-paddenstoel-500: #d9542b;
+  --color-woud-950: #1a110a;
+  --color-woud-900: #201408;
+  --color-woud-800: #2e1e10;
+  --color-jungle-700: #8b3a1e;
+  --color-jungle-800: #6e2e14;
+  --color-smaragd-500: #c4652a;
+  --color-limoen-300: #e2a826;
+  --color-mos-200: #e8d5a8;
+  --color-mos-100: #f2e4c2;
+  --color-dauw-50: #faf3e4;
+  --color-dauw-200: #dcc9a4;
+  --color-zonlicht-400: #e08b1a;
+  --color-zonlicht-200: #f0c36a;
+  --color-orchidee-500: #a33248;
+  --color-orchidee-600: #8b2840;
+  --color-paddenstoel-500: #c94420;
 
   --font-kop: 'Young Serif', Georgia, serif;
   --font-tekst: 'Figtree Variable', 'Figtree', system-ui, sans-serif;
@@ -76,7 +75,7 @@
   }
   p { text-wrap: pretty; }
 
-  ::selection { background: var(--limoen-300); color: var(--woud-950); }
+  ::selection { background: var(--zonlicht-400); color: var(--woud-950); }
   .licht ::selection { background: var(--jungle-700); color: var(--dauw-50); }
 
   :focus-visible {

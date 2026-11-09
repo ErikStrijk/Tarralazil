@@ -1,16 +1,24 @@
 ---
 import Logo from './Logo.astro';
-import site from '../content/site.json';
-import aanbod from '../content/ceremonies.json';
+import LanguagePicker from './LanguagePicker.astro';
+import { getContent, getLangFromUrl, localePath, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = getLangFromUrl(Astro.url.pathname) } = Astro.props;
+const { site, ceremonies: aanbod, ui } = getContent(lang);
 const ceremonies = aanbod.filter((d) => d.soort === 'ceremonie');
 
 const pad = Astro.url.pathname;
+const homeHref = localePath('/', lang);
 const isActief = (href: string) =>
-  href === '/' ? pad === '/' : href === '/ceremonies/' ? pad.startsWith(href) && !pad.startsWith('/ceremonies/ademwerk/') : pad.startsWith(href);
+  href === homeHref ? pad === homeHref : href.includes('ceremon') ? pad.startsWith(href) && !pad.includes('adem') && !pad.includes('respir') : pad.startsWith(href);
 ---
 <header id="kop" class="fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-700" data-kop>
   <div class="container-woud flex h-[4.75rem] items-center justify-between gap-6">
-    <a href="/" class="rounded-full text-dauw-50 no-underline" aria-label={`${site.naam}, naar de homepage`}>
+    <a href={homeHref} class="rounded-full text-dauw-50 no-underline" aria-label={`${site.naam}, ${ui.naarHomepage}`}>
       <Logo />
     </a>
 
@@ -22,15 +30,15 @@ const isActief = (href: string) =>
               <div class="flex items-center">
                 <a href={item.href} class:list={['navlink', { 'is-actief': isActief(item.href) }]} aria-current={isActief(item.href) ? 'page' : undefined}>{item.label}</a>
                 <button type="button" class="navpijl" aria-expanded="false" aria-controls="dropdown-ceremonies" data-dropdown-knop>
-                  <span class="sr-only">Toon de ceremonies</span>
+                  <span class="sr-only">{ui.toonCeremonies}</span>
                   <svg viewBox="0 0 16 16" class="h-3.5 w-3.5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 6.5 8 10l4-3.5" /></svg>
                 </button>
               </div>
               <ul id="dropdown-ceremonies" class="dropdown" hidden data-dropdown-menu>
                 {ceremonies.map((d) => (
-                  <li><a href={`/ceremonies/${d.slug}/`} class="dropdown-link">{d.titel}</a></li>
+                  <li><a href={localePath(`/ceremonies/${d.slug}/`, lang)} class="dropdown-link">{d.titel}</a></li>
                 ))}
-                <li class="mt-1 border-t border-dauw-50/15 pt-1"><a href="/ceremonies/#agenda" class="dropdown-link text-zonlicht-200">Bekijk de agenda</a></li>
+                <li class="mt-1 border-t border-dauw-50/15 pt-1"><a href={localePath('/ceremonies/#agenda', lang)} class="dropdown-link text-zonlicht-200">{ui.agenda}</a></li>
               </ul>
             </li>
           ) : (
@@ -41,9 +49,10 @@ const isActief = (href: string) =>
     </nav>
 
     <div class="flex items-center gap-3">
-      <a href="/intake/" class="knop knop-rand hidden !min-h-11 !px-5 !py-2.5 !text-base sm:inline-flex">Intakeformulier</a>
+      <LanguagePicker currentLang={lang} class="hidden sm:inline-flex" />
+      <a href={localePath('/intake/', lang)} class="knop knop-rand hidden !min-h-11 !px-5 !py-2.5 !text-base sm:inline-flex">{ui.intake}</a>
       <button type="button" class="menuknop lg:hidden" aria-expanded="false" aria-controls="mobiel-menu" data-menu-knop>
-        <span class="sr-only" data-menu-label>Open menu</span>
+        <span class="sr-only" data-menu-label>{ui.openMenu}</span>
         <svg viewBox="0 0 28 28" class="h-7 w-7" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
           <path class="menu-lijn-1" d="M5 9.5c6-1.2 12-1.2 18 0" />
           <path class="menu-lijn-2" d="M5 14c5 .6 13 .6 18 0" />
@@ -62,15 +71,15 @@ const isActief = (href: string) =>
               <div class="flex items-center justify-between">
                 <a href={item.href} class="mobiel-link">{item.label}</a>
                 <button type="button" class="mobiel-uitklap" aria-expanded="false" aria-controls="mobiel-ceremonies" data-uitklap>
-                  <span class="sr-only">Toon de ceremonies</span>
+                  <span class="sr-only">{ui.toonCeremonies}</span>
                   <svg viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 9.5 12 15l6-5.5" /></svg>
                 </button>
               </div>
               <ul id="mobiel-ceremonies" class="mb-3 ml-1 flex flex-col border-l border-zonlicht-400/30 pl-5" hidden>
                 {ceremonies.map((d) => (
-                  <li><a href={`/ceremonies/${d.slug}/`} class="block py-2.5 text-lg text-dauw-200 no-underline hover:text-zonlicht-200">{d.titel}</a></li>
+                  <li><a href={localePath(`/ceremonies/${d.slug}/`, lang)} class="block py-2.5 text-lg text-dauw-200 no-underline hover:text-zonlicht-200">{d.titel}</a></li>
                 ))}
-                <li><a href="/ceremonies/#agenda" class="block py-2.5 text-lg text-zonlicht-200 no-underline">Bekijk de agenda</a></li>
+                <li><a href={localePath('/ceremonies/#agenda', lang)} class="block py-2.5 text-lg text-zonlicht-200 no-underline">{ui.agenda}</a></li>
               </ul>
             </li>
           ) : (
@@ -78,7 +87,10 @@ const isActief = (href: string) =>
           )
         )}
       </ul>
-      <a href="/intake/" class="knop knop-rand mt-auto self-start">Intakeformulier</a>
+      <div class="mt-auto flex flex-col gap-4 pt-6">
+        <LanguagePicker currentLang={lang} mobile />
+        <a href={localePath('/intake/', lang)} class="knop knop-rand self-start">{ui.intake}</a>
+      </div>
     </nav>
   </div>
 </header>
