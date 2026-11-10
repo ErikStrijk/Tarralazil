@@ -1,0 +1,29 @@
+{
+  "seo": {
+    "titel": "Contact | Tarra Lanzilli in Sappemeer",
+    "beschrijving": "Get in touch with Nathalie at Tarra Lanzilli in Sappemeer for questions or a warm introduction."
+  },
+  "hero": {
+    "kop": "Shall we get to know each other?",
+    "tekst": "Do you have a question or would you like to get acquainted first? Feel free to send a message via the form or WhatsApp. There is no obligation."
+  },
+  "gegevens": {
+    "emailLabel": "Email",
+    "telefoonLabel": "Phone",
+    "instagramLabel": "Instagram"
+  },
+  "formulier": {
+    "naamLabel": "Your name",
+    "naamPlaceholder": "E.g. Anna Jansen",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "name@example.com",
+    "telefoonLabel": "Phone number (optional)",
+    "telefoonPlaceholder": "+31 6 12 34 56 78",
+    "berichtLabel": "Your message",
+    "berichtPlaceholder": "How can I help you?",
+    "verzendKnop": "Send message",
+    "foutMelding": "Please fill in the highlighted fields.",
+    "succesKop": "Thank you for your message",
+    "succesTekst": "I have received your message and will get back to you personally as soon as possible."
+  }
+}

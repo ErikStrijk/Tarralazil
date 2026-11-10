@@ -1,0 +1,139 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from './PageHero.astro';
+import LeafEdge from './LeafEdge.astro';
+import Venster from './Venster.astro';
+import { getContent, type Lang } from '../lib/i18n';
+import portret from '../assets/tarra-portret.webp';
+import contactHeroBeeld from '../assets/ceremonie-paddenstoel-bos.webp';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { site, contact: c } = getContent(lang);
+
+const T = {
+  nl: {
+    eyebrow: 'Contact & Kennismaken',
+    directKop: 'Stuur me een bericht',
+    directTekst: 'Ik lees alles zelf en reageer persoonlijk.',
+  },
+  en: {
+    eyebrow: 'Contact & Introduction',
+    directKop: 'Send me a message',
+    directTekst: 'I read every message myself and reply personally.',
+  },
+  es: {
+    eyebrow: 'Contacto y Conversación',
+    directKop: 'Envíame un mensaje',
+    directTekst: 'Leo cada mensaje yo misma y respondo personalmente.',
+  },
+}[lang];
+
+const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24h30M28 14c3 5 7 8 11 10-4 2-8 5-11 10"/></svg>';
+---
+<Base titel={c.seo.titel} beschrijving={c.seo.beschrijving} lang={lang}>
+  <!-- 1. Rustige Hero -->
+  <PageHero
+    id="contact-kop"
+    eyebrow={T.eyebrow}
+    kop={c.hero.kop}
+    tekst={c.hero.tekst}
+    beeld={contactHeroBeeld}
+    beeldPositie="object-center"
+  />
+
+  <!-- 2. Bericht sturen -->
+  <section class="licht relative bg-mos-100 pb-24 pt-16 text-woud-950 md:pb-32 md:pt-24" aria-labelledby="direct-contact-kop">
+    <LeafEdge kleur="#f2e4c2" seed={53} omgekeerd />
+    <div class="container-woud">
+      <div class="mx-auto max-w-2xl" data-groei>
+        <div class="flex items-center gap-4">
+          <div class="w-14 flex-none">
+            <Venster src={portret.src} alt={site.eigenaar} vorm={3} laden="eager" breedte={portret.width} hoogte={portret.height} class="aspect-square w-full" />
+          </div>
+          <div>
+            <h2 id="direct-contact-kop" class="font-kop text-2xl text-woud-950">{T.directKop}</h2>
+            <p class="mt-1 text-[1rem] leading-relaxed text-woud-950/75">{T.directTekst}</p>
+          </div>
+        </div>
+
+        <form id="contact-formulier" class="mt-10 space-y-5" novalidate autocomplete="off">
+          <div id="contact-fout" class="hidden rounded-xl border border-orchidee-500/50 bg-orchidee-500/10 px-4 py-3 text-sm text-woud-950" role="alert">
+            {c.formulier.foutMelding}
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="veld-naam" class="veld-label">{c.formulier.naamLabel}</label>
+              <input id="veld-naam" name="naam" type="text" required class="veld-input" />
+            </div>
+            <div>
+              <label for="veld-email" class="veld-label">{c.formulier.emailLabel}</label>
+              <input id="veld-email" name="email" type="email" required class="veld-input" />
+            </div>
+          </div>
+
+          <div>
+            <label for="veld-bericht" class="veld-label">{c.formulier.berichtLabel}</label>
+            <textarea id="veld-bericht" name="bericht" rows="5" required placeholder={c.formulier.berichtPlaceholder} class="veld-input"></textarea>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" class="knop knop-zon">
+              {c.formulier.verzendKnop}
+              <Fragment set:html={pijl} />
+            </button>
+          </div>
+        </form>
+
+        <div id="contact-succes" class="mt-10 hidden border-t border-jungle-800/15 pt-8" role="status" aria-live="polite">
+          <h2 class="text-2xl text-woud-950">{c.formulier.succesKop}</h2>
+          <p class="mt-3 max-w-[48ch] leading-relaxed text-woud-950/80">{c.formulier.succesTekst}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const form = document.getElementById('contact-formulier') as HTMLFormElement | null;
+  const foutMelding = document.getElementById('contact-fout');
+  const succesMelding = document.getElementById('contact-succes');
+
+  if (form && foutMelding && succesMelding) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let geldig = true;
+      const verplichteVelden = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[required]');
+
+      verplichteVelden.forEach((veld) => {
+        const isLeeg = !veld.value.trim();
+        const isEmailFout = veld.type === 'email' && veld.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(veld.value.trim());
+
+        if (isLeeg || isEmailFout) {
+          geldig = false;
+          veld.classList.add('is-fout');
+          veld.setAttribute('aria-invalid', 'true');
+        } else {
+          veld.classList.remove('is-fout');
+          veld.removeAttribute('aria-invalid');
+        }
+      });
+
+      if (!geldig) {
+        foutMelding.classList.remove('hidden');
+        const eersteFout = form.querySelector<HTMLElement>('[aria-invalid="true"]');
+        eersteFout?.focus();
+        return;
+      }
+
+      foutMelding.classList.add('hidden');
+      form.reset();
+      form.classList.add('hidden');
+      succesMelding.classList.remove('hidden');
+    });
+  }
+</script>

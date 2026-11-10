@@ -1,0 +1,119 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHero from './PageHero.astro';
+import LeafEdge from './LeafEdge.astro';
+import Icoon from './Icoon.astro';
+import { getContent, localePath, type Lang } from '../lib/i18n';
+import { ceremonieBeelden, overzichtBeeld } from '../lib/ceremonieBeelden';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { ceremonies } = getContent(lang);
+
+const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24h30M28 14c3 5 7 8 11 10-4 2-8 5-11 10"/></svg>';
+
+const T = {
+  nl: {
+    seoTitel: 'Ceremonies & Ademwerk in Sappemeer | Tarra Lanzilli',
+    seoBeschrijving: 'Overzicht van truffel-, paddenstoelen- en ayahuascaceremonies en ademwerk in Sappemeer. Persoonlijke en veilige begeleiding door Nathalie.',
+    label: 'Ceremonies & Ademwerk',
+    kop: 'Vier wegen naar binnen, elk met een eigen karakter',
+    sub: 'Of je nu kiest voor de aardse zachtheid van truffels, de diepgang van paddenstoelen of ayahuasca, of de directe kracht van je eigen adem: elke sessie vindt plaats in alle rust en met persoonlijke begeleiding.',
+    agendaKop: 'Twijfel je wat bij je past?',
+    agendaTekst: 'Je hoeft vooraf nog niet precies te weten welke vorm het beste aansluit. In een vrijblijvend voorgesprek luister ik naar waar je staat en kijken we samen wat op dit moment klopt voor jou.',
+    contactKnop: 'Kennismaking aanvragen',
+    intakeKnop: 'Intakeformulier invullen',
+  },
+  en: {
+    seoTitel: 'Ceremonies & Breathwork in Sappemeer | Tarra Lanzilli',
+    seoBeschrijving: 'Overview of truffle, mushroom and ayahuasca ceremonies and breathwork in Sappemeer. Personal and safe guidance by Nathalie.',
+    label: 'Ceremonies & Breathwork',
+    kop: 'Four paths inward, each with its own character',
+    sub: 'Whether you choose the grounded gentleness of truffles, the depth of mushrooms or ayahuasca, or the direct power of your own breath: every session takes place in calm and with personal guidance.',
+    agendaKop: 'Not sure what suits you best?',
+    agendaTekst: 'You do not need to know beforehand which form fits best. In a no-obligation conversation I listen to where you are and we explore together what feels right for you at this moment.',
+    contactKnop: 'Request an introduction',
+    intakeKnop: 'Fill in the intake form',
+  },
+  es: {
+    seoTitel: 'Ceremonias y Respiración en Sappemeer | Tarra Lanzilli',
+    seoBeschrijving: 'Ceremonias de trufas, setas, ayahuasca y respiración en Sappemeer. Acompañamiento personal y seguro con Nathalie.',
+    label: 'Ceremonias y Respiración',
+    kop: 'Cuatro caminos hacia el interior, cada uno con su propio carácter',
+    sub: 'Ya elijas la suavidad terrenal de las trufas, la profundidad de las setas o la ayahuasca, o la fuerza directa de tu propia respiración: cada sesión se vive con calma y acompañamiento personal.',
+    agendaKop: '¿Dudas sobre qué va mejor contigo?',
+    agendaTekst: 'No necesitas saber de antemano qué forma se adapta mejor a ti. En una charla sin compromiso escucho en qué momento estás y vemos juntos qué es lo más adecuado para ti.',
+    contactKnop: 'Solicitar una charla',
+    intakeKnop: 'Rellenar el formulario',
+  },
+}[lang];
+---
+<Base titel={T.seoTitel} beschrijving={T.seoBeschrijving} lang={lang}>
+  <!-- 1. Rustige Hero -->
+  <PageHero
+    id="hero-kop"
+    eyebrow={T.label}
+    kop={T.kop}
+    tekst={T.sub}
+    beeld={overzichtBeeld}
+    beeldPositie="object-center"
+  />
+
+  <!-- 2. De vier vormen: kort en rustig op één pagina -->
+  <!-- Zelfde ritme als Verhalen, Contact en Intake: donkere hero → lichte mos-sectie met lichte kaarten → crème CTA -->
+  <section id="overzicht" class="licht relative bg-mos-100 pb-24 pt-20 text-woud-950 md:pb-28 md:pt-24" aria-label={T.label}>
+    <LeafEdge kleur="#f2e4c2" seed={33} omgekeerd />
+    <div class="container-woud">
+      <ul class="raster">
+        {ceremonies.map((c: any) => (
+          <li id={c.slug} class="flex scroll-mt-28 md:col-span-6" data-groei>
+            <article class="kaart-licht cer-kaart flex h-full w-full flex-col overflow-hidden">
+              <div class="aspect-[16/10] overflow-hidden">
+                {ceremonieBeelden[c.slug] && (
+                  <Image
+                    src={ceremonieBeelden[c.slug]}
+                    alt=""
+                    widths={[480, 800, 1100]}
+                    sizes="(min-width: 768px) 560px, 100vw"
+                    class="h-full w-full object-cover"
+                  />
+                )}
+              </div>
+              <div class="flex flex-1 flex-col p-7 md:p-8">
+                <div class="flex items-center gap-3">
+                  <span class="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-mos-200/80 text-jungle-800" aria-hidden="true">
+                    <Icoon naam={c.icoon} class="h-5 w-5" />
+                  </span>
+                  <h2 class="text-[1.45rem] leading-tight text-woud-950 md:text-[1.6rem]">{c.titel}</h2>
+                </div>
+                <p class="mt-4 text-[1.02rem] leading-[1.75] text-woud-950/85">
+                  {c.toelichting || c.kort}
+                </p>
+              </div>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. Afsluiting: Samen voelen wat past -->
+  <section id="agenda" class="licht relative bg-dauw-50 pb-28 pt-20 text-center text-woud-950 md:pb-36 md:pt-28" aria-labelledby="agenda-kop">
+    <LeafEdge kleur="#faf3e4" seed={67} />
+    <div class="container-woud">
+      <div class="maat-smal mx-auto" data-groei>
+        <Icoon naam="kiem" class="mx-auto h-12 w-12 text-jungle-800" />
+        <h2 id="agenda-kop" class="sectie-kop mt-4 text-woud-950">{T.agendaKop}</h2>
+        <p class="mt-4 text-[1.0625rem] leading-[1.75] text-jungle-800 md:text-[1.15rem]">{T.agendaTekst}</p>
+        <div class="mt-9 flex flex-wrap justify-center gap-4">
+          <a href={localePath('/contact/', lang)} class="knop knop-zon">{T.contactKnop}<Fragment set:html={pijl} /></a>
+          <a href={localePath('/intake/', lang)} class="knop knop-rand">{T.intakeKnop}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,147 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import LeafEdge from './LeafEdge.astro';
+import PageHero from './PageHero.astro';
+import Venster from './Venster.astro';
+import Icoon from './Icoon.astro';
+import { getContent, localePath, type Lang } from '../lib/i18n';
+import portret from '../assets/tarra-portret.webp';
+import innerJourneyLogo from '../assets/inner-journey-logo.webp';
+// Oude eik met mosgroene wortels: past bij 'Mijn verhaal' (wortels in onze vroege jaren)
+import heroBeeld from '../assets/ceremonie-truffel-bos.webp';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { overMij: o } = getContent(lang);
+
+const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24h30M28 14c3 5 7 8 11 10-4 2-8 5-11 10"/></svg>';
+---
+<Base titel={o.seo.titel} beschrijving={o.seo.beschrijving} lang={lang}>
+  <!-- 1. Rustige Hero: exact dezelfde opbouw als Ceremonies, Verhalen, Contact en Intake -->
+  <PageHero
+    id="over-kop"
+    eyebrow={o.hero.label}
+    kop={o.hero.kop}
+    tekst={o.hero.tekst}
+    beeld={heroBeeld}
+    beeldPositie="object-[center_40%]"
+  />
+
+  <!-- 2. Mijn verhaal: portret van Nathalie naast haar verhaal -->
+  <section class="licht relative bg-mos-100 pb-24 pt-20 text-woud-950 md:pb-32 md:pt-24" aria-labelledby="verhaal-kop">
+    <LeafEdge kleur="#f2e4c2" seed={47} omgekeerd />
+    <div class="container-woud">
+      <div class="raster items-start gap-y-12">
+        <figure class="mx-auto w-full max-w-[19rem] md:col-span-5 md:mx-0 md:max-w-none lg:col-span-4 md:sticky md:top-28" data-groei>
+          <Venster src={portret.src} alt={o.hero.portretAlt} vorm={3} laden="eager" breedte={portret.width} hoogte={portret.height} class="aspect-[347/368] w-full" />
+          <figcaption class="mt-5 flex items-center gap-3">
+            <Icoon naam="wortel" class="h-8 w-8 flex-none text-jungle-800" />
+            <span>
+              <span class="block font-kop text-[1.15rem] leading-tight text-woud-950">Nathalie</span>
+              {o.hero.rol && <span class="block text-[0.95rem] text-jungle-800">{o.hero.rol}</span>}
+            </span>
+          </figcaption>
+        </figure>
+
+        <div class="md:col-span-7 lg:col-span-7 lg:col-start-6" data-groei>
+          {o.verhaal.label && <p class="eyebrow mb-2.5">{o.verhaal.label}</p>}
+          <h2 id="verhaal-kop" class="sectie-kop text-woud-950">{o.verhaal.kop}</h2>
+          <div class="maat-tekst mt-7 space-y-5 text-[1.0625rem] leading-[1.85] text-woud-950/85 md:text-lg">
+            {o.verhaal.tekst.map((p: string) => <p>{p}</p>)}
+          </div>
+          <blockquote class="maat-tekst mt-10 border-l-2 border-jungle-800/40 pl-6 font-kop text-[1.22rem] leading-[1.45] text-woud-950 md:text-[1.32rem]">
+            “{o.verhaal.quote}”
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Fundament: drie rustige kolommen onder het verhaal -->
+      {o.achtergrond?.stats && (
+        <dl class="mt-16 grid gap-x-10 gap-y-8 border-t border-jungle-800/15 pt-10 md:mt-20 md:grid-cols-3" data-groei>
+          {o.achtergrond.stats.map((s: { waarde: string; titel: string; tekst: string }, idx: number) => (
+            <div>
+              <dt>
+                <span class="flex items-center gap-3">
+                  <span class="font-kop text-[1.2rem] text-jungle-800">{s.waarde}</span>
+                  {idx === 0 && (
+                    <span class="inline-flex flex-none items-center rounded-lg bg-woud-800 px-2.5 py-1">
+                      <Image
+                        src={innerJourneyLogo}
+                        alt=""
+                        widths={[80, 160]}
+                        sizes="56px"
+                        class="h-5 w-auto"
+                      />
+                    </span>
+                  )}
+                </span>
+                <span class="mt-1 block font-kop text-base text-woud-950">{s.titel}</span>
+              </dt>
+              <dd class="mt-2 text-[0.95rem] leading-[1.65] text-woud-950/80">{s.tekst}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+    </div>
+  </section>
+
+  <!-- 3. Wat je van mij mag verwachten: stap voor stap door een sessie -->
+  <section id="verwachten" class="relative scroll-mt-20 bg-woud-800 pb-24 pt-24 md:pb-32 md:pt-32" aria-labelledby="waarden-kop">
+    <LeafEdge kleur="#2e1e10" seed={29} />
+    <div class="container-woud">
+      <header class="maat-kop" data-groei>
+        {o.waarden.label && <p class="eyebrow mb-2.5">{o.waarden.label}</p>}
+        <h2 id="waarden-kop" class="sectie-kop text-dauw-50">{o.waarden.kop}</h2>
+        <p class="lead mt-4">{o.waarden.intro}</p>
+      </header>
+
+      <!-- Rustige, verticale volgorde: nummer + fase links, verhaal rechts -->
+      <ol class="mt-12 border-b border-dauw-50/10 md:mt-16">
+        {o.waarden.items.map((w: any) => (
+          <li class="raster gap-y-3 border-t border-dauw-50/10 py-9 md:py-11" data-groei>
+            <div class="md:col-span-3">
+              {w.stap && <p class="font-kop text-[1.5rem] leading-none text-zonlicht-200/75">{w.stap}</p>}
+              {w.fase && <p class="mt-2 text-sm tracking-wide text-dauw-200/70">{w.fase}</p>}
+            </div>
+            <div class="md:col-span-9 lg:col-span-7">
+              <h3 class="text-[1.3rem] leading-snug text-dauw-50 md:text-[1.4rem]">{w.titel}</h3>
+              <p class="maat-tekst mt-3 text-[1.02rem] leading-[1.8] text-dauw-200">{w.tekst}</p>
+              {w.detail && (
+                <p class="mt-4 text-[0.95rem] italic text-dauw-200/65">{w.detail}</p>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      {o.waarden.belofte && (
+        <div class="raster mt-12 md:mt-16" data-groei>
+          <div class="md:col-span-9 md:col-start-4 lg:col-span-7">
+            <h3 class="text-[1.3rem] leading-snug text-dauw-50 md:text-[1.4rem]">{o.waarden.belofte.kop}</h3>
+            <p class="maat-tekst mt-3 text-[1.02rem] leading-[1.8] text-dauw-200">{o.waarden.belofte.tekst}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- 4. CTA: de open plek -->
+  <section class="licht relative bg-dauw-50 pb-28 pt-20 text-center text-woud-950 md:pb-36 md:pt-28" aria-labelledby="cta-kop">
+    <LeafEdge kleur="#faf3e4" seed={73} />
+    <div class="container-woud" data-groei>
+      <div class="maat-smal mx-auto">
+        <Icoon naam="kiem" class="mx-auto h-12 w-12 text-jungle-800" />
+        <h2 id="cta-kop" class="sectie-kop mt-4 text-woud-950">{o.cta.kop}</h2>
+        <p class="mt-4 text-[1.0625rem] leading-[1.75] text-jungle-800 md:text-[1.15rem]">{o.cta.tekst}</p>
+        <div class="mt-9 flex flex-wrap justify-center gap-4">
+          <a href={localePath('/contact/', lang)} class="knop knop-zon">{o.cta.knop}<Fragment set:html={pijl} /></a>
+          <a href={localePath('/ceremonies/', lang)} class="knop knop-rand">{o.cta.tweede}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

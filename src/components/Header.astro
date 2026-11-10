@@ -9,21 +9,21 @@ interface Props {
 
 const { lang = getLangFromUrl(Astro.url.pathname) } = Astro.props;
 const { site, ceremonies: aanbod, ui } = getContent(lang);
-const ceremonies = aanbod.filter((d) => d.soort === 'ceremonie');
+const ceremonies = aanbod;
 
 const pad = Astro.url.pathname;
 const homeHref = localePath('/', lang);
 const isActief = (href: string) =>
-  href === homeHref ? pad === homeHref : href.includes('ceremon') ? pad.startsWith(href) && !pad.includes('adem') && !pad.includes('respir') : pad.startsWith(href);
+  href === homeHref ? pad === homeHref : pad.startsWith(href);
 ---
 <header id="kop" class="fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-700" data-kop>
-  <div class="container-woud flex h-[4.75rem] items-center justify-between gap-6">
+  <div class="container-woud flex h-[4.75rem] items-center justify-between gap-8 lg:h-20">
     <a href={homeHref} class="rounded-full text-dauw-50 no-underline" aria-label={`${site.naam}, ${ui.naarHomepage}`}>
       <Logo />
     </a>
 
     <nav aria-label="Hoofdmenu" class="hidden lg:block">
-      <ul class="flex items-center gap-1">
+      <ul class="flex items-center gap-2 xl:gap-4">
         {site.menu.map((item) =>
           item.ceremonies ? (
             <li class="relative" data-dropdown>
@@ -36,7 +36,7 @@ const isActief = (href: string) =>
               </div>
               <ul id="dropdown-ceremonies" class="dropdown" hidden data-dropdown-menu>
                 {ceremonies.map((d) => (
-                  <li><a href={localePath(`/ceremonies/${d.slug}/`, lang)} class="dropdown-link">{d.titel}</a></li>
+                  <li><a href={`${localePath('/ceremonies/', lang)}#${d.slug}`} class="dropdown-link">{d.titel}</a></li>
                 ))}
                 <li class="mt-1 border-t border-dauw-50/15 pt-1"><a href={localePath('/ceremonies/#agenda', lang)} class="dropdown-link text-zonlicht-200">{ui.agenda}</a></li>
               </ul>
@@ -49,11 +49,13 @@ const isActief = (href: string) =>
     </nav>
 
     <div class="flex items-center gap-3">
-      <LanguagePicker currentLang={lang} class="hidden sm:inline-flex" />
       <a href={localePath('/intake/', lang)} class="knop knop-rand hidden !min-h-11 !px-5 !py-2.5 !text-base sm:inline-flex">{ui.intake}</a>
-      <button type="button" class="menuknop lg:hidden" aria-expanded="false" aria-controls="mobiel-menu" data-menu-knop>
+      <div class="hidden sm:inline-flex">
+        <LanguagePicker currentLang={lang} />
+      </div>
+      <button type="button" class="menuknop lg:hidden" aria-expanded="false" aria-controls="mobiel-menu" data-menu-knop data-label-open={ui.openMenu} data-label-sluit={ui.sluitMenu}>
         <span class="sr-only" data-menu-label>{ui.openMenu}</span>
-        <svg viewBox="0 0 28 28" class="h-7 w-7" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+        <svg viewBox="0 0 28 28" class="h-6 w-6" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
           <path class="menu-lijn-1" d="M5 9.5c6-1.2 12-1.2 18 0" />
           <path class="menu-lijn-2" d="M5 14c5 .6 13 .6 18 0" />
           <path class="menu-lijn-3" d="M8 18.5c5 1 10 1 15 0" />
@@ -63,42 +65,80 @@ const isActief = (href: string) =>
   </div>
 
   <div id="mobiel-menu" class="mobiel-menu lg:hidden" hidden data-menu>
-    <nav aria-label="Mobiel menu" class="container-woud flex min-h-full flex-col pb-10 pt-24">
-      <ul class="flex flex-col gap-1">
-        {site.menu.map((item) =>
-          item.ceremonies ? (
-            <li>
+    <nav aria-label="Mobiel menu" class="container-woud flex min-h-[100dvh] flex-col justify-between pb-8 pt-24">
+      <ul class="border-b border-dauw-50/10">
+        {site.menu.map((item) => {
+          const actief = isActief(item.href);
+          return item.ceremonies ? (
+            <li class="border-t border-dauw-50/10">
               <div class="flex items-center justify-between">
-                <a href={item.href} class="mobiel-link">{item.label}</a>
+                <a
+                  href={item.href}
+                  class:list={['mobiel-link', { 'is-actief': actief }]}
+                  aria-current={actief ? 'page' : undefined}
+                >
+                  {item.label}
+                </a>
                 <button type="button" class="mobiel-uitklap" aria-expanded="false" aria-controls="mobiel-ceremonies" data-uitklap>
                   <span class="sr-only">{ui.toonCeremonies}</span>
-                  <svg viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 9.5 12 15l6-5.5" /></svg>
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 9.5 12 15l6-5.5" /></svg>
                 </button>
               </div>
-              <ul id="mobiel-ceremonies" class="mb-3 ml-1 flex flex-col border-l border-zonlicht-400/30 pl-5" hidden>
+              <ul id="mobiel-ceremonies" class="pb-4" hidden>
                 {ceremonies.map((d) => (
-                  <li><a href={localePath(`/ceremonies/${d.slug}/`, lang)} class="block py-2.5 text-lg text-dauw-200 no-underline hover:text-zonlicht-200">{d.titel}</a></li>
+                  <li>
+                    <a href={`${localePath('/ceremonies/', lang)}#${d.slug}`} class="mobiel-sublink">
+                      {d.titel}
+                    </a>
+                  </li>
                 ))}
-                <li><a href={localePath('/ceremonies/#agenda', lang)} class="block py-2.5 text-lg text-zonlicht-200 no-underline">{ui.agenda}</a></li>
+                <li>
+                  <a href={localePath('/ceremonies/#agenda', lang)} class="mobiel-sublink">
+                    {ui.agenda}
+                  </a>
+                </li>
               </ul>
             </li>
           ) : (
-            <li><a href={item.href} class="mobiel-link" aria-current={isActief(item.href) ? 'page' : undefined}>{item.label}</a></li>
-          )
-        )}
+            <li class="border-t border-dauw-50/10">
+              <a
+                href={item.href}
+                class:list={['mobiel-link', { 'is-actief': actief }]}
+                aria-current={actief ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
       </ul>
-      <div class="mt-auto flex flex-col gap-4 pt-6">
-        <LanguagePicker currentLang={lang} mobile />
-        <a href={localePath('/intake/', lang)} class="knop knop-rand self-start">{ui.intake}</a>
+
+      <div class="mt-auto space-y-6 pt-10">
+        <a href={localePath('/intake/', lang)} class="knop knop-rand w-full justify-center !text-base">
+          {ui.intake}
+        </a>
+        <div>
+          <span class="mb-2 block text-sm text-dauw-200/70">{ui.taalKiezen}</span>
+          <LanguagePicker currentLang={lang} mobile class="-ml-2" />
+        </div>
+        <p class="flex items-center justify-between border-t border-dauw-50/10 pt-5 text-sm text-dauw-200/70">
+          <span>{site.contact.plaats}</span>
+          <a href={`tel:${site.contact.telefoonLink}`} class="text-dauw-200 no-underline hover:text-zonlicht-200">{site.contact.telefoon}</a>
+        </p>
       </div>
     </nav>
   </div>
 </header>
 
 <style>
-  [data-kop].is-vast {
-    background: rgb(26 18 12 / 0.94);
-    box-shadow: 0 10px 30px -18px rgb(0 0 0 / 0.6);
+  /* Let op: geen backdrop-filter/transform/filter op de header. Die maken de header
+     het containing block voor het position:fixed mobiele menu, waardoor het menu
+     maar 76px hoog wordt en het logo en de menuknop bedekt. */
+  [data-kop].is-vast,
+  [data-kop].menu-open {
+    background: rgb(46 30 16 / 0.97);
+    border-bottom: 1px solid rgba(250, 243, 228, 0.08);
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
   }
   .navlink {
     display: block;
@@ -131,8 +171,8 @@ const isActief = (href: string) =>
     min-width: 17rem;
     padding: 0.5rem;
     border-radius: 1.25rem 1.6rem 1.25rem 1.4rem;
-    background: var(--woud-900);
-    box-shadow: 0 24px 50px -20px rgb(0 0 0 / 0.7), inset 0 0 0 1px rgb(240 176 63 / 0.18);
+    background: var(--woud-800);
+    box-shadow: 0 24px 50px -20px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(224, 139, 26, 0.22);
   }
   .dropdown-link {
     display: block;
@@ -142,14 +182,22 @@ const isActief = (href: string) =>
     text-decoration: none;
     font-size: 1rem;
   }
-  .dropdown-link:hover, .dropdown-link:focus-visible { background: rgb(240 176 63 / 0.12); color: var(--zonlicht-200); }
+  .dropdown-link:hover, .dropdown-link:focus-visible { background: rgba(224, 139, 26, 0.16); color: var(--zonlicht-200); }
   .menuknop {
     display: grid;
     place-items: center;
-    width: 2.9rem;
-    height: 2.9rem;
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: 999px;
     color: var(--dauw-50);
+    background: rgba(250, 243, 228, 0.06);
+    border: 1px solid rgba(250, 243, 228, 0.12);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .menuknop:hover, .menuknop:focus-visible {
+    background: rgba(224, 139, 26, 0.15);
+    border-color: var(--zonlicht-400);
+    color: var(--zonlicht-200);
   }
   @media (min-width: 1024px) {
     .menuknop { display: none; }
@@ -161,35 +209,52 @@ const isActief = (href: string) =>
   .mobiel-menu {
     position: fixed;
     inset: 0;
+    /* achter logo en menuknop (binnen de stacking context van de header) */
     z-index: -1;
     overflow-y: auto;
-    background:
-      radial-gradient(60% 40% at 85% 100%, rgb(110 74 34 / 0.45), transparent 70%),
-      radial-gradient(50% 30% at 10% 0%, rgb(240 176 63 / 0.1), transparent 70%),
-      var(--woud-950);
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    /* Effen, zelfde toon als de donkere secties en de vaste header */
+    background: var(--woud-800);
   }
-  .mobiel-menu:not([hidden]) { animation: menu-in 0.9s var(--ease-adem); }
+  .mobiel-menu:not([hidden]) { animation: menu-in 0.5s var(--ease-adem); }
   @keyframes menu-in { from { opacity: 0; } to { opacity: 1; } }
   .mobiel-link {
     display: block;
-    padding: 0.6rem 0;
+    flex: 1;
+    padding: 1.05rem 0;
     font-family: var(--font-kop);
-    font-size: 2.1rem;
-    line-height: 1.15;
+    font-size: 1.3rem;
+    line-height: 1.25;
     color: var(--dauw-50);
     text-decoration: none;
+    transition: color 0.4s var(--ease-adem);
   }
-  .mobiel-link:hover, .mobiel-link[aria-current='page'] { color: var(--zonlicht-400); }
+  .mobiel-link:hover { color: var(--zonlicht-200); }
+  .mobiel-link.is-actief,
+  .mobiel-link[aria-current='page'] { color: var(--zonlicht-200); }
+  .mobiel-link:focus:not(:focus-visible) { outline: none; }
+  .mobiel-sublink {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    color: var(--dauw-200);
+    opacity: 0.85;
+    text-decoration: none;
+    transition: color 0.4s var(--ease-adem), opacity 0.4s;
+  }
+  .mobiel-sublink:hover { color: var(--zonlicht-200); opacity: 1; }
   .mobiel-uitklap {
     display: grid;
     place-items: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 999px;
-    color: var(--dauw-50);
-    transition: transform 0.5s var(--ease-adem);
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-right: -0.6rem;
+    color: var(--dauw-200);
+    transition: transform 0.5s var(--ease-adem), color 0.4s;
   }
-  .mobiel-uitklap[aria-expanded='true'] { transform: rotate(180deg); color: var(--zonlicht-400); }
+  .mobiel-uitklap:hover { color: var(--zonlicht-200); }
+  .mobiel-uitklap[aria-expanded='true'] { transform: rotate(180deg); }
 </style>
 
 <script>
@@ -240,13 +305,18 @@ const isActief = (href: string) =>
   const zetMenu = (open: boolean) => {
     menu.hidden = !open;
     menuKnop.setAttribute('aria-expanded', String(open));
-    label.textContent = open ? 'Sluit menu' : 'Open menu';
+    label.textContent = (open ? menuKnop.dataset.labelSluit : menuKnop.dataset.labelOpen) ?? '';
     document.documentElement.style.overflow = open ? 'hidden' : '';
-    if (open) menu.querySelector<HTMLAnchorElement>('a')?.focus();
+    kop.classList.toggle('menu-open', open);
   };
   menuKnop.addEventListener('click', () => zetMenu(menu.hidden));
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !menu.hidden) { zetMenu(false); menuKnop.focus(); }
+  });
+  menuKnop.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ') && menu.hidden) {
+      setTimeout(() => menu.querySelector<HTMLAnchorElement>('a')?.focus(), 50);
+    }
   });
   menu.addEventListener('keydown', (e) => {
     if (e.key !== 'Tab') return;
@@ -255,12 +325,6 @@ const isActief = (href: string) =>
     const i = items.indexOf(document.activeElement as HTMLElement);
     if (e.shiftKey && i <= 0) { e.preventDefault(); items[items.length - 1].focus(); }
     else if (!e.shiftKey && i === items.length - 1) { e.preventDefault(); items[0].focus(); }
-  });
-  menuKnop.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab' && !e.shiftKey && !menu.hidden) {
-      e.preventDefault();
-      menu.querySelector<HTMLElement>('a, button')?.focus();
-    }
   });
   window.matchMedia('(min-width: 1024px)').addEventListener('change', (m) => { if (m.matches) zetMenu(false); });
 

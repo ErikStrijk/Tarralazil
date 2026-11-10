@@ -1,0 +1,89 @@
+{
+  "seo": {
+    "titel": "Over Nathalie | Tarra Lanzilli in Sappemeer",
+    "beschrijving": "Maak kennis met Nathalie, het gezicht achter Tarra Lanzilli in Sappemeer. Persoonlijke begeleiding bij ceremonies en ademwerk vanuit rust, warmte en ervaring."
+  },
+  "hero": {
+    "label": "Over Nathalie",
+    "kop": "Het gezicht achter Tarra Lanzilli",
+    "rol": "Ceremoniebegeleider & ademcoach",
+    "tekst": "Ik ben Nathalie. Vanuit mijn praktijk aan huis in Sappemeer begeleid ik mensen, jong en oud, die voelen dat het tijd is om stil te staan bij wat ze met zich meedragen. Nuchter, liefdevol en met alle ruimte voor jouw eigen tempo.",
+    "badges": [
+      "6 jaar ervaring bij Inner Journey",
+      "Gecertificeerd Facilitator",
+      "Persoonlijke & warme bedding"
+    ],
+    "portretAlt": "Portret van Nathalie, glimlachend, met lang donker haar"
+  },
+  "achtergrond": {
+    "label": "Fundament",
+    "stats": [
+      {
+        "waarde": "Inner Journey",
+        "titel": "6 jaar ervaring & gecertificeerd",
+        "tekst": "Opgeleid en gecertificeerd bij Inner Journey, waar ik zes jaar lang intensief ceremonies en ademsessies heb mogen begeleiden."
+      },
+      {
+        "waarde": "Jong & oud",
+        "titel": "Afgestemd op wie jij bent",
+        "tekst": "Begeleiding voor zowel volwassenen als jongeren, met oog voor jouw levensfase en wat je op dit moment aankunt."
+      },
+      {
+        "waarde": "Sappemeer",
+        "titel": "Kleinschalig & aan huis",
+        "tekst": "Geen grootschalig centrum of strakke klok, maar een huiselijke, prikkelarme plek met onverdeelde aandacht."
+      }
+    ]
+  },
+  "verhaal": {
+    "label": "Mijn verhaal",
+    "kop": "Waarom ik dit werk met zoveel liefde doe",
+    "quote": "Echte beweging ontstaat niet door harder je best te doen, maar door de rust te vinden om te voelen wat er werkelijk in je speelt.",
+    "tekst": [
+      "Veel van hoe we vandaag reageren, voelen en in het leven staan, heeft zijn wortels in onze vroege jaren. Als kind ontwikkel je vanzelf manieren om jezelf staande te houden: je leert bijvoorbeeld om altijd sterk te zijn, eerst voor anderen te zorgen, of je eigen emoties in te slikken. Dat hielp je toen, maar kan later in je leven behoorlijk gaan schuren.",
+      "Mijn eigen pad met ademwerk en plantmedicijnen liet mij voelen wat er verandert als je niet langer tegen die patronen vecht, maar er met zachtheid bij durft te blijven. Waar het hoofd vaak blijft malen en verklaren, weet het lichaam precies wat er nog vastzit. Door dat de ruimte te geven, vond ik een diepe innerlijke rust en stevigheid terug.",
+      "Na zes prachtige, intensieve jaren als begeleider bij Inner Journey ontstond het verlangen naar een eigen, intieme plek. Met Tarra Lanzilli breng ik mijn vakmanschap en intuïtie samen in Sappemeer — om mensen te helpen oude ballast los te laten en weer echt thuis te komen in hun eigen lijf."
+    ]
+  },
+  "waarden": {
+    "label": "Hoe een sessie aanvoelt",
+    "kop": "Wat je van mij mag verwachten",
+    "intro": "Zo loop ik met je mee, van het eerste contact tot na je sessie.",
+    "items": [
+      {
+        "stap": "01",
+        "fase": "Vooraf",
+        "icoon": "kiem",
+        "titel": "Eerlijk kijken wat nu klopt",
+        "tekst": "We spreken elkaar eerst uitgebreid en ik neem je intake zorgvuldig door. Ik zeg het ook eerlijk als iets anders beter bij je past."
+      },
+      {
+        "stap": "02",
+        "fase": "De aankomst",
+        "icoon": "varen",
+        "titel": "Landen met thee, zonder klok",
+        "tekst": "Geen strak schema: we beginnen met een kop thee in een warme, huiselijke ruimte. Je mag rustig aankomen."
+      },
+      {
+        "stap": "03",
+        "fase": "Tijdens de reis",
+        "icoon": "wortel",
+        "titel": "Een rustig anker naast je",
+        "tekst": "Ik blijf dicht bij je, wat er ook opkomt. Ik duw en stuur niet, maar ben er met een woord, een hand of stille nabijheid."
+      },
+      {
+        "stap": "04",
+        "fase": "Het landen & daarna",
+        "icoon": "mycelium",
+        "titel": "Met beide benen op de grond naar huis",
+        "tekst": "Na afloop is er tijd om terug te komen, met iets te eten en te drinken. Ook in de dagen erna houden we contact."
+      }
+    ]
+  },
+  "cta": {
+    "kop": "Zullen we rustig kennismaken?",
+    "tekst": "Heb je vragen, twijfel je nog of wil je eerst even mijn stem horen? Stuur me gerust een berichtje of plan een vrijblijvend kennismakingsgesprek.",
+    "knop": "Plan een kennismaking",
+    "tweede": "Bekijk de ceremonies"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "seo": {
+    "titel": "Contacto | Tarra Lanzilli en Sappemeer",
+    "beschrijving": "Ponte en contacto sin compromiso con Nathalie de Tarra Lanzilli en Sappemeer para preguntas o una charla inicial."
+  },
+  "hero": {
+    "kop": "¿Nos conocemos?",
+    "tekst": "¿Tienes alguna pregunta o quieres primero conversar con calma? Escríbeme por el formulario o por WhatsApp sin compromiso."
+  },
+  "gegevens": {
+    "emailLabel": "Correo",
+    "telefoonLabel": "Teléfono",
+    "instagramLabel": "Instagram"
+  },
+  "formulier": {
+    "naamLabel": "Tu nombre",
+    "naamPlaceholder": "Ej. Elena García",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "nombre@ejemplo.es",
+    "telefoonLabel": "Teléfono (opcional)",
+    "telefoonPlaceholder": "+31 6 12 34 56 78",
+    "berichtLabel": "Tu mensaje",
+    "berichtPlaceholder": "¿En qué puedo ayudarte?",
+    "verzendKnop": "Enviar mensaje",
+    "foutMelding": "Por favor, completa los campos marcados.",
+    "succesKop": "Gracias por tu mensaje",
+    "succesTekst": "He recibido tu mensaje y me pondré en contacto contigo personalmente lo antes posible."
+  }
+}

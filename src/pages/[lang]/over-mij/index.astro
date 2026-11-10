@@ -1,0 +1,13 @@
+---
+import OverMij from '../../../components/OverMij.astro';
+import { languages, defaultLang, type Lang } from '../../../lib/i18n';
+
+export function getStaticPaths() {
+  return languages
+    .filter((l) => l !== defaultLang)
+    .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+---
+<OverMij lang={lang} />

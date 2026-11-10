@@ -3,30 +3,27 @@
     "id": "mark",
     "naam": "Mark",
     "ceremonie": "Ceremonias y Acompañamiento",
-    "thema": "Pelar capas y amor propio",
-    "foto": "mark",
-    "kernzin": "Desde el primer instante vio a través de todo, directo al centro.",
-    "tekst": "Desde el primer momento me vio por completo, más allá de todo el comportamiento aprendido e impuesto, directo al centro. Con su experiencia podemos seguir pelando más capas, puedo soltar lo que ya no necesito y construir el amor por mí mismo.",
-    "verhaal": "Durante años funcioné a base de fuerza de voluntad y control. Durante la ceremonia sentí, por primera vez en mucho tiempo, el alivio físico de ser verdaderamente visto sin juicio. Esos aprendizajes siguen guiando mis decisiones cotidianas meses después."
+    "categorie": "planten",
+    "ceremonieSlug": "truffelceremonie",
+    "tekst": "Desde el primer momento me sentí a gusto. Con la guía serena de Nathalie pude soltar lo que ya no necesitaba y mirarme con más amabilidad.",
+    "verhaal": "Durante la sesión con Nathalie noté lo liberador que es no tener que resolver nada y simplemente poder estar con lo que hay. Su acompañamiento sereno me ayudó a soltar cargas que llevaba desde hacía tiempo, y esa claridad me sigue acompañando cada día."
   },
   {
     "id": "sherrelle",
     "naam": "Sherrelle",
     "ceremonie": "Ceremonias y Respiración",
-    "thema": "Del escepticismo a volver a casa",
-    "foto": "sherrelle",
-    "kernzin": "Aunque a veces puede ser muy intenso, cada vez lo vivo como un regalo para mí misma.",
-    "tekst": "He ido varias veces donde Nathalie y aunque al principio era algo escéptica sobre las ceremonias, ahora lo veo de manera muy diferente. Realmente tienes que vivirlo para saber cómo es. El espacio de seguridad y cuidado que ella brinda hace que te sientas plenamente protegido.",
-    "verhaal": "El paso hacia una ceremonia me daba respeto, sobre todo por el temor a soltar el control. Nathalie se tomó todo el tiempo previo para escuchar y definir la intención. Al terminar sentí una paz liberadora que hacía mucho tiempo no experimentaba."
+    "categorie": "combinatie",
+    "ceremonieSlug": "paddenstoelenceremonie",
+    "tekst": "Al principio no sabía muy bien qué esperar, pero el ambiente cálido y cuidadoso de Nathalie me hizo sentir segura de inmediato. Cada sesión es como un regalo.",
+    "verhaal": "Dar el paso hacia una ceremonia me imponía un poco, pero Nathalie se tomó todo el tiempo para escuchar con calma y responder mis dudas. Su presencia cercana me dio tanta confianza que pude relajarme de verdad y salir con una paz muy ligera."
   },
   {
     "id": "anna",
     "naam": "Anna Woudsma",
     "ceremonie": "Ceremonia de Cacao y Respiración",
-    "thema": "Suavidad y revelaciones interiores",
-    "foto": "anna",
-    "kernzin": "Un viaje interior muy especial que me dio mucho amor propio y hermosas revelaciones.",
-    "tekst": "Al principio era bastante escéptica sobre la ceremonia. No sabía bien qué esperar. Nathalie creó de inmediato una atmósfera cálida y de confianza donde todo fue bienvenido. Hice un viaje interior muy especial.",
-    "verhaal": "La combinación del espacio ceremonial, la música sutil y la respiración consciente me llevó de la cabeza al corazón. Pude soltar patrones de autocrítica y reencontrar un profundo respeto por mi propio ritmo."
+    "categorie": "ademwerk",
+    "ceremonieSlug": "ademwerk",
+    "tekst": "Nathalie crea de inmediato un ambiente cálido y de confianza. Una experiencia muy especial que me aportó calma y bonitas reflexiones.",
+    "verhaal": "La combinación de un ambiente acogedor, música suave y respiración guiada me ayudó a salir del ruido mental y volver al cuerpo. Me permitió ser más amable conmigo misma y respetar mi propio ritmo."
   }
 ]

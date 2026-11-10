@@ -1,5 +1,5 @@
 ---
-// Zwevende Social Media & Contact knop (WhatsApp & Instagram).
+// Zwevende Social Media & Contact knop (WhatsApp, Instagram & e-mail).
 // Altijd direct en betrouwbaar beschikbaar voor de bezoeker,
 // met een verfijnd, warm popover-menu voor WhatsApp en Instagram.
 import { getContent, getLangFromUrl, type Lang } from '../lib/i18n';
@@ -13,6 +13,7 @@ const { site, ui } = getContent(lang);
 
 const whatsappLink = `https://wa.me/${site.contact.whatsapp}`;
 const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${site.contact.instagram || 'tarralanzilli'}/`;
+const mailLink = `mailto:${site.contact.email}`;
 ---
 
 <div class="social-widget" data-social-widget>
@@ -25,16 +26,7 @@ const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${
     aria-modal="false"
     hidden
   >
-    <div class="popover-header">
-      <div class="header-badge">
-        <svg viewBox="0 0 20 20" class="h-3.5 w-3.5 text-zonlicht-400" fill="currentColor" aria-hidden="true">
-          <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm.75 4a.75.75 0 00-1.5 0v3.25H6a.75.75 0 000 1.5h3.25V14a.75.75 0 001.5 0v-3.25H14a.75.75 0 000-1.5h-3.25V6z" />
-        </svg>
-        <span>Tarra Lanzilli</span>
-      </div>
-      <h3 class="popover-title">{ui.socialsTitel}</h3>
-      <p class="popover-subtitle">{ui.socialsSubtitel}</p>
-    </div>
+    <p class="popover-title">{ui.socialsTitel}</p>
 
     <div class="popover-items">
       {/* WhatsApp knop */}
@@ -42,16 +34,16 @@ const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${
         href={whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
-        class="social-item social-item--whatsapp"
+        class="social-item"
       >
-        <span class="social-icon-box social-icon-box--whatsapp" aria-hidden="true">
-          <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current">
+        <span class="social-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="h-[1.15rem] w-[1.15rem] fill-current">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
           </svg>
         </span>
         <span class="social-text">
           <span class="social-name">{ui.whatsappTitel}</span>
-          <span class="social-desc">{ui.whatsappSub}</span>
+          <span class="social-desc">{site.contact.telefoon}</span>
         </span>
         <svg viewBox="0 0 20 20" class="social-arrow" fill="currentColor" aria-hidden="true">
           <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
@@ -63,10 +55,10 @@ const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${
         href={instagramLink}
         target="_blank"
         rel="noopener noreferrer"
-        class="social-item social-item--instagram"
+        class="social-item"
       >
-        <span class="social-icon-box social-icon-box--instagram" aria-hidden="true">
-          <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current">
+        <span class="social-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="h-[1.15rem] w-[1.15rem] fill-current">
             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
           </svg>
         </span>
@@ -78,11 +70,23 @@ const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${
           <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
         </svg>
       </a>
-    </div>
 
-    <div class="popover-footer">
-      <span class="pulse-dot" aria-hidden="true"></span>
-      <span>{ui.socialsReactietijd}</span>
+      {/* E-mail knop */}
+      <a href={mailLink} class="social-item">
+        <span class="social-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="h-[1.15rem] w-[1.15rem] fill-none stroke-current" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2.5" />
+            <path d="m4 7 8 5.5L20 7" />
+          </svg>
+        </span>
+        <span class="social-text">
+          <span class="social-name">{ui.emailTitel}</span>
+          <span class="social-desc">{site.contact.email}</span>
+        </span>
+        <svg viewBox="0 0 20 20" class="social-arrow" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+        </svg>
+      </a>
     </div>
   </div>
 
@@ -95,23 +99,16 @@ const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${
     aria-controls="social-popover"
     aria-label={ui.socialsKnopSr}
   >
-    {/* Duo-iconen toestand (gesloten) */}
+    {/* Rustig gespreksicoon (gesloten) */}
     <span class="trigger-icons" aria-hidden="true">
-      <span class="mini-badge mini-badge--whatsapp">
-        <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 fill-current">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
-        </svg>
-      </span>
-      <span class="mini-badge mini-badge--instagram">
-        <svg viewBox="0 0 24 24" class="h-3 w-3 fill-current">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-        </svg>
-      </span>
+      <svg viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+      </svg>
     </span>
 
     {/* Sluitkruis toestand (geopend) */}
     <span class="trigger-close" aria-hidden="true">
-      <svg viewBox="0 0 24 24" class="h-5 w-5 stroke-current stroke-2 fill-none" stroke-linecap="round" stroke-linejoin="round">
+      <svg viewBox="0 0 24 24" class="h-5 w-5 stroke-current stroke-[1.75] fill-none" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 6L6 18M6 6l12 12" />
       </svg>
     </span>
@@ -123,14 +120,20 @@ const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${
 {/* NoScript fallback: beide iconen statisch bereikbaar indien JS uitstaat */}
 <noscript>
   <div class="social-noscript">
-    <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="noscript-btn noscript-whatsapp" title={ui.whatsappSr}>
+    <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="noscript-btn" title={ui.whatsappSr}>
       <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
       </svg>
     </a>
-    <a href={instagramLink} target="_blank" rel="noopener noreferrer" class="noscript-btn noscript-instagram" title="Instagram">
+    <a href={instagramLink} target="_blank" rel="noopener noreferrer" class="noscript-btn" title="Instagram">
       <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true">
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+      </svg>
+    </a>
+    <a href={mailLink} class="noscript-btn" title={ui.emailTitel}>
+      <svg viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="5" width="18" height="14" rx="2.5" />
+        <path d="m4 7 8 5.5L20 7" />
       </svg>
     </a>
   </div>
@@ -143,7 +146,6 @@ const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${
     right: 1rem;
     bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
     z-index: 50;
-    transition: opacity 0.5s var(--ease-adem), transform 0.5s var(--ease-adem), visibility 0s linear 0s;
   }
   @media (min-width: 640px) {
     .social-widget {
@@ -152,42 +154,40 @@ const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${
     }
   }
 
-  /* Zwevende ronde triggerknop */
+  /* Zwevende ronde triggerknop: ingetogen en passend bij het aardepalet */
   .social-trigger {
     position: relative;
     display: grid;
     place-items: center;
-    width: 3.25rem;
-    height: 3.25rem;
+    width: 3.1rem;
+    height: 3.1rem;
     border-radius: 999px;
-    background: radial-gradient(circle at 35% 30%, var(--woud-800), var(--woud-950));
-    color: var(--dauw-50);
-    border: none;
+    background: var(--woud-800);
+    color: var(--zonlicht-200);
+    border: 1px solid rgba(240, 195, 106, 0.25);
     cursor: pointer;
-    box-shadow:
-      0 10px 24px -6px rgba(0, 0, 0, 0.65),
-      0 0 0 1px rgba(240, 195, 106, 0.28),
-      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.6);
     transition:
       transform 0.4s var(--ease-adem),
       box-shadow 0.4s var(--ease-adem),
+      border-color 0.3s,
+      color 0.3s,
       background-color 0.3s;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
   }
   @media (min-width: 640px) {
     .social-trigger {
-      width: 3.5rem;
-      height: 3.5rem;
+      width: 3.25rem;
+      height: 3.25rem;
     }
   }
 
   .social-trigger:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow:
-      0 14px 28px -6px rgba(0, 0, 0, 0.75),
-      0 0 0 1.5px var(--zonlicht-400),
-      0 0 20px rgba(224, 139, 26, 0.25);
+    transform: translateY(-2px);
+    color: var(--dauw-50);
+    border-color: rgba(240, 195, 106, 0.45);
+    box-shadow: 0 14px 28px -8px rgba(0, 0, 0, 0.7);
   }
 
   .social-trigger:focus-visible {
@@ -196,55 +196,16 @@ const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${
   }
 
   .social-trigger.is-actief {
-    background: var(--jungle-800);
-    box-shadow:
-      0 12px 26px -6px rgba(0, 0, 0, 0.75),
-      0 0 0 2px var(--zonlicht-400);
+    background: var(--woud-900);
+    color: var(--zonlicht-200);
+    border-color: rgba(240, 195, 106, 0.4);
   }
 
-  /* Duo-iconen container in triggerknop */
+  /* Icoon in triggerknop */
   .trigger-icons {
-    position: relative;
-    display: block;
-    width: 2.1rem;
-    height: 2.1rem;
-    transition: opacity 0.3s var(--ease-adem), transform 0.35s var(--ease-adem);
-  }
-
-  .mini-badge {
-    position: absolute;
     display: grid;
     place-items: center;
-    border-radius: 999px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
-    transition: transform 0.3s var(--ease-adem);
-  }
-
-  .mini-badge--whatsapp {
-    top: 0;
-    left: 0;
-    width: 1.35rem;
-    height: 1.35rem;
-    background: #25D366;
-    color: #ffffff;
-    box-shadow: 0 0 0 1.5px var(--woud-950), 0 2px 6px rgba(37, 211, 102, 0.35);
-  }
-
-  .mini-badge--instagram {
-    bottom: 0;
-    right: 0;
-    width: 1.25rem;
-    height: 1.25rem;
-    background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    color: #ffffff;
-    box-shadow: 0 0 0 1.5px var(--woud-950), 0 2px 6px rgba(225, 48, 108, 0.35);
-  }
-
-  .social-trigger:hover .mini-badge--whatsapp {
-    transform: translate(-1px, -1px) scale(1.05);
-  }
-  .social-trigger:hover .mini-badge--instagram {
-    transform: translate(1px, 1px) scale(1.05);
+    transition: opacity 0.25s var(--ease-adem), transform 0.3s var(--ease-adem);
   }
 
   /* Sluiticoon (X) */
@@ -252,48 +213,42 @@ const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${
     position: absolute;
     display: grid;
     place-items: center;
-    color: var(--zonlicht-200);
     opacity: 0;
-    transform: rotate(-90deg) scale(0.6);
-    transition: opacity 0.3s var(--ease-adem), transform 0.35s var(--ease-adem);
+    transform: rotate(-90deg) scale(0.7);
+    transition: opacity 0.25s var(--ease-adem), transform 0.3s var(--ease-adem);
     pointer-events: none;
   }
 
   .social-trigger.is-actief .trigger-icons {
     opacity: 0;
-    transform: rotate(90deg) scale(0.6);
+    transform: rotate(90deg) scale(0.7);
   }
   .social-trigger.is-actief .trigger-close {
     opacity: 1;
     transform: rotate(0deg) scale(1);
   }
 
-  /* Het Popover Menu */
+  /* Het Popover Menu: rustig en compact */
   .social-popover {
     position: absolute;
-    bottom: calc(100% + 0.85rem);
+    bottom: calc(100% + 0.75rem);
     right: 0;
-    width: 19rem;
+    width: 15.5rem;
     max-width: calc(100vw - 2rem);
-    padding: 1.2rem;
-    border-radius: 1.25rem;
-    background: rgba(26, 17, 10, 0.94);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(240, 195, 106, 0.24);
-    box-shadow:
-      0 24px 48px -12px rgba(0, 0, 0, 0.75),
-      0 0 0 1px rgba(255, 255, 255, 0.04),
-      inset 0 1px 0 rgba(240, 195, 106, 0.15);
+    padding: 0.9rem;
+    border-radius: 1.15rem;
+    background: var(--woud-900);
+    border: 1px solid rgba(250, 243, 228, 0.12);
+    box-shadow: 0 20px 44px -14px rgba(0, 0, 0, 0.75);
     opacity: 0;
-    transform: translateY(10px) scale(0.96);
+    transform: translateY(8px) scale(0.97);
     transform-origin: bottom right;
     pointer-events: none;
     visibility: hidden;
     transition:
-      opacity 0.35s var(--ease-adem),
-      transform 0.35s var(--ease-adem),
-      visibility 0s linear 0.35s;
+      opacity 0.3s var(--ease-adem),
+      transform 0.3s var(--ease-adem),
+      visibility 0s linear 0.3s;
   }
 
   .social-popover.is-open {
@@ -302,106 +257,61 @@ const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${
     pointer-events: auto;
     visibility: visible;
     transition:
-      opacity 0.35s var(--ease-adem),
-      transform 0.35s var(--ease-adem),
+      opacity 0.3s var(--ease-adem),
+      transform 0.3s var(--ease-adem),
       visibility 0s linear 0s;
   }
 
-  /* Popover Header */
-  .popover-header {
-    margin-bottom: 0.95rem;
-  }
-
-  .header-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+  .popover-title {
     font-size: 0.75rem;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     font-weight: 600;
-    color: var(--zonlicht-200);
-    margin-bottom: 0.25rem;
-  }
-
-  .popover-title {
-    font-family: var(--font-kop);
-    font-size: 1.15rem;
-    line-height: 1.2;
-    color: var(--dauw-50);
-    margin: 0;
-    font-weight: 400;
-  }
-
-  .popover-subtitle {
-    font-size: 0.8125rem;
-    line-height: 1.45;
     color: var(--dauw-200);
-    margin: 0.25rem 0 0 0;
+    opacity: 0.75;
+    margin: 0 0 0.55rem 0.35rem;
   }
 
   /* Popover Items */
   .popover-items {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.35rem;
   }
 
   .social-item {
     display: flex;
     align-items: center;
-    gap: 0.85rem;
-    padding: 0.75rem 0.85rem;
-    border-radius: 0.875rem;
+    gap: 0.75rem;
+    padding: 0.6rem 0.7rem;
+    border-radius: 0.8rem;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.035);
-    border: 1px solid rgba(247, 239, 220, 0.08);
-    transition:
-      background 0.25s var(--ease-adem),
-      border-color 0.25s var(--ease-adem),
-      transform 0.25s var(--ease-adem),
-      box-shadow 0.25s var(--ease-adem);
+    background: transparent;
+    transition: background-color 0.25s var(--ease-adem);
   }
 
   .social-item:hover,
   .social-item:focus-visible {
-    transform: translateY(-2px);
+    background: rgba(250, 243, 228, 0.06);
     outline: none;
-  }
-
-  /* WhatsApp specifiek */
-  .social-item--whatsapp:hover,
-  .social-item--whatsapp:focus-visible {
-    background: rgba(37, 211, 102, 0.12);
-    border-color: rgba(37, 211, 102, 0.5);
-    box-shadow: 0 6px 16px -4px rgba(37, 211, 102, 0.25);
-  }
-
-  /* Instagram specifiek */
-  .social-item--instagram:hover,
-  .social-item--instagram:focus-visible {
-    background: rgba(225, 48, 108, 0.12);
-    border-color: rgba(225, 48, 108, 0.5);
-    box-shadow: 0 6px 16px -4px rgba(225, 48, 108, 0.25);
   }
 
   .social-icon-box {
     display: grid;
     place-items: center;
-    width: 2.4rem;
-    height: 2.4rem;
-    border-radius: 0.65rem;
+    width: 2.15rem;
+    height: 2.15rem;
+    border-radius: 999px;
     flex-shrink: 0;
-    color: #ffffff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    background: rgba(240, 195, 106, 0.1);
+    color: var(--zonlicht-200);
+    transition: background-color 0.25s, color 0.25s;
   }
 
-  .social-icon-box--whatsapp {
-    background: #25D366;
-  }
-
-  .social-icon-box--instagram {
-    background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  .social-item:hover .social-icon-box,
+  .social-item:focus-visible .social-icon-box {
+    background: rgba(240, 195, 106, 0.18);
+    color: var(--dauw-50);
   }
 
   .social-text {
@@ -412,56 +322,33 @@ const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${
   }
 
   .social-name {
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-weight: 500;
+    font-size: 0.925rem;
     line-height: 1.25;
     color: var(--dauw-50);
   }
 
   .social-desc {
-    font-size: 0.785rem;
-    line-height: 1.35;
+    font-size: 0.775rem;
+    line-height: 1.3;
     color: var(--dauw-200);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    opacity: 0.8;
   }
 
   .social-arrow {
-    width: 1.1rem;
-    height: 1.1rem;
+    width: 0.95rem;
+    height: 0.95rem;
     color: var(--dauw-200);
-    opacity: 0.6;
+    opacity: 0.45;
     flex-shrink: 0;
     transition: transform 0.25s var(--ease-adem), color 0.25s, opacity 0.25s;
   }
 
   .social-item:hover .social-arrow,
   .social-item:focus-visible .social-arrow {
-    transform: translateX(3px);
+    transform: translateX(2px);
     color: var(--zonlicht-200);
-    opacity: 1;
-  }
-
-  /* Popover Footer */
-  .popover-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 0.95rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(247, 239, 220, 0.08);
-    font-size: 0.725rem;
-    color: var(--dauw-200);
-  }
-
-  .pulse-dot {
-    width: 0.45rem;
-    height: 0.45rem;
-    border-radius: 999px;
-    background: #25D366;
-    box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.25);
+    opacity: 0.9;
   }
 
   /* NoScript fallback */
@@ -480,12 +367,12 @@ const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${
     width: 3rem;
     height: 3rem;
     border-radius: 999px;
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    background: var(--woud-800);
+    color: var(--zonlicht-200);
+    border: 1px solid rgba(240, 195, 106, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     text-decoration: none;
   }
-  .noscript-whatsapp { background: #25D366; }
-  .noscript-instagram { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
 
   @media (prefers-reduced-motion: reduce) {
     .social-widget,
@@ -494,8 +381,7 @@ const instagramLink = site.contact.instagramUrl || `https://www.instagram.com/${
     .trigger-close,
     .social-popover,
     .social-item,
-    .social-arrow,
-    .mini-badge {
+    .social-arrow {
       transition: none !important;
       transform: none !important;
     }

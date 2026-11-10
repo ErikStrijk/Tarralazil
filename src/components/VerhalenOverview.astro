@@ -1,0 +1,128 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from './PageHero.astro';
+import LeafEdge from './LeafEdge.astro';
+import Icoon from './Icoon.astro';
+import type { ErvaringItem } from './Ervaringen.astro';
+import { getContent, localePath, type Lang } from '../lib/i18n';
+import verhalenHeroBeeld from '../assets/ceremonie-ademwerk-ven.webp';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { ervaringen: rawErvaringen } = getContent(lang);
+const ervaringen = rawErvaringen as ErvaringItem[];
+
+const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24h30M28 14c3 5 7 8 11 10-4 2-8 5-11 10"/></svg>';
+
+const T = {
+  nl: {
+    seoTitel: 'Ervaringen van deelnemers | Tarra Lanzilli',
+    seoBeschrijving: 'Lees de persoonlijke ervaringen van deelnemers over hun ceremonie en ademwerk bij Nathalie in Sappemeer.',
+    label: 'Ervaringen',
+    kop: 'Wat deelnemers mochten ervaren',
+    sub: 'Korte, eerlijke indrukken van mensen die eerder een ceremonie of ademsessie bij mij hebben gevolgd.',
+    ctaKop: 'Nieuwsgierig wat bij jou past?',
+    ctaTekst: 'Je bent van harte welkom voor een vrijblijvende kennismaking om rustig kennis te maken en je vragen te stellen.',
+    ctaKnop: 'Plan een kennismaking',
+    ceremoniesKnop: 'Bekijk de ceremonies',
+  },
+  en: {
+    seoTitel: 'Participant Experiences | Tarra Lanzilli',
+    seoBeschrijving: 'Read the personal experiences of participants about their ceremony and breathwork with Nathalie in Sappemeer.',
+    label: 'Experiences',
+    kop: 'What participants experienced',
+    sub: 'Short, honest impressions from people who attended a ceremony or breathwork session with me.',
+    ctaKop: 'Curious what suits you?',
+    ctaTekst: 'You are warmly welcome for a no-obligation introduction to get to know each other and ask any questions.',
+    ctaKnop: 'Schedule an introduction',
+    ceremoniesKnop: 'Explore the ceremonies',
+  },
+  es: {
+    seoTitel: 'Experiencias de Participantes | Tarra Lanzilli',
+    seoBeschrijving: 'Lee las experiencias personales de los participantes sobre sus ceremonias y respiración con Nathalie en Sappemeer.',
+    label: 'Experiencias',
+    kop: 'Lo que vivieron los participantes',
+    sub: 'Impresiones breves y sinceras de personas que participaron en una ceremonia o sesión de respiración conmigo.',
+    ctaKop: '¿Curiosidad por saber qué va contigo?',
+    ctaTekst: 'Te doy la bienvenida a una charla sin compromiso para conocernos con calma y resolver tus dudas.',
+    ctaKnop: 'Agenda una conversación',
+    ceremoniesKnop: 'Ver las ceremonias',
+  },
+}[lang];
+---
+
+<Base titel={T.seoTitel} beschrijving={T.seoBeschrijving} lang={lang}>
+  <!-- 1. Rustige Hero -->
+  <PageHero
+    id="verhalen-hero-kop"
+    eyebrow={T.label}
+    kop={T.kop}
+    tekst={T.sub}
+    beeld={verhalenHeroBeeld}
+    beeldPositie="object-center"
+  />
+
+  <!-- 2. Overzichtelijk 2-koloms kaartraster op lichte achtergrond -->
+  <section class="licht relative bg-mos-100 pb-24 pt-20 text-woud-950 md:pb-28 md:pt-24" aria-label={T.label}>
+    <LeafEdge kleur="#f2e4c2" seed={37} omgekeerd />
+    <div class="container-woud">
+      <ul class="raster">
+        {ervaringen.map((e) => {
+          const ankerId = `verhaal-${e.id || e.naam.toLowerCase().replace(/\s+/g, '-')}`;
+          const ceremonieHref = e.ceremonieSlug ? `${localePath('/ceremonies/', lang)}#${e.ceremonieSlug}` : localePath('/ceremonies/', lang);
+
+          return (
+            <li id={ankerId} class="flex scroll-mt-28 md:col-span-6" data-groei>
+              <article class="kaart-licht flex h-full w-full flex-col justify-between p-7 md:p-8">
+                <blockquote class="text-[1.02rem] leading-[1.75] text-woud-950/90 md:text-[1.05rem]">
+                  <p>“{e.verhaal || e.tekst}”</p>
+                </blockquote>
+
+                <footer class="mt-7 flex items-center gap-3 border-t border-jungle-800/12 pt-5">
+                  <span class="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-mos-200/75 text-jungle-800" aria-hidden="true">
+                    <Icoon naam="kiem" class="h-5 w-5" />
+                  </span>
+                  <div class="min-w-0 flex-1">
+                    <h2 class="font-kop text-base leading-snug text-woud-950">
+                      {e.naam}
+                    </h2>
+                    <a
+                      href={ceremonieHref}
+                      class="mt-0.5 inline-block text-xs text-jungle-800/75 no-underline hover:text-woud-950 hover:underline"
+                    >
+                      {e.ceremonie}
+                    </a>
+                  </div>
+                </footer>
+              </article>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. Afsluitende CTA -->
+  <section class="licht relative bg-dauw-50 pb-28 pt-20 text-center text-woud-950 md:pb-36 md:pt-28" aria-labelledby="verhalen-cta-kop">
+    <LeafEdge kleur="#faf3e4" seed={79} />
+    <div class="container-woud" data-groei>
+      <div class="maat-smal mx-auto">
+        <Icoon naam="kiem" class="mx-auto h-12 w-12 text-jungle-800" />
+        <h2 id="verhalen-cta-kop" class="sectie-kop mt-4 text-woud-950">{T.ctaKop}</h2>
+        <p class="mt-4 text-[1.0625rem] leading-[1.75] text-jungle-800 md:text-[1.15rem]">{T.ctaTekst}</p>
+        <div class="mt-9 flex flex-wrap justify-center gap-4">
+          <a href={localePath('/contact/', lang)} class="knop knop-zon">
+            {T.ctaKnop}
+            <Fragment set:html={pijl} />
+          </a>
+          <a href={localePath('/ceremonies/', lang)} class="knop knop-rand">
+            {T.ceremoniesKnop}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

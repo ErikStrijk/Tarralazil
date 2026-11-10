@@ -1,59 +1,67 @@
 {
   "seo": {
-    "titel": "Tarra Lanzilli — ceremonias y trabajo de respiración, para lo que crece bajo la superficie",
-    "beschrijving": "Ceremonias de trufas, setas y ayahuasca con acompañamiento cuidadoso. Para personas, jóvenes y mayores, que quieran explorar viejos patrones y lo que yace debajo."
+    "titel": "Tarra Lanzilli — ceremonias y respiración en Sappemeer",
+    "beschrijving": "Ceremonias individuales de trufas, setas, ayahuasca y trabajo de respiración con Nathalie en Sappemeer."
   },
   "hero": {
     "kop": "Lo que crece bajo la superficie da forma a todo lo que hay arriba",
-    "tekst": "A veces notas que algo antiguo todavía te dirige. Un patrón, un miedo, una creencia que no elegiste. Te ayudo a conocer esas raíces con calma, a tu propio ritmo.",
+    "tekst": "A veces notas que algo antiguo todavía te dirige. Un patrón, una inquietud o una creencia que antes te protegió, pero hoy te frena. Te ayudo a mirar esas capas con calma y seguridad.",
     "knop": "Agenda una conversación",
-    "link": "Descubre lo que es posible"
+    "link": "Ver las ceremonias"
   },
   "intro": {
+    "label": "¿Te reconoces en esto?",
     "kop": "No estás roto/a. Creciste alrededor de lo que había.",
     "tekst": [
-      "Tal como yo lo veo, muchos de nuestros patrones surgen en la primera infancia. No porque haya algo mal en ti, sino porque de niño/a te volviste hábil para sobrevivir. Lo que entonces te protegió puede estar frenándote ahora.",
-      "En una ceremonia miramos juntos lo que hay bajo la superficie. No para quedarnos en el pasado, sino para crear espacio para lo que quiere crecer ahora."
+      "Muchos de nuestros patrones surgen en la primera infancia. No porque haya algo mal en ti, sino porque de niño/a aprendiste a adaptarte y resistir.",
+      "Cuando hablar ya no es suficiente, la respiración y las ceremonias con plantas te ayudan a bajar de la mente y sentir lo que pide espacio en tu cuerpo."
+    ],
+    "punten": [
+      {
+        "titel": "Lo entiendes con la mente, pero tu cuerpo lo retiene",
+        "tekst": "Sabes de dónde vienen tus patrones, pero la misma inquietud, presión o tensión sigue regresando."
+      },
+      {
+        "titel": "Siempre en alerta y adaptándote",
+        "tekst": "Sostienes mucho y cuidas de tu entorno, pero te cuesta soltar el control y descansar de verdad."
+      },
+      {
+        "titel": "Anhelo de espacio y suavidad",
+        "tekst": "Buscas un lugar seguro y sereno donde mirar tus capas antiguas a tu propio ritmo."
+      }
     ],
     "beeld": {
-      "alt": "Un árbol resistente en un bosque sereno cuyas raíces cubiertas de musgo crecen abrazando una roca desgastada hasta enraizar en la tierra."
+      "alt": "Raíces de un haya antigua extendiéndose con naturalidad en el suelo del bosque entre hojas de otoño."
+    }
+  },
+  "waarom": {
+    "kop": "Hola, soy Nathalie",
+    "tekst": [
+      "Por experiencia propia sé lo liberador que es dejar de luchar contra viejas heridas y atreverse a mirarlas en un entorno seguro. Surge entonces calma, espacio al respirar y confianza en tu propia base.",
+      "En mi consulta de Sappemeer recibo a personas, jóvenes y mayores, en un ambiente cálido y hogareño. Con atención cercana camino a tu lado con calma, desde nuestra primera charla hasta el aterrizaje posterior."
+    ],
+    "knop": "Más sobre mí",
+    "portret": {
+      "alt": "Retrato de Nathalie, sonriendo, con cabello largo y oscuro",
+      "naam": "Nathalie"
     }
   },
   "ceremonies": {
-    "kop": "Lo que puedo ofrecerte",
-    "tekst": "Trabajo con plantas y con la respiración. Cada una abre una puerta diferente. ¿Aún no sabes qué te conviene? Lo sentiremos juntos en la conversación introductoria.",
+    "kop": "Cómo puedo acompañarte",
+    "tekst": "Trabajo con plantas y con la respiración. Cada una abre una puerta distinta. ¿Aún no sabes qué te conviene? Lo sentiremos juntos en una charla introductoria.",
     "knop": "Ver todas las ceremonias",
     "kaartKnop": "Leer más"
   },
-  "waarom": {
-    "label": "Sobre Nathalie",
-    "kop": "Por qué hago esto",
-    "quote": "El cambio verdadero no comienza forzando, sino con la calma para sentir lo que ha estado bajo la superficie todo este tiempo.",
-    "tekst": [
-      "Gran parte de cómo reaccionamos, sentimos y elegimos tiene sus raíces en nuestra primera infancia. De niños aprendemos patrones y mecanismos de protección que eran necesarios para mantenernos a salvo. Lo que entonces te protegía, más tarde como adulto puede limitarte sin darte cuenta.",
-      "Cuando comencé mi propio camino con la medicina de plantas y el trabajo de respiración, descubrí lo que ocurre cuando dejas de luchar contra viejas capas y las acoges con ternura. Surgió espacio, respiración y una profunda confianza en mi propio centro.",
-      "Eso es lo que quiero ofrecerte: un espacio seguro y sin juicios para mirar hacia adentro a tu propio ritmo. Para que aquello que creció bajo la superficie pueda transformarse en calma, claridad y libertad."
-    ],
-    "knop": "Conoce más sobre mí",
-    "portret": {
-      "alt": "Retrato de Nathalie, sonriendo, con cabello largo y oscuro",
-      "naam": "Nathalie",
-      "rol": "Guía de ceremonias y facilitadora de respiración"
-    }
-  },
   "ervaringen": {
-    "label": "Historias y Experiencias",
-    "kop": "Lo que vivieron los participantes",
-    "subtitel": "Historias reales de personas que se atrevieron a mirar hacia adentro. Sobre desacelerar, soltar viejos patrones y volver a casa.",
-    "leesMeer": "Leer la historia completa",
-    "sluitVerhaal": "Mostrar menos",
-    "uitnodigingKop": "Espacio para tu propia historia",
-    "uitnodigingTekst": "Cada proceso es único y sigue su propio ritmo. Eres bienvenido a explorar sin compromiso lo que resuena contigo.",
-    "uitnodigingKnop": "Agendar conversación"
+    "label": "Historias de participantes",
+    "kop": "Lo que otros vivieron",
+    "subtitel": "Breves impresiones de quienes ya dieron el paso. En la página de historias puedes leer sus relatos completos.",
+    "alleVerhalenKnop": "Leer todas las historias",
+    "leesMeer": "Leer historia completa"
   },
   "cta": {
     "kop": "¿Nos conocemos?",
-    "tekst": "No tienes que decidir nada todavía. En una conversación sin compromiso nos conocemos y sentimos juntos si esto es lo adecuado para ti en este momento. Si se siente bien, después viene la entrevista de admisión.",
+    "tekst": "No tienes que decidir nada todavía. En una conversación sin compromiso nos conocemos y sentimos juntos qué es lo más adecuado para ti.",
     "knop": "Agenda una conversación",
     "intakeKnop": "Ir al formulario de admisión"
   }

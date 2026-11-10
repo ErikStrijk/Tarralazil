@@ -1,195 +1,89 @@
 ---
-// Ervaringen & Verhalen van deelnemers
-// Warm, tactiel en verhalend vormgegeven met echte portretten, kerncitaten en verdieping.
-import { Image } from 'astro:assets';
+// Ervaringen van deelnemers — lichte, snel scanbare weergave zonder nep-AI-portretten
+import Icoon from './Icoon.astro';
 import { getContent, getLangFromUrl, localePath, type Lang } from '../lib/i18n';
 
-import fotoMark from '../assets/ervaring-mark.webp';
-import fotoSherrelle from '../assets/ervaring-sherrelle.webp';
-import fotoAnna from '../assets/ervaring-anna.webp';
-import fotoDaan from '../assets/ervaring-daan.webp';
-import fotoElena from '../assets/ervaring-elena.webp';
-
-interface ErvaringItem {
+export interface ErvaringItem {
   id?: string;
   naam: string;
   ceremonie: string;
+  categorie?: string;
+  ceremonieSlug?: string;
   tekst: string;
   thema?: string;
-  foto?: string;
   kernzin?: string;
   verhaal?: string;
+  inzicht?: string;
 }
 
 interface Props {
   kop?: string;
   lang?: Lang;
+  limiet?: number;
 }
 
-const { kop: propKop, lang = getLangFromUrl(Astro.url.pathname) } = Astro.props;
+const { kop: propKop, lang = getLangFromUrl(Astro.url.pathname), limiet = 3 } = Astro.props;
 const { ervaringen: rawErvaringen, home } = getContent(lang);
-const ervaringen = rawErvaringen as ErvaringItem[];
+const alleErvaringen = rawErvaringen as ErvaringItem[];
+const getoondeErvaringen = limiet > 0 ? alleErvaringen.slice(0, limiet) : alleErvaringen;
 
-const kop = propKop || home.ervaringen.kop || 'Ervaringen van deelnemers';
-const label = home.ervaringen.label || 'Verhalen & Inzichten';
+const kop = propKop || home.ervaringen.kop || 'Wat anderen mochten ervaren';
 const subtitel = home.ervaringen.subtitel;
-const leesMeer = home.ervaringen.leesMeer || 'Lees het hele verhaal';
-const uitnodigingKop = home.ervaringen.uitnodigingKop;
-const uitnodigingTekst = home.ervaringen.uitnodigingTekst;
-const uitnodigingKnop = home.ervaringen.uitnodigingKnop;
+const alleVerhalenKnop = (home.ervaringen as any).alleVerhalenKnop || 'Lees alle verhalen';
 
-const portretten: Record<string, ImageMetadata> = {
-  mark: fotoMark,
-  sherrelle: fotoSherrelle,
-  anna: fotoAnna,
-  daan: fotoDaan,
-  elena: fotoElena,
-};
+const verhalenUrl = localePath('/verhalen/', lang);
 
-const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M8 24h30M28 14c3 5 7 8 11 10-4 2-8 5-11 10"/></svg>';
+const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24h30M28 14c3 5 7 8 11 10-4 2-8 5-11 10"/></svg>';
 ---
 
 <div class="ervaringen-sectie">
-  <!-- Sectie header met subtiele organische badge en context voor verhalen -->
-  <header class="max-w-[48rem]">
-    {label && (
-      <span class="inline-flex items-center gap-2 rounded-full border border-jungle-800/20 bg-mos-200/80 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-jungle-800">
-        <svg class="h-3.5 w-3.5 text-smaragd-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 2a9 9 0 0 1 9 9c0 5-4 9-9 9s-9-4-9-9a9 9 0 0 1 9-9Z"></path>
-          <path d="M12 7v10M8 12c1.5-2 4-2 4-2s2.5 0 4 2"></path>
-        </svg>
-        {label}
-      </span>
-    )}
-    <h2 id="ervaringen-kop" class="mt-3.5 text-[clamp(2.1rem,4.4vw,3.6rem)] leading-[1.12] text-woud-950">
+  <header class="maat-kop">
+    {home.ervaringen.label && <p class="eyebrow mb-2.5">{home.ervaringen.label}</p>}
+    <h2 id="ervaringen-kop" class="sectie-kop text-dauw-50">
       {kop}
     </h2>
     {subtitel && (
-      <p class="mt-4 max-w-[58ch] text-[1.0625rem] leading-relaxed text-jungle-800/90 md:text-[1.125rem]">
+      <p class="maat-tekst mt-4 text-[1.0625rem] leading-relaxed text-dauw-200">
         {subtitel}
       </p>
     )}
   </header>
 
-  <!-- Kaartenraster: ontworpen voor 3 maar schaalt naadloos als er later meer verhalen worden toegevoegd -->
-  <ul class="mt-12 grid gap-7 md:mt-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-    {ervaringen.map((e) => {
-      const fotoAfbeelding = e.foto && portretten[e.foto];
-      const initialen = e.naam.split(' ').map((n) => n[0]).join('').slice(0, 2);
+  <ul class="raster mt-12 md:mt-14">
+    {getoondeErvaringen.map((e) => {
+      const verhaalAnker = e.id ? `${verhalenUrl}#verhaal-${e.id}` : verhalenUrl;
+      const ceremonieHref = e.ceremonieSlug ? `${localePath('/ceremonies/', lang)}#${e.ceremonieSlug}` : localePath('/ceremonies/', lang);
 
       return (
-        <li class="flex">
-          <article class="ervaring-kaart flex h-full w-full flex-col justify-between rounded-[1.75rem] border border-[#dcc9a4]/75 bg-[#faf5ea]/90 p-7 shadow-[0_8px_28px_-6px_rgba(46,30,16,0.06)] transition-all duration-500 hover:-translate-y-1 hover:border-smaragd-500/40 hover:shadow-[0_16px_36px_-6px_rgba(46,30,16,0.12)] md:p-8">
-            <div>
-              <!-- Bovenste rij: portretfoto, naam, ceremonielabel en decoratief citaat-teken -->
-              <div class="flex items-start justify-between gap-4">
-                <div class="flex items-center gap-3.5">
-                  <div class="relative h-14 w-14 flex-none overflow-hidden rounded-full border-2 border-mos-200/90 shadow-sm ring-2 ring-jungle-800/10 sm:h-16 sm:w-16">
-                    {fotoAfbeelding ? (
-                      <Image
-                        src={fotoAfbeelding}
-                        alt={`Portret van ${e.naam}`}
-                        width={140}
-                        height={140}
-                        class="h-full w-full object-cover object-center"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div class="flex h-full w-full items-center justify-center bg-mos-200 font-kop text-lg text-jungle-800">
-                        {initialen}
-                      </div>
-                    )}
-                  </div>
-                  <div>
-                    <h3 class="font-kop text-xl leading-tight text-woud-950 sm:text-[1.25rem]">
-                      {e.naam}
-                    </h3>
-                    <span class="mt-1 inline-flex items-center gap-1.5 rounded-full border border-jungle-800/15 bg-mos-200/70 px-2.5 py-0.5 text-xs font-semibold text-jungle-800">
-                      {e.ceremonie}
-                    </span>
-                  </div>
-                </div>
+        <li class="flex md:col-span-4">
+          <article class="kaart-donker flex h-full w-full flex-col justify-between p-7 md:p-8">
+            <blockquote class="text-[1.02rem] leading-[1.75] text-dauw-200">
+              <p>“{e.tekst}”</p>
+            </blockquote>
 
-                <!-- Rustige citaat-icoon -->
-                <svg
-                  class="h-8 w-8 flex-none text-zonlicht-400/35"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
-                </svg>
+            <footer class="mt-7 flex items-center gap-3 border-t border-dauw-50/10 pt-5">
+              <span class="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-zonlicht-400/12 text-zonlicht-200" aria-hidden="true">
+                <Icoon naam="kiem" class="h-5 w-5" />
+              </span>
+              <div class="min-w-0 flex-1">
+                <a href={verhaalAnker} class="block font-kop text-base leading-snug text-dauw-50 no-underline hover:text-zonlicht-200">
+                  {e.naam}
+                </a>
+                <a href={ceremonieHref} class="mt-0.5 inline-block text-xs text-dauw-200/75 no-underline hover:text-dauw-50 hover:underline">
+                  {e.ceremonie}
+                </a>
               </div>
-
-              <!-- Thema van het verhaal (optioneel) -->
-              {e.thema && (
-                <div class="mt-5 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-smaragd-500">
-                  <span class="inline-block h-1.5 w-1.5 rounded-full bg-smaragd-500"></span>
-                  <span>{e.thema}</span>
-                </div>
-              )}
-
-              <!-- Kernzin als directe leeshulp / quote -->
-              {e.kernzin && (
-                <blockquote class="mt-2 font-kop text-[1.125rem] italic leading-[1.38] text-woud-950 sm:text-[1.2rem]">
-                  “{e.kernzin}”
-                </blockquote>
-              )}
-
-              <!-- Ervaringstekst -->
-              <div class="mt-4 text-[0.985rem] leading-[1.72] text-[#2c1d13]/90 space-y-3">
-                <p>{e.tekst}</p>
-              </div>
-            </div>
-
-            <!-- Verdiepend verhaal (indien beschikbaar) met inklapbare lezersbedding -->
-            {e.verhaal && (
-              <details class="groep-verhaal mt-5 border-t border-jungle-800/12 pt-3.5">
-                <summary class="inline-flex cursor-pointer select-none items-center gap-2 text-xs font-semibold uppercase tracking-wider text-jungle-800 transition-colors hover:text-woud-950 focus-visible:outline-hidden">
-                  <span>{leesMeer}</span>
-                  <span class="verhaal-pijl flex h-5 w-5 items-center justify-center rounded-full bg-mos-200/80 text-jungle-800 transition-transform duration-300">
-                    <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </span>
-                </summary>
-                <div class="mt-3.5 space-y-2 border-l-2 border-zonlicht-400/80 pl-3.5 text-[0.95rem] leading-[1.68] text-[#2c1d13]/95">
-                  <p class="font-normal">{e.verhaal}</p>
-                </div>
-              </details>
-            )}
+            </footer>
           </article>
         </li>
       );
     })}
   </ul>
 
-  <!-- Onderste uitnodigingsstrook: voorbereid op verhalen & actie -->
-  {uitnodigingKop && (
-    <aside class="mt-12 flex flex-col items-start justify-between gap-6 rounded-2xl border border-jungle-800/15 bg-mos-200/50 p-6 md:mt-16 md:flex-row md:items-center md:p-8">
-      <div class="max-w-[44rem]">
-        <h3 class="font-kop text-xl text-woud-950 md:text-2xl">{uitnodigingKop}</h3>
-        {uitnodigingTekst && (
-          <p class="mt-2 text-base leading-relaxed text-jungle-800">
-            {uitnodigingTekst}
-          </p>
-        )}
-      </div>
-      {uitnodigingKnop && (
-        <a href={localePath('/contact/', lang)} class="knop knop-zon flex-none">
-          {uitnodigingKnop}
-          <Fragment set:html={pijl} />
-        </a>
-      )}
-    </aside>
-  )}
+  <div class="mt-11 flex">
+    <a href={verhalenUrl} class="knop knop-rand">
+      {alleVerhalenKnop}
+      <Fragment set:html={pijl} />
+    </a>
+  </div>
 </div>
-
-<style>
-  .groep-verhaal[open] .verhaal-pijl {
-    transform: rotate(180deg);
-  }
-  .groep-verhaal summary::-webkit-details-marker {
-    display: none;
-  }
-</style>

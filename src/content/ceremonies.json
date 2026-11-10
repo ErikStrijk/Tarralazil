@@ -3,13 +3,15 @@
     "slug": "truffelceremonie",
     "titel": "Truffel­ceremonie",
     "kort": "Een reis naar binnen met truffels, in een rustige en veilige ruimte. Ik begeleid je voor, tijdens en na de ceremonie.",
+    "toelichting": "Een truffelceremonie is een zachte, aardse reis naar binnen. Waar het hoofd in het dagelijks leven vaak zoekt naar controle en verklaringen, nodigen truffels je uit om voorbij het denken te zakken en met mildheid te voelen wat er onder de oppervlakte leeft. In een warme, prikkelarme ruimte ben ik bij je om je te dragen bij alles wat zich aandient.",
     "icoon": "truffel",
     "soort": "ceremonie"
   },
   {
     "slug": "paddenstoelenceremonie",
     "titel": "Paddenstoelen­ceremonie",
-    "kort": "Voor wie dieper wil kijken naar wat onder de oppervlakte ligt. Met een zorgvuldige intake vooraf en ruimte om na afloop te landen.",
+    "kort": "Een verdiepende reis die helpt om vastgeroeste patronen en oude emoties in een nieuw, ruimer perspectief te ervaren.",
+    "toelichting": "Net zoals het netwerk van een paddenstoel onder de grond alles met elkaar verbindt, brengt een paddenstoelenceremonie je in contact met diepere lagen van je bewustzijn. Het helpt om oude patronen, weggestopte gevoelens en innerlijke wijsheid in een nieuw, ruimer licht te zien — altijd in jouw eigen tempo.",
     "icoon": "paddenstoel",
     "soort": "ceremonie"
   },
@@ -17,6 +19,7 @@
     "slug": "ayahuascaceremonie",
     "titel": "Ayahuasca­ceremonie",
     "kort": "Een eeuwenoude plantenbrouw uit het Amazonegebied. Dit vraagt om voorbereiding en vertrouwen; we voelen samen of dit jouw pad is.",
+    "toelichting": "Ayahuasca is een eeuwenoude plantenbrouw uit het Amazonegebied die diep doorwerkt op oude stukken, overtuigingen en familielijnen. Het is een krachtige ontmoeting met jezelf die vraagt om vertrouwen en overgave. Samen voelen we vooraf zorgvuldig aan of deze reis op dit moment bij je past.",
     "icoon": "liaan",
     "soort": "ceremonie"
   },
@@ -24,6 +27,7 @@
     "slug": "ademwerk",
     "titel": "Ademwerk",
     "kort": "Met bewuste ademhaling breng je je aandacht van je hoofd naar je lichaam. Zonder planten, en vaak verrassend diep.",
+    "toelichting": "Je ademhaling weerspiegelt vaak hoe je door het leven beweegt. Wanneer je lang spanning hebt vastgehouden of jezelf hebt ingehouden, zet zich dat vast in je lichaam. Met verbonden ademhaling breng je je aandacht op een natuurlijke manier van je hoofd terug naar je lijf. Helemaal zonder planten, en vaak verrassend diep en bevrijdend.",
     "icoon": "adem",
     "soort": "ademwerk"
   }

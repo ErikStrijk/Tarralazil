@@ -1,0 +1,33 @@
+---
+import { languages, defaultLang, getContent, localePath, type Lang } from '../../../lib/i18n';
+
+export function getStaticPaths() {
+  const paths: { params: { lang: Lang; slug: string } }[] = [];
+  for (const lang of languages) {
+    if (lang === defaultLang) continue;
+    const { ceremonies } = getContent(lang);
+    for (const c of ceremonies) {
+      paths.push({
+        params: { lang, slug: c.slug },
+      });
+    }
+  }
+  return paths;
+}
+
+const { lang, slug } = Astro.params as { lang: Lang; slug: string };
+const doel = `${localePath('/ceremonies/', lang)}#${slug}`;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${doel}`} />
+    <link rel="canonical" href={doel} />
+    <title>Redirecting…</title>
+    <script is:inline define:vars={{ doel }}>
+      window.location.replace(doel);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -3,27 +3,31 @@
     "slug": "truffelceremonie",
     "titel": "Truffle ceremony",
     "kort": "A journey inward with truffles, in a calm and safe space. I guide you before, during, and after the ceremony.",
+    "toelichting": "A truffle ceremony is a gentle, grounding journey inward. Where the mind often looks for control and explanations in daily life, truffles invite you to sink beneath analytical thought and softly feel what lives below the surface. In a warm, quiet space I stay with you through whatever arises.",
     "icoon": "truffel",
     "soort": "ceremonie"
   },
   {
     "slug": "paddenstoelenceremonie",
     "titel": "Mushroom ceremony",
-    "kort": "For those who want to look deeper at what lies beneath the surface. With a careful intake beforehand and space to land afterward.",
+    "kort": "A deepening journey that helps you experience ingrained patterns and held-back emotions in a wider, gentler light.",
+    "toelichting": "Just as mycelium connects everything underground, a mushroom ceremony brings you into contact with deeper layers of your awareness. It helps you see old patterns, held-back emotions, and inner wisdom in a wider, gentler light — always at your own pace.",
     "icoon": "paddenstoel",
     "soort": "ceremonie"
   },
   {
     "slug": "ayahuascaceremonie",
     "titel": "Ayahuasca ceremony",
-    "kort": "An ancient plant brew from the Amazon region. This calls for preparation and trust; together we feel whether this is your path.",
+    "kort": "An ancient plant brew from the Amazon. This requires preparation and trust; together we feel if this is your path.",
+    "toelichting": "Ayahuasca is an ancient plant brew from the Amazon that reaches deeply into old layers, beliefs, and family lines. It is a powerful encounter with yourself that asks for trust and surrender. Together we carefully sense beforehand whether this journey suits you right now.",
     "icoon": "liaan",
     "soort": "ceremonie"
   },
   {
     "slug": "ademwerk",
     "titel": "Breathwork",
-    "kort": "Through conscious breathing you bring your attention from your head into your body. Without plants, and often surprisingly deep.",
+    "kort": "With conscious breathing you bring your attention from your head to your body. Without plants, and often surprisingly deep.",
+    "toelichting": "Your breath often reflects how you move through life. When you have held on to tension or held yourself back for a long time, the body remembers. Through connected breathing you naturally bring your attention from your head back into your body. Entirely without plants, and often surprisingly deep and liberating.",
     "icoon": "adem",
     "soort": "ademwerk"
   }

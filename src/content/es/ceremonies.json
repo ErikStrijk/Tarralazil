@@ -2,28 +2,32 @@
   {
     "slug": "truffelceremonie",
     "titel": "Ceremonia de trufas",
-    "kort": "Un viaje hacia adentro con trufas, en un espacio tranquilo y seguro. Te acompaño antes, durante y después de la ceremonia.",
+    "kort": "Un viaje hacia el interior con trufas en un espacio tranquilo y seguro. Te acompaño antes, durante y después de la ceremonia.",
+    "toelichting": "Una ceremonia de trufas es un viaje interior suave y terrenal. Donde la mente suele buscar control y explicaciones en el día a día, las trufas te invitan a descender más allá del pensamiento y sentir con suavidad lo que habita bajo la superficie. En un espacio cálido y sereno te acompaño en todo momento.",
     "icoon": "truffel",
     "soort": "ceremonie"
   },
   {
     "slug": "paddenstoelenceremonie",
     "titel": "Ceremonia de setas",
-    "kort": "Para quienes quieren mirar más profundo hacia lo que yace bajo la superficie. Con una entrevista de admisión cuidadosa y espacio para aterrizar después.",
+    "kort": "Un viaje profundo que ayuda a contemplar viejos patrones y emociones guardadas desde una perspectiva más amplia y amable.",
+    "toelichting": "Así como el micelio conecta todo bajo la tierra, una ceremonia de setas te pone en contacto con capas más profundas de tu conciencia. Ayuda a contemplar viejos patrones, emociones guardadas y tu propia sabiduría interior desde una mirada más amplia y amable, siempre a tu propio ritmo.",
     "icoon": "paddenstoel",
     "soort": "ceremonie"
   },
   {
     "slug": "ayahuascaceremonie",
     "titel": "Ceremonia de ayahuasca",
-    "kort": "Una antigua infusión de plantas de la región amazónica. Esto requiere preparación y confianza; juntos sentimos si este es tu camino.",
+    "kort": "Una bebida ancestral de plantas del Amazonas. Requiere preparación y confianza; sentimos juntos si este es tu camino.",
+    "toelichting": "La ayahuasca es una preparación ancestral del Amazonas que trabaja profundamente sobre antiguas heridas, creencias y líneas familiares. Es un encuentro profundo contigo mismo que pide confianza y entrega. Antes de nada, sentimos juntos con calma si este camino es adecuado para ti en este momento.",
     "icoon": "liaan",
     "soort": "ceremonie"
   },
   {
     "slug": "ademwerk",
     "titel": "Trabajo de respiración",
-    "kort": "Con la respiración consciente llevas tu atención de la cabeza al cuerpo. Sin plantas, y a menudo sorprendentemente profundo.",
+    "kort": "Con la respiración consciente llevas tu atención de la mente al cuerpo. Sin plantas y, a menudo, sorprendentemente profundo.",
+    "toelichting": "Tu respiración suele reflejar cómo te mueves por la vida. Cuando has sostenido tensión durante mucho tiempo, el cuerpo lo guarda. Con la respiración conectada devuelves de forma natural la atención de la cabeza al cuerpo. Totalmente sin plantas y, a menudo, sorprendentemente profundo y liberador.",
     "icoon": "adem",
     "soort": "ademwerk"
   }

@@ -1,0 +1,89 @@
+{
+  "seo": {
+    "titel": "Sobre Nathalie | Tarra Lanzilli en Sappemeer",
+    "beschrijving": "Conoce a Nathalie, el corazón detrás de Tarra Lanzilli en Sappemeer. Acompañamiento personal en ceremonias y respiración desde la calma, la calidez y la experiencia."
+  },
+  "hero": {
+    "label": "Sobre Nathalie",
+    "kop": "El rostro detrás de Tarra Lanzilli",
+    "rol": "Guía de ceremonias y respiración",
+    "tekst": "Soy Nathalie. Desde mi espacio en casa en Sappemeer acompaño a personas, jóvenes y mayores, que sienten que es momento de detenerse y atender con suavidad lo que llevan dentro. Cercana, amorosa y con todo el tiempo para tu propio ritmo.",
+    "badges": [
+      "6 años en Inner Journey",
+      "Facilitadora Certificada",
+      "Acompañamiento cálido y personal"
+    ],
+    "portretAlt": "Retrato de Nathalie, sonriendo, con el pelo largo y oscuro"
+  },
+  "achtergrond": {
+    "label": "Fundamento",
+    "stats": [
+      {
+        "waarde": "Inner Journey",
+        "titel": "6 años de experiencia y certificada",
+        "tekst": "Formada y certificada en Inner Journey, donde durante seis años acompañé intensamente ceremonias y sesiones de respiración."
+      },
+      {
+        "waarde": "Jóvenes y adultos",
+        "titel": "En sintonía contigo",
+        "tekst": "Acompañamiento tanto para adultos como para jóvenes, adaptado a tu etapa vital y a lo que necesitas en este momento."
+      },
+      {
+        "waarde": "Sappemeer",
+        "titel": "Cercano y acogedor",
+        "tekst": "Sin prisas ni ambientes fríos: un refugio hogareño y sereno con atención totalmente personalizada."
+      }
+    ]
+  },
+  "verhaal": {
+    "label": "Mi historia",
+    "kop": "Por qué hago este trabajo con tanto amor",
+    "quote": "El verdadero movimiento no nace de esforzarse más, sino de encontrar la calma para sentir lo que realmente vive en ti.",
+    "tekst": [
+      "Gran parte de cómo reaccionamos, sentimos y nos movemos hoy por la vida tiene sus raíces en nuestros primeros años. De niños encontramos de forma natural maneras de salir adelante: quizá aprendiste a mostrarte siempre fuerte, a cuidar primero de los demás o a guardarte lo que sentías. Lo que entonces te ayudó puede empezar a pesar más adelante.",
+      "Mi propio camino con la respiración y las plantas me permitió experimentar lo que cambia cuando dejas de pelear contra esos patrones y te atreves a sostenerlos con suavidad. Donde la mente sigue dando vueltas, el cuerpo sabe con exactitud qué sigue guardado. Al darle espacio, recuperé una paz y una firmeza interior profundas.",
+      "Tras seis años hermosos e intensos acompañando procesos en Inner Journey, nació el deseo de crear un lugar propio e íntimo. Con Tarra Lanzilli reúno mi oficio e intuición en Sappemeer para ayudar a soltar viejas cargas y volver a casa en el propio cuerpo."
+    ]
+  },
+  "waarden": {
+    "label": "Cómo se vive una sesión",
+    "kop": "Qué puedes esperar de mí",
+    "intro": "Así te acompaño, desde el primer contacto hasta después de tu sesión.",
+    "items": [
+      {
+        "stap": "01",
+        "fase": "Antes",
+        "icoon": "kiem",
+        "titel": "Mirar con sinceridad qué necesitas hoy",
+        "tekst": "Primero hablamos con calma y reviso tu formulario con cuidado. También te digo con sinceridad si otra opción te encaja mejor."
+      },
+      {
+        "stap": "02",
+        "fase": "La llegada",
+        "icoon": "varen",
+        "titel": "Aterrizar con un té, sin reloj",
+        "tekst": "Sin horario rígido: empezamos con una taza de té en un espacio cálido y hogareño. Puedes llegar a tu ritmo."
+      },
+      {
+        "stap": "03",
+        "fase": "Durante el viaje",
+        "icoon": "wortel",
+        "titel": "Un ancla serena a tu lado",
+        "tekst": "Permanezco cerca, surja lo que surja. No fuerzo ni dirijo; estoy ahí con una palabra, una mano o una presencia tranquila."
+      },
+      {
+        "stap": "04",
+        "fase": "El regreso y después",
+        "icoon": "mycelium",
+        "titel": "Volver a casa con los pies en la tierra",
+        "tekst": "Al terminar hay tiempo para regresar, con algo de comer y beber. En los días siguientes seguimos en contacto."
+      }
+    ]
+  },
+  "cta": {
+    "kop": "¿Nos conocemos con calma?",
+    "tekst": "¿Tienes preguntas, dudas o simplemente quieres escuchar mi voz primero? Escríbeme con confianza o agenda una charla introductoria sin compromiso.",
+    "knop": "Agendar una conversación",
+    "tweede": "Ver las ceremonias"
+  }
+}

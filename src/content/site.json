@@ -1,7 +1,7 @@
 {
   "naam": "Tarra Lanzilli",
   "eigenaar": "Nathalie",
-  "footerTekst": "Ik begeleid mensen, jong en oud, bij het helen van oude patronen. In je eigen tempo, met aandacht voor lichaam en gevoel.",
+  "footerTekst": "Persoonlijke begeleiding bij ceremonies en ademwerk. Een rustige, veilige plek om te vertragen, te voelen en aan te kijken wat onder de oppervlakte leeft.",
   "contact": {
     "plaats": "Sappemeer",
     "email": "Tarralanzilli@gmail.com",
@@ -18,17 +18,16 @@
       "href": "/"
     },
     {
-      "label": "Ceremonies",
-      "href": "/ceremonies/",
-      "ceremonies": true
-    },
-    {
-      "label": "Ademwerk",
-      "href": "/ceremonies/ademwerk/"
-    },
-    {
       "label": "Over mij",
       "href": "/over-mij/"
+    },
+    {
+      "label": "Ceremonies",
+      "href": "/ceremonies/"
+    },
+    {
+      "label": "Verhalen",
+      "href": "/verhalen/"
     },
     {
       "label": "Contact",

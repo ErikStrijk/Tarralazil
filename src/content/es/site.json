@@ -1,7 +1,7 @@
 {
   "naam": "Tarra Lanzilli",
   "eigenaar": "Nathalie",
-  "footerTekst": "Acompaño a personas, jóvenes y mayores, en la sanación de viejos patrones. A tu propio ritmo, con atención al cuerpo y al sentir.",
+  "footerTekst": "Acompañamiento personal en ceremonias y respiración. Un espacio tranquilo y seguro para ir más despacio, sentir y mirar lo que vive bajo la superficie.",
   "contact": {
     "plaats": "Sappemeer",
     "email": "Tarralanzilli@gmail.com",
@@ -14,13 +14,13 @@
   },
   "menu": [
     { "label": "Inicio", "href": "/es/" },
-    { "label": "Ceremonias", "href": "/es/ceremonias/", "ceremonies": true },
-    { "label": "Trabajo de respiración", "href": "/es/ceremonias/trabajo-de-respiracion/" },
-    { "label": "Sobre mí", "href": "/es/sobre-mi/" },
-    { "label": "Contacto", "href": "/es/contacto/" }
+    { "label": "Sobre mí", "href": "/es/over-mij/" },
+    { "label": "Ceremonias", "href": "/es/ceremonies/" },
+    { "label": "Historias", "href": "/es/verhalen/" },
+    { "label": "Contacto", "href": "/es/contact/" }
   ],
   "juridisch": [
-    { "label": "Política de privacidad", "href": "/es/politica-de-privacidad/" },
-    { "label": "Términos y condiciones", "href": "/es/terminos-y-condiciones/" }
+    { "label": "Política de privacidad", "href": "/es/privacyverklaring/" },
+    { "label": "Términos y condiciones", "href": "/es/algemene-voorwaarden/" }
   ]
 }

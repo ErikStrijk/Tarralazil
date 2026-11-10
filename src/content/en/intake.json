@@ -1,0 +1,219 @@
+{
+  "seo": {
+    "titel": "Intake Form – Preparing for your session | Tarra Lanzilli",
+    "beschrijving": "Complete the confidential intake form in peace to prepare for your ceremony or breathwork session with Nathalie at Tarra Lanzilli in Sappemeer."
+  },
+  "hero": {
+    "label": "Preparation & Safety",
+    "kop": "Intake form – Preparing for your session",
+    "tekst": "A ceremony or breathwork session begins with careful preparation. Through these questions I get to know you, your background, and your health, allowing me to create a safe and lovingly attuned space for you."
+  },
+  "stappenNav": [
+    { "id": "persoonlijk", "label": "1. Personal" },
+    { "id": "levensloop", "label": "2. Life history" },
+    { "id": "gezondheid", "label": "3. Health" },
+    { "id": "huidig", "label": "4. Current situation" },
+    { "id": "ervaring", "label": "5. Experience" },
+    { "id": "aanvullend", "label": "6. Additional & Sign" }
+  ],
+  "formulier": {
+    "verplichtNotitie": "Only your name, phone number, email address, and the consent checkbox at the bottom are required. For the remaining questions, share what feels right for you.",
+    "foutMelding": "Please check the highlighted required fields (name, phone number, email address, and the consent checkbox at the bottom).",
+    "secties": {
+      "persoonlijk": {
+        "nummer": "01",
+        "titel": "Personal details",
+        "intro": "How may I address you and how can I reach you to coordinate our appointment?",
+        "velden": {
+          "naam": { "label": "Name", "placeholder": "First and last name" },
+          "leeftijd": { "label": "Age", "placeholder": "E.g. 38 years" },
+          "woonplaats": { "label": "City / Town", "placeholder": "E.g. Groningen" },
+          "telefoon": { "label": "Phone number", "placeholder": "06 12 34 56 78" },
+          "email": { "label": "Email address", "placeholder": "name@example.com" },
+          "facebook": { "label": "Facebook (optional)", "placeholder": "Your name or profile link on Facebook" },
+          "instagram": { "label": "Instagram (optional)", "placeholder": "@yourhandle" }
+        }
+      },
+      "levensloop": {
+        "nummer": "02",
+        "titel": "Life History & Background",
+        "intro": "Patterns and beliefs often have their roots in our earliest years. Share per life phase what you know or what feels relevant to you.",
+        "velden": {
+          "conceptie": {
+            "label": "From conception",
+            "toelichting": "How did your mother's pregnancy go? Were you planned/wanted, was there stress, grief, or special circumstances?",
+            "placeholder": "What you know or sense about this..."
+          },
+          "geboorte": {
+            "label": "Birth",
+            "toelichting": "How did your birth go (e.g. natural, C-section, premature, incubator) and how were the first weeks?",
+            "placeholder": "Course of your birth and first weeks..."
+          },
+          "kindertijd": {
+            "label": "Age 0–7 years",
+            "toelichting": "How did you experience your early childhood and the family you grew up in? Did it feel safe and secure?",
+            "placeholder": "Memories or impressions from your early childhood..."
+          },
+          "tienerjaren": {
+            "label": "Teenage years",
+            "toelichting": "How did your adolescence, school years, and contact with peers or family go?",
+            "placeholder": "Important experiences from your teenage years..."
+          },
+          "volwassen": {
+            "label": "Adult life (20+ to present)",
+            "toelichting": "Which important events, relationships, losses, or turning points have shaped your adult life?",
+            "placeholder": "A broad outline of your path so far..."
+          },
+          "traumaOuders": {
+            "label": "Parental trauma",
+            "toelichting": "Are there major life events or unresolved themes in your parents' lives or family line that still resonate?",
+            "placeholder": "What you know about your parents' background..."
+          }
+        }
+      },
+      "gezondheid": {
+        "nummer": "03",
+        "titel": "Health & Medical",
+        "intro": "For a safe ceremony or breathwork session, it is essential to have a clear picture of any medical conditions and contraindications.",
+        "velden": {
+          "ziekenhuis": {
+            "label": "Hospital admissions / surgeries",
+            "placeholder": "Have you ever been hospitalized or operated on? If so, for what and when?"
+          },
+          "hartproblemen": {
+            "label": "Heart conditions or other physical conditions",
+            "toelichting": "Think of cardiovascular disease, high or low blood pressure, epilepsy, asthma, glaucoma, or a possible pregnancy.",
+            "placeholder": "Describe any physical conditions or complaints..."
+          },
+          "verslaving": {
+            "label": "Addiction or sensitivity to addiction",
+            "placeholder": "Is there or has there been any addiction or sensitivity to addiction?"
+          },
+          "medicatie": {
+            "label": "Medication use",
+            "toelichting": "Please list all medications you take (especially antidepressants such as SSRIs/MAOIs, ADHD medication, sleeping pills/tranquilizers, and blood pressure medication).",
+            "placeholder": "Which medications or supplements do you currently use?"
+          },
+          "aandoeningen": {
+            "label": "Physical or mental health conditions (including family history)",
+            "toelichting": "E.g. depression, burnout, PTSD, personality disorders, bipolar disorder, or sensitivity to psychosis (including in your family).",
+            "placeholder": "Any diagnoses or sensitivities in yourself or your family..."
+          },
+          "huidigeBehandeling": {
+            "label": "Currently in treatment with a therapist or doctor",
+            "placeholder": "Are you currently receiving treatment or care? If so, with whom and for what?"
+          },
+          "eerdereBehandeling": {
+            "label": "Previous treatment for psychological complaints",
+            "placeholder": "Have you received therapy, coaching, or mental health support in the past?"
+          }
+        }
+      },
+      "huidig": {
+        "nummer": "04",
+        "titel": "Current Situation & Emotions",
+        "intro": "What does your life look like right now and what brings you to this session?",
+        "velden": {
+          "woonsituatie": {
+            "label": "Living situation",
+            "placeholder": "How do you live (alone, with partner, family) and how do you experience your current home environment?"
+          },
+          "emoties": {
+            "label": "Daily emotions",
+            "placeholder": "Which feelings or moods are prominent in your daily life?"
+          },
+          "probleem": {
+            "label": "Own description of issue / theme",
+            "placeholder": "What are you struggling with or which pattern is on your mind?"
+          },
+          "oorzaak": {
+            "label": "Cause, trigger, or circumstances",
+            "placeholder": "What do you feel is the cause or what triggers this?"
+          },
+          "verwachtingen": {
+            "label": "Expectations for the session",
+            "placeholder": "What is your longing or intention? What do you hope the session will bring you?"
+          }
+        }
+      },
+      "ervaring": {
+        "nummer": "05",
+        "titel": "Experience & Substance Use",
+        "intro": "Finally, a few brief questions about your experience with substances, plant medicines, and somatic work.",
+        "velden": {
+          "drugs": {
+            "label": "Substance use",
+            "toelichting": "Do you use alcohol, cannabis, tobacco, or recreational substances (and how often)?",
+            "placeholder": "Current or past use..."
+          },
+          "entheogenen": {
+            "label": "Use of entheogenic substances",
+            "toelichting": "Have you previously journeyed with truffles, mushrooms, ayahuasca, or other plant medicines? How did you experience that?",
+            "placeholder": "Previous experiences with plant medicines..."
+          },
+          "lichaamswerk": {
+            "label": "Previous experience with bodywork / breathwork",
+            "toelichting": "For example connected breathwork, BRTT, TRB, yoga, meditation, or somatic therapy.",
+            "placeholder": "Your experience with breathwork or bodywork..."
+          }
+        }
+      },
+      "aanvullend": {
+        "nummer": "06",
+        "titel": "Additional & Signature",
+        "intro": "Let me know below which form of session you prefer and when you would like to come.",
+        "velden": {
+          "ceremonieVoorkeur": {
+            "label": "Which session do you prefer?",
+            "opties": [
+              "Decide together during an introductory call",
+              "Truffle ceremony",
+              "Mushroom ceremony",
+              "Ayahuasca ceremony",
+              "Breathwork"
+            ]
+          },
+          "datum": {
+            "label": "Preferred date or period for the session",
+            "placeholder": "E.g. preferred days, a specific month, or 'in consultation'"
+          },
+          "bijzonderheden": {
+            "label": "Other remarks or details",
+            "placeholder": "Is there anything else important to know (e.g. dietary needs, allergies, or questions)?"
+          }
+        },
+        "ondertekening": {
+          "kop": "Sign and submit",
+          "toelichting": "Draw your signature below with your mouse or finger (or type your name) to confirm your intake.",
+          "canvasLabel": "Signature (draw in the box)",
+          "wissenKnop": "Clear signature",
+          "naamOndertekeningLabel": "Signed by (name)",
+          "naamOndertekeningPlaceholder": "Type your full name",
+          "datumLabel": "Date",
+          "akkoordTekst": "I declare that I have completed this form truthfully and consent to the confidential processing of my (health) data in preparation for my session, as described in the",
+          "akkoordLink": "privacy policy",
+          "verzendKnop": "Sign and submit"
+        }
+      }
+    },
+    "succes": {
+      "kop": "Thank you for your trust",
+      "tekst": "Your intake form has been completed. Here is how we will proceed from here:",
+      "stappen": [
+        {
+          "titel": "1. Careful review",
+          "tekst": "I will review your answers calmly and in complete confidence."
+        },
+        {
+          "titel": "2. Personal contact",
+          "tekst": "Within a few days I will contact you by phone or WhatsApp to get acquainted and discuss your intake together."
+        },
+        {
+          "titel": "3. Planning & preparation",
+          "tekst": "When it feels right and safe for both of us, we will set a date and you will receive all practical preparation guidelines."
+        }
+      ],
+      "terugKnop": "Back to homepage"
+    }
+  }
+}

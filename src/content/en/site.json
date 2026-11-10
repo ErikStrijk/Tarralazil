@@ -1,7 +1,7 @@
 {
   "naam": "Tarra Lanzilli",
   "eigenaar": "Nathalie",
-  "footerTekst": "I guide people, young and old, in healing old patterns. At your own pace, with attention to body and feeling.",
+  "footerTekst": "Personal guidance in ceremonies and breathwork. A calm, safe space to slow down, feel, and meet what lives beneath the surface.",
   "contact": {
     "plaats": "Sappemeer",
     "email": "Tarralanzilli@gmail.com",
@@ -14,13 +14,13 @@
   },
   "menu": [
     { "label": "Home", "href": "/en/" },
-    { "label": "Ceremonies", "href": "/en/ceremonies/", "ceremonies": true },
-    { "label": "Breathwork", "href": "/en/ceremonies/ademwerk/" },
-    { "label": "About me", "href": "/en/about-me/" },
+    { "label": "About me", "href": "/en/over-mij/" },
+    { "label": "Ceremonies", "href": "/en/ceremonies/" },
+    { "label": "Stories", "href": "/en/verhalen/" },
     { "label": "Contact", "href": "/en/contact/" }
   ],
   "juridisch": [
-    { "label": "Privacy policy", "href": "/en/privacy-policy/" },
-    { "label": "Terms and conditions", "href": "/en/terms-and-conditions/" }
+    { "label": "Privacy policy", "href": "/en/privacyverklaring/" },
+    { "label": "Terms and conditions", "href": "/en/algemene-voorwaarden/" }
   ]
 }

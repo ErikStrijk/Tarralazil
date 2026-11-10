@@ -1,0 +1,787 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from './PageHero.astro';
+import Icoon from './Icoon.astro';
+import { getContent, localePath, type Lang } from '../lib/i18n';
+import intakeHeroBeeld from '../assets/intro-wortels-beuk.webp';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { intake: data } = getContent(lang);
+const { hero, stappenNav, formulier } = data;
+const { secties, succes } = formulier;
+
+const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24h30M28 14c3 5 7 8 11 10-4 2-8 5-11 10"/></svg>';
+const keurmerkIcoon = '<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
+
+const vandaag = new Date().toISOString().split('T')[0];
+---
+
+<Base titel={data.seo.titel} beschrijving={data.seo.beschrijving} lang={lang}>
+  <!-- 1. Rustige Hero -->
+  <PageHero
+    id="intake-kop"
+    eyebrow={hero.label}
+    kop={hero.kop}
+    tekst={hero.tekst}
+    beeld={intakeHeroBeeld}
+    beeldPositie="object-[center_45%]"
+  />
+
+  <!-- 2. Het Intakeformulier -->
+  <section class="relative bg-woud-800 pb-28 pt-4 md:pb-36 md:pt-6" aria-labelledby="formulier-start">
+    <div class="container-woud raster">
+      <div class="lg:col-span-9">
+        <!-- Stappen-overzicht -->
+        <nav aria-label="Onderdelen van het intakeformulier" class="mb-10" data-groei>
+          <ul class="flex flex-wrap gap-2">
+            {stappenNav.map((stap) => (
+              <li>
+                <a
+                  href={`#sectie-${stap.id}`}
+                  class="inline-flex items-center rounded-full border border-dauw-50/15 bg-woud-950/50 px-4 py-2 text-sm font-medium text-dauw-200 no-underline transition-colors hover:border-zonlicht-400/60 hover:text-zonlicht-200"
+                >
+                  {stap.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p id="formulier-start" class="mt-4 text-sm text-dauw-200/85">
+            {formulier.verplichtNotitie}
+          </p>
+        </nav>
+
+        <form id="intake-formulier" class="space-y-10" novalidate autocomplete="off">
+          <!-- Foutmelding bovenaan -->
+          <div
+            id="intake-fout"
+            class="hidden rounded-2xl border border-orchidee-500/70 bg-orchidee-500/15 px-5 py-4 text-base text-dauw-50"
+            role="alert"
+          >
+            {formulier.foutMelding}
+          </div>
+
+          <!-- SECTIE 1: Persoonlijke gegevens -->
+          <fieldset id="sectie-persoonlijk" class="intake-sectie scroll-mt-28" data-groei>
+            <div class="sectie-header">
+              <span class="sectie-nr">{secties.persoonlijk.nummer}</span>
+              <div>
+                <h2 class="text-[clamp(1.55rem,2.6vw,2.05rem)] text-dauw-50">{secties.persoonlijk.titel}</h2>
+                <p class="mt-1.5 text-dauw-200">{secties.persoonlijk.intro}</p>
+              </div>
+            </div>
+
+            <div class="mt-7 grid gap-5 sm:grid-cols-2">
+              <div class="sm:col-span-2">
+                <label for="intake-naam" class="veld-label">
+                  {secties.persoonlijk.velden.naam.label}
+                  <span class="text-zonlicht-200" aria-hidden="true">*</span>
+                </label>
+                <input
+                  id="intake-naam"
+                  name="naam"
+                  type="text"
+                  required
+                  placeholder={secties.persoonlijk.velden.naam.placeholder}
+                  class="veld-input"
+                />
+              </div>
+
+              <div>
+                <label for="intake-leeftijd" class="veld-label">
+                  {secties.persoonlijk.velden.leeftijd.label}
+                </label>
+                <input
+                  id="intake-leeftijd"
+                  name="leeftijd"
+                  type="text"
+                  placeholder={secties.persoonlijk.velden.leeftijd.placeholder}
+                  class="veld-input"
+                />
+              </div>
+
+              <div>
+                <label for="intake-woonplaats" class="veld-label">
+                  {secties.persoonlijk.velden.woonplaats.label}
+                </label>
+                <input
+                  id="intake-woonplaats"
+                  name="woonplaats"
+                  type="text"
+                  placeholder={secties.persoonlijk.velden.woonplaats.placeholder}
+                  class="veld-input"
+                />
+              </div>
+
+              <div>
+                <label for="intake-telefoon" class="veld-label">
+                  {secties.persoonlijk.velden.telefoon.label}
+                  <span class="text-zonlicht-200" aria-hidden="true">*</span>
+                </label>
+                <input
+                  id="intake-telefoon"
+                  name="telefoon"
+                  type="tel"
+                  required
+                  placeholder={secties.persoonlijk.velden.telefoon.placeholder}
+                  class="veld-input"
+                />
+              </div>
+
+              <div>
+                <label for="intake-email" class="veld-label">
+                  {secties.persoonlijk.velden.email.label}
+                  <span class="text-zonlicht-200" aria-hidden="true">*</span>
+                </label>
+                <input
+                  id="intake-email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder={secties.persoonlijk.velden.email.placeholder}
+                  class="veld-input"
+                />
+              </div>
+
+              <div>
+                <label for="intake-facebook" class="veld-label">
+                  {secties.persoonlijk.velden.facebook.label}
+                </label>
+                <input
+                  id="intake-facebook"
+                  name="facebook"
+                  type="text"
+                  placeholder={secties.persoonlijk.velden.facebook.placeholder}
+                  class="veld-input"
+                />
+              </div>
+
+              <div>
+                <label for="intake-instagram" class="veld-label">
+                  {secties.persoonlijk.velden.instagram.label}
+                </label>
+                <input
+                  id="intake-instagram"
+                  name="instagram"
+                  type="text"
+                  placeholder={secties.persoonlijk.velden.instagram.placeholder}
+                  class="veld-input"
+                />
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- SECTIE 2: Levensloop & Achtergrond -->
+          <fieldset id="sectie-levensloop" class="intake-sectie scroll-mt-28" data-groei>
+            <div class="sectie-header">
+              <span class="sectie-nr">{secties.levensloop.nummer}</span>
+              <div>
+                <h2 class="text-[clamp(1.55rem,2.6vw,2.05rem)] text-dauw-50">{secties.levensloop.titel}</h2>
+                <p class="mt-1.5 text-dauw-200">{secties.levensloop.intro}</p>
+              </div>
+            </div>
+
+            <div class="mt-7 space-y-6">
+              <div>
+                <label for="intake-conceptie" class="veld-label">{secties.levensloop.velden.conceptie.label}</label>
+                <p class="veld-toelichting">{secties.levensloop.velden.conceptie.toelichting}</p>
+                <textarea
+                  id="intake-conceptie"
+                  name="conceptie"
+                  rows="3"
+                  placeholder={secties.levensloop.velden.conceptie.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-geboorte" class="veld-label">{secties.levensloop.velden.geboorte.label}</label>
+                <p class="veld-toelichting">{secties.levensloop.velden.geboorte.toelichting}</p>
+                <textarea
+                  id="intake-geboorte"
+                  name="geboorte"
+                  rows="3"
+                  placeholder={secties.levensloop.velden.geboorte.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-kindertijd" class="veld-label">{secties.levensloop.velden.kindertijd.label}</label>
+                <p class="veld-toelichting">{secties.levensloop.velden.kindertijd.toelichting}</p>
+                <textarea
+                  id="intake-kindertijd"
+                  name="kindertijd"
+                  rows="3"
+                  placeholder={secties.levensloop.velden.kindertijd.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-tienerjaren" class="veld-label">{secties.levensloop.velden.tienerjaren.label}</label>
+                <p class="veld-toelichting">{secties.levensloop.velden.tienerjaren.toelichting}</p>
+                <textarea
+                  id="intake-tienerjaren"
+                  name="tienerjaren"
+                  rows="3"
+                  placeholder={secties.levensloop.velden.tienerjaren.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-volwassen" class="veld-label">{secties.levensloop.velden.volwassen.label}</label>
+                <p class="veld-toelichting">{secties.levensloop.velden.volwassen.toelichting}</p>
+                <textarea
+                  id="intake-volwassen"
+                  name="volwassen"
+                  rows="3"
+                  placeholder={secties.levensloop.velden.volwassen.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-trauma-ouders" class="veld-label">{secties.levensloop.velden.traumaOuders.label}</label>
+                <p class="veld-toelichting">{secties.levensloop.velden.traumaOuders.toelichting}</p>
+                <textarea
+                  id="intake-trauma-ouders"
+                  name="trauma_ouders"
+                  rows="3"
+                  placeholder={secties.levensloop.velden.traumaOuders.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- SECTIE 3: Gezondheid & Medisch -->
+          <fieldset id="sectie-gezondheid" class="intake-sectie scroll-mt-28" data-groei>
+            <div class="sectie-header">
+              <span class="sectie-nr">{secties.gezondheid.nummer}</span>
+              <div>
+                <h2 class="text-[clamp(1.55rem,2.6vw,2.05rem)] text-dauw-50">{secties.gezondheid.titel}</h2>
+                <p class="mt-1.5 text-dauw-200">{secties.gezondheid.intro}</p>
+              </div>
+            </div>
+
+            <div class="mt-7 space-y-6">
+              <div>
+                <label for="intake-ziekenhuis" class="veld-label">{secties.gezondheid.velden.ziekenhuis.label}</label>
+                <textarea
+                  id="intake-ziekenhuis"
+                  name="ziekenhuisopnames"
+                  rows="2"
+                  placeholder={secties.gezondheid.velden.ziekenhuis.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-hartproblemen" class="veld-label">{secties.gezondheid.velden.hartproblemen.label}</label>
+                <p class="veld-toelichting">{secties.gezondheid.velden.hartproblemen.toelichting}</p>
+                <textarea
+                  id="intake-hartproblemen"
+                  name="hartproblemen"
+                  rows="2"
+                  placeholder={secties.gezondheid.velden.hartproblemen.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-verslaving" class="veld-label">{secties.gezondheid.velden.verslaving.label}</label>
+                <textarea
+                  id="intake-verslaving"
+                  name="verslaving"
+                  rows="2"
+                  placeholder={secties.gezondheid.velden.verslaving.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-medicatie" class="veld-label">{secties.gezondheid.velden.medicatie.label}</label>
+                <p class="veld-toelichting">{secties.gezondheid.velden.medicatie.toelichting}</p>
+                <textarea
+                  id="intake-medicatie"
+                  name="medicatiegebruik"
+                  rows="3"
+                  placeholder={secties.gezondheid.velden.medicatie.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-aandoeningen" class="veld-label">{secties.gezondheid.velden.aandoeningen.label}</label>
+                <p class="veld-toelichting">{secties.gezondheid.velden.aandoeningen.toelichting}</p>
+                <textarea
+                  id="intake-aandoeningen"
+                  name="aandoeningen"
+                  rows="3"
+                  placeholder={secties.gezondheid.velden.aandoeningen.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-huidige-behandeling" class="veld-label">{secties.gezondheid.velden.huidigeBehandeling.label}</label>
+                <textarea
+                  id="intake-huidige-behandeling"
+                  name="huidige_behandeling"
+                  rows="2"
+                  placeholder={secties.gezondheid.velden.huidigeBehandeling.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-eerdere-behandeling" class="veld-label">{secties.gezondheid.velden.eerdereBehandeling.label}</label>
+                <textarea
+                  id="intake-eerdere-behandeling"
+                  name="eerdere_behandeling"
+                  rows="2"
+                  placeholder={secties.gezondheid.velden.eerdereBehandeling.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- SECTIE 4: Huidige situatie & Emoties -->
+          <fieldset id="sectie-huidig" class="intake-sectie scroll-mt-28" data-groei>
+            <div class="sectie-header">
+              <span class="sectie-nr">{secties.huidig.nummer}</span>
+              <div>
+                <h2 class="text-[clamp(1.55rem,2.6vw,2.05rem)] text-dauw-50">{secties.huidig.titel}</h2>
+                <p class="mt-1.5 text-dauw-200">{secties.huidig.intro}</p>
+              </div>
+            </div>
+
+            <div class="mt-7 space-y-6">
+              <div>
+                <label for="intake-woonsituatie" class="veld-label">{secties.huidig.velden.woonsituatie.label}</label>
+                <textarea
+                  id="intake-woonsituatie"
+                  name="woonsituatie"
+                  rows="2"
+                  placeholder={secties.huidig.velden.woonsituatie.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-emoties" class="veld-label">{secties.huidig.velden.emoties.label}</label>
+                <textarea
+                  id="intake-emoties"
+                  name="dagelijkse_emoties"
+                  rows="2"
+                  placeholder={secties.huidig.velden.emoties.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-probleem" class="veld-label">{secties.huidig.velden.probleem.label}</label>
+                <textarea
+                  id="intake-probleem"
+                  name="probleem_omschrijving"
+                  rows="3"
+                  placeholder={secties.huidig.velden.probleem.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-oorzaak" class="veld-label">{secties.huidig.velden.oorzaak.label}</label>
+                <textarea
+                  id="intake-oorzaak"
+                  name="oorzaak_aanleiding"
+                  rows="3"
+                  placeholder={secties.huidig.velden.oorzaak.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-verwachtingen" class="veld-label">{secties.huidig.velden.verwachtingen.label}</label>
+                <textarea
+                  id="intake-verwachtingen"
+                  name="verwachtingen"
+                  rows="3"
+                  placeholder={secties.huidig.velden.verwachtingen.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- SECTIE 5: Ervaring & Middelengebruik -->
+          <fieldset id="sectie-ervaring" class="intake-sectie scroll-mt-28" data-groei>
+            <div class="sectie-header">
+              <span class="sectie-nr">{secties.ervaring.nummer}</span>
+              <div>
+                <h2 class="text-[clamp(1.55rem,2.6vw,2.05rem)] text-dauw-50">{secties.ervaring.titel}</h2>
+                <p class="mt-1.5 text-dauw-200">{secties.ervaring.intro}</p>
+              </div>
+            </div>
+
+            <div class="mt-7 space-y-6">
+              <div>
+                <label for="intake-drugs" class="veld-label">{secties.ervaring.velden.drugs.label}</label>
+                <p class="veld-toelichting">{secties.ervaring.velden.drugs.toelichting}</p>
+                <textarea
+                  id="intake-drugs"
+                  name="drugsgebruik"
+                  rows="2"
+                  placeholder={secties.ervaring.velden.drugs.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-entheogenen" class="veld-label">{secties.ervaring.velden.entheogenen.label}</label>
+                <p class="veld-toelichting">{secties.ervaring.velden.entheogenen.toelichting}</p>
+                <textarea
+                  id="intake-entheogenen"
+                  name="entheogene_middelen"
+                  rows="2"
+                  placeholder={secties.ervaring.velden.entheogenen.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="intake-lichaamswerk" class="veld-label">{secties.ervaring.velden.lichaamswerk.label}</label>
+                <p class="veld-toelichting">{secties.ervaring.velden.lichaamswerk.toelichting}</p>
+                <textarea
+                  id="intake-lichaamswerk"
+                  name="ervaring_lichaamswerk"
+                  rows="2"
+                  placeholder={secties.ervaring.velden.lichaamswerk.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- SECTIE 6: Aanvullend & Tekenen en verzenden -->
+          <fieldset id="sectie-aanvullend" class="intake-sectie scroll-mt-28" data-groei>
+            <div class="sectie-header">
+              <span class="sectie-nr">{secties.aanvullend.nummer}</span>
+              <div>
+                <h2 class="text-[clamp(1.55rem,2.6vw,2.05rem)] text-dauw-50">{secties.aanvullend.titel}</h2>
+                <p class="mt-1.5 text-dauw-200">{secties.aanvullend.intro}</p>
+              </div>
+            </div>
+
+            <div class="mt-7 space-y-6">
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label for="intake-voorkeur" class="veld-label">{secties.aanvullend.velden.ceremonieVoorkeur.label}</label>
+                  <select id="intake-voorkeur" name="ceremonie_voorkeur" class="veld-input">
+                    {secties.aanvullend.velden.ceremonieVoorkeur.opties.map((opt: string) => (
+                      <option value={opt}>{opt}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label for="intake-datum" class="veld-label">{secties.aanvullend.velden.datum.label}</label>
+                  <input
+                    id="intake-datum"
+                    name="gewenste_datum"
+                    type="text"
+                    placeholder={secties.aanvullend.velden.datum.placeholder}
+                    class="veld-input"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="intake-bijzonderheden" class="veld-label">{secties.aanvullend.velden.bijzonderheden.label}</label>
+                <textarea
+                  id="intake-bijzonderheden"
+                  name="overige_bijzonderheden"
+                  rows="3"
+                  placeholder={secties.aanvullend.velden.bijzonderheden.placeholder}
+                  class="veld-input"
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- Ondertekening blok -->
+            <div class="mt-10 border-t border-dauw-50/12 pt-8">
+              <h3 class="text-[1.35rem] text-dauw-50">{secties.aanvullend.ondertekening.kop}</h3>
+              <p class="mt-1.5 text-sm text-dauw-200">{secties.aanvullend.ondertekening.toelichting}</p>
+
+              <!-- Handtekening canvas -->
+              <div class="mt-5">
+                <div class="flex items-center justify-between gap-4 mb-2">
+                  <label for="handtekening-canvas" class="veld-label !mb-0">
+                    {secties.aanvullend.ondertekening.canvasLabel}
+                  </label>
+                  <button
+                    type="button"
+                    id="handtekening-wissen"
+                    class="text-xs font-medium text-zonlicht-200 underline hover:text-dauw-50"
+                  >
+                    {secties.aanvullend.ondertekening.wissenKnop}
+                  </button>
+                </div>
+                <div class="rounded-2xl border border-dauw-50/20 bg-woud-900/90 p-2">
+                  <canvas
+                    id="handtekening-canvas"
+                    width="640"
+                    height="150"
+                    class="h-[135px] w-full cursor-crosshair touch-none rounded-xl bg-woud-950/70"
+                    aria-label={secties.aanvullend.ondertekening.canvasLabel}
+                  ></canvas>
+                </div>
+              </div>
+
+              <div class="mt-5 grid gap-5 sm:grid-cols-[minmax(0,1fr)_12rem]">
+                <div>
+                  <label for="intake-ondertekening-naam" class="veld-label">
+                    {secties.aanvullend.ondertekening.naamOndertekeningLabel}
+                  </label>
+                  <input
+                    id="intake-ondertekening-naam"
+                    name="ondertekening_naam"
+                    type="text"
+                    placeholder={secties.aanvullend.ondertekening.naamOndertekeningPlaceholder}
+                    class="veld-input"
+                  />
+                </div>
+                <div>
+                  <label for="intake-ondertekening-datum" class="veld-label">
+                    {secties.aanvullend.ondertekening.datumLabel}
+                  </label>
+                  <input
+                    id="intake-ondertekening-datum"
+                    name="ondertekening_datum"
+                    type="date"
+                    value={vandaag}
+                    class="veld-input"
+                  />
+                </div>
+              </div>
+
+              <!-- Verplicht AVG / Gezondheidsgegevens akkoordvakje -->
+              <div class="mt-6 rounded-2xl border border-dauw-50/12 bg-woud-900/60 p-4 sm:p-5">
+                <label class="flex cursor-pointer items-start gap-3.5 text-sm leading-relaxed text-dauw-200">
+                  <input
+                    id="intake-akkoord"
+                    name="akkoord_gezondheidsgegevens"
+                    type="checkbox"
+                    required
+                    class="mt-1 h-4 w-4 flex-none rounded border-dauw-200/40 accent-zonlicht-400"
+                  />
+                  <span>
+                    {secties.aanvullend.ondertekening.akkoordTekst}{' '}
+                    <a href={localePath('/privacyverklaring/', lang)} class="tekstlink">
+                      {secties.aanvullend.ondertekening.akkoordLink}
+                    </a>.
+                    <span class="text-zonlicht-200" aria-hidden="true">*</span>
+                  </span>
+                </label>
+              </div>
+
+              <div class="mt-8">
+                <button type="submit" class="knop knop-zon w-full justify-center sm:w-auto">
+                  {secties.aanvullend.ondertekening.verzendKnop}
+                  <Fragment set:html={pijl} />
+                </button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+
+        <!-- Bevestiging na verzenden -->
+        <div
+          id="intake-succes"
+          class="hidden rounded-3xl border border-zonlicht-400/40 bg-woud-950/85 p-8 md:p-12"
+          role="status"
+          aria-live="polite"
+        >
+          <div class="maat-smal mx-auto text-center">
+            <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-zonlicht-400 text-woud-950">
+              <span class="h-7 w-7"><Fragment set:html={keurmerkIcoon} /></span>
+            </div>
+            <h2 class="mt-5 text-[clamp(1.85rem,3.2vw,2.5rem)] text-dauw-50">{succes.kop}</h2>
+            <p class="mt-3 text-[1.0625rem] leading-relaxed text-dauw-200">{succes.tekst}</p>
+          </div>
+
+          <ol class="mt-9 grid gap-5 md:grid-cols-3">
+            {succes.stappen.map((s: { titel: string; tekst: string }) => (
+              <li class="rounded-2xl border border-dauw-50/12 bg-woud-800/70 p-6">
+                <h3 class="text-lg text-zonlicht-200">{s.titel}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-dauw-200">{s.tekst}</p>
+              </li>
+            ))}
+          </ol>
+
+          <div class="mt-9 text-center">
+            <a href={localePath('/', lang)} class="knop knop-rand">
+              {succes.terugKnop}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .intake-sectie {
+    border-radius: 1.5rem;
+    border: 1px solid rgb(250 243 228 / 0.12);
+    background: rgb(26 17 10 / 0.55);
+    padding: 1.75rem 1.35rem;
+  }
+  @media (min-width: 768px) {
+    .intake-sectie {
+      padding: 2.5rem 2.75rem;
+    }
+  }
+  .sectie-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    border-bottom: 1px solid rgb(250 243 228 / 0.1);
+    padding-bottom: 1.25rem;
+  }
+  .sectie-nr {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.4rem;
+    min-width: 2.4rem;
+    padding-inline: 0.6rem;
+    border-radius: 999px;
+    background: rgb(224 139 26 / 0.16);
+    border: 1px solid rgb(224 139 26 / 0.4);
+    font-family: var(--font-kop);
+    font-size: 0.95rem;
+    color: var(--zonlicht-200);
+    flex-shrink: 0;
+  }
+</style>
+
+<script>
+  // Handtekening pad (muis & touch)
+  const canvas = document.getElementById('handtekening-canvas') as HTMLCanvasElement | null;
+  const wissenKnop = document.getElementById('handtekening-wissen');
+
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let tekent = false;
+
+    const stelLijnIn = () => {
+      if (!ctx) return;
+      ctx.strokeStyle = '#faf3e4';
+      ctx.lineWidth = 2.2;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+    };
+    stelLijnIn();
+
+    const positie = (e: MouseEvent | TouchEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      const schaalX = canvas.width / rect.width;
+      const schaalY = canvas.height / rect.height;
+      if ('touches' in e && e.touches.length > 0) {
+        return {
+          x: (e.touches[0].clientX - rect.left) * schaalX,
+          y: (e.touches[0].clientY - rect.top) * schaalY,
+        };
+      }
+      const me = e as MouseEvent;
+      return {
+        x: (me.clientX - rect.left) * schaalX,
+        y: (me.clientY - rect.top) * schaalY,
+      };
+    };
+
+    const start = (e: MouseEvent | TouchEvent) => {
+      if (!ctx) return;
+      tekent = true;
+      stelLijnIn();
+      const p = positie(e);
+      ctx.beginPath();
+      ctx.moveTo(p.x, p.y);
+    };
+
+    const beweeg = (e: MouseEvent | TouchEvent) => {
+      if (!tekent || !ctx) return;
+      if ('touches' in e) e.preventDefault();
+      const p = positie(e);
+      ctx.lineTo(p.x, p.y);
+      ctx.stroke();
+    };
+
+    const stop = () => {
+      tekent = false;
+    };
+
+    canvas.addEventListener('mousedown', start);
+    canvas.addEventListener('mousemove', beweeg);
+    window.addEventListener('mouseup', stop);
+    canvas.addEventListener('touchstart', start, { passive: true });
+    canvas.addEventListener('touchmove', beweeg, { passive: false });
+    window.addEventListener('touchend', stop);
+
+    wissenKnop?.addEventListener('click', () => {
+      ctx?.clearRect(0, 0, canvas.width, canvas.height);
+    });
+  }
+
+  // Formuliervalidatie & bevestiging
+  const form = document.getElementById('intake-formulier') as HTMLFormElement | null;
+  const foutMelding = document.getElementById('intake-fout');
+  const succesMelding = document.getElementById('intake-succes');
+
+  if (form && foutMelding && succesMelding) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let geldig = true;
+      const verplichteVelden = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[required]');
+
+      verplichteVelden.forEach((veld) => {
+        const isLeeg = veld.type === 'checkbox' ? !(veld as HTMLInputElement).checked : !veld.value.trim();
+        const isEmailFout =
+          veld.type === 'email' && veld.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(veld.value.trim());
+
+        if (isLeeg || isEmailFout) {
+          geldig = false;
+          veld.classList.add('is-fout');
+          veld.setAttribute('aria-invalid', 'true');
+        } else {
+          veld.classList.remove('is-fout');
+          veld.removeAttribute('aria-invalid');
+        }
+      });
+
+      if (!geldig) {
+        foutMelding.classList.remove('hidden');
+        const eersteFout = form.querySelector<HTMLElement>('[aria-invalid="true"]');
+        eersteFout?.focus();
+        eersteFout?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      foutMelding.classList.add('hidden');
+      form.reset();
+      if (canvas) {
+        canvas.getContext('2d')?.clearRect(0, 0, canvas.width, canvas.height);
+      }
+      form.classList.add('hidden');
+      succesMelding.classList.remove('hidden');
+      succesMelding.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+</script>

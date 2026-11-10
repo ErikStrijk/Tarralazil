@@ -1,59 +1,67 @@
 {
   "seo": {
-    "titel": "Tarra Lanzilli — ceremonies en ademwerk, voor wat onder de oppervlakte groeit",
-    "beschrijving": "Truffel-, paddenstoelen- en ayahuascaceremonies met zorgvuldige begeleiding. Voor mensen, jong en oud, die willen kijken naar oude patronen en wat daaronder ligt."
+    "titel": "Tarra Lanzilli — ceremonies en ademwerk in Sappemeer",
+    "beschrijving": "Persoonlijke truffel-, paddenstoelen- en ayahuascaceremonies en ademwerk door Nathalie in Sappemeer. Warm, veilig en in je eigen tempo."
   },
   "hero": {
     "kop": "Wat onder de oppervlakte groeit, vormt alles erboven",
-    "tekst": "Soms merk je dat iets ouds je nog steeds stuurt. Een patroon, een angst, een overtuiging die je niet zelf gekozen hebt. Ik help je die wortels rustig te leren kennen, in je eigen tempo.",
+    "tekst": "Soms merk je dat iets ouds je nog steeds stuurt. Een patroon, een onrust of een overtuiging die je ooit hielp overleven, maar nu knelt. Ik help je om die lagen in alle rust en veiligheid aan te kijken.",
     "knop": "Plan een kennismaking",
-    "link": "Bekijk wat er mogelijk is"
+    "link": "Bekijk de ceremonies"
   },
   "intro": {
+    "label": "Herken je dit?",
     "kop": "Je bent niet kapot. Je bent gegroeid rond wat er was.",
     "tekst": [
-      "Zoals ik het zie, ontstaan veel van onze patronen in de vroege jeugd. Niet omdat er iets mis is met jou, maar omdat je als kind slim werd in overleven. Wat je toen beschermde, kan je nu in de weg zitten.",
-      "In een ceremonie kijken we samen naar wat daar onder de oppervlakte ligt. Niet om in het verleden te blijven hangen, maar om ruimte te maken voor wat nu wil groeien."
+      "Veel van onze patronen ontstaan in onze vroege jeugd. Niet omdat er iets mis is met jou, maar omdat je als kind slim werd in aanpassen en volhouden.",
+      "Wanneer praten alleen niet meer genoeg is, helpen ademwerk en plantceremonies om uit je hoofd te zakken en te voelen wat er in je lichaam om ruimte vraagt."
+    ],
+    "punten": [
+      {
+        "titel": "Je begrijpt het in je hoofd, maar je lijf houdt vast",
+        "tekst": "Je weet waar je patronen vandaan komen, maar dezelfde onrust, druk of spanning blijft terugkeren."
+      },
+      {
+        "titel": "Altijd ‘aan’ staan en je aanpassen",
+        "tekst": "Je houdt veel ballen hoog en zorgt voor anderen, maar vindt het lastig om zelf echt te zakken en los te laten."
+      },
+      {
+        "titel": "Verlangen naar ruimte en verzachting",
+        "tekst": "Je zoekt een veilige, prikkelarme bedding om oude lagen in je eigen tempo aan te kijken."
+      }
     ],
     "beeld": {
-      "alt": "Een krachtige boom in een rustig bos waarvan de met mos bedekte wortels zich over een verweerde rots heen hebben gevormd en stevig in de aarde wortelen."
+      "alt": "Wortels van een oude beuk die rustig in de bosgrond en tussen gevallen herfstbladeren vertakken."
+    }
+  },
+  "waarom": {
+    "kop": "Hoi, ik ben Nathalie",
+    "tekst": [
+      "Uit eigen ervaring weet ik hoe bevrijdend het is wanneer je niet langer hoeft te vechten tegen oude stukken, maar ze in een veilige bedding durft aan te kijken. Er ontstaat dan rust, ruimte in je adem en vertrouwen in je eigen basis.",
+      "In mijn praktijk in Sappemeer ontvang ik mensen, jong en oud, in een warme en huiselijke sfeer. Met nuchtere aandacht loop ik rustig met je mee — van ons eerste gesprek tot het landen na afloop."
+    ],
+    "knop": "Meer over mij",
+    "portret": {
+      "alt": "Portret van Nathalie, glimlachend, met lang donker haar",
+      "naam": "Nathalie"
     }
   },
   "ceremonies": {
-    "kop": "Wat ik je kan bieden",
-    "tekst": "Ik werk met planten en met de adem. Elk opent een andere deur. Weet je nog niet wat bij je past? Dan voelen we dat samen uit in de kennismaking.",
-    "knop": "Bekijk alle ceremonies",
+    "kop": "Hoe ik je kan begeleiden",
+    "tekst": "Ik werk met planten en met de adem. Elk opent een eigen deur. Twijfel je nog wat bij je past? Dan kijken we daar samen rustig naar tijdens de kennismaking.",
+    "knop": "Vergelijk alle ceremonies",
     "kaartKnop": "Lees meer"
   },
-  "waarom": {
-    "label": "Over Nathalie",
-    "kop": "Waarom ik dit doe",
-    "quote": "Echte verandering begint niet met forceren, maar met de rust om te voelen wat er al die tijd onder de oppervlakte lag.",
-    "tekst": [
-      "Veel van hoe we reageren, voelen en keuzes maken, vindt zijn wortels in onze vroege jeugd. Als kind leer je patronen en beschermingsmechanismen aan die toen nodig waren om je staande te houden. Wat je toen beschermde, kan je later als volwassene ongemerkt in de weg gaan zitten.",
-      "Toen ik zelf met plantmedicijnen en ademwerk begon, ontdekte ik wat er gebeurt als je niet langer vecht tegen die oude lagen, maar ze met zachtheid durft aan te kijken. Er ontstond ruimte, adem en een diep vertrouwen in mijn eigen fundament.",
-      "Dat is wat ik jou wil bieden: een veilige en oordeelloze bedding om op jouw eigen tempo naar binnen te keren. Zodat wat ooit onder de oppervlakte groeide, getransformeerd mag worden naar rust, helderheid en vrijheid."
-    ],
-    "knop": "Lees meer over mij",
-    "portret": {
-      "alt": "Portret van Nathalie, glimlachend, met lang donker haar",
-      "naam": "Nathalie",
-      "rol": "Ceremoniebegeleider & ademcoach"
-    }
-  },
   "ervaringen": {
-    "label": "Ervaringen & Verhalen",
-    "kop": "Wat deelnemers mochten ervaren",
-    "subtitel": "Echte verhalen van mensen die de reis naar binnen aandurfden. Over vertragen, oude patronen doorbreken en weer thuiskomen bij jezelf.",
-    "leesMeer": "Lees het hele verhaal",
-    "sluitVerhaal": "Minder tonen",
-    "uitnodigingKop": "Ruimte voor jouw eigen verhaal",
-    "uitnodigingTekst": "Ieder proces is uniek en vraagt om een eigen tempo. Voel je welkom om in alle rust te verkennen wat nu bij jou past.",
-    "uitnodigingKnop": "Plan een kennismaking"
+    "label": "Verhalen van deelnemers",
+    "kop": "Wat anderen mochten ervaren",
+    "subtitel": "Korte indrukken van mensen die je voorgingen. Op de verhalenpagina lees je hun volledige ervaring.",
+    "alleVerhalenKnop": "Lees alle verhalen",
+    "leesMeer": "Lees het hele verhaal"
   },
   "cta": {
     "kop": "Zullen we kennismaken?",
-    "tekst": "Je hoeft nog niets te beslissen. In een vrijblijvend gesprek leren we elkaar kennen en voelen we samen of dit nu bij je past. Voelt het goed, dan volgt daarna de intake.",
+    "tekst": "Je hoeft nog niets te beslissen. In een vrijblijvend gesprek leren we elkaar kennen en voelen we samen wat bij je past.",
     "knop": "Plan een kennismaking",
     "intakeKnop": "Naar het intakeformulier"
   }

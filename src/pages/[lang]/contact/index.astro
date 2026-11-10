@@ -1,0 +1,13 @@
+---
+import ContactPage from '../../../components/ContactPage.astro';
+import { languages, defaultLang, type Lang } from '../../../lib/i18n';
+
+export function getStaticPaths() {
+  return languages
+    .filter((l) => l !== defaultLang)
+    .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+---
+<ContactPage lang={lang} />

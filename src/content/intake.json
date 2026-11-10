@@ -1,0 +1,219 @@
+{
+  "seo": {
+    "titel": "Intakeformulier – Voorbereiding op jouw sessie | Tarra Lanzilli",
+    "beschrijving": "Vul in alle rust het vertrouwelijke intakeformulier in ter voorbereiding op jouw ceremonie of ademsessie bij Nathalie van Tarra Lanzilli in Sappemeer."
+  },
+  "hero": {
+    "label": "Voorbereiding & Veiligheid",
+    "kop": "Intakeformulier – Voorbereiding op jouw sessie",
+    "tekst": "Een ceremonie of ademsessie begint al bij een zorgvuldige voorbereiding. Met deze vragen leer ik jou, je achtergrond en je gezondheid beter kennen, zodat ik een veilige en liefdevol afgestemde bedding voor je kan creëren."
+  },
+  "stappenNav": [
+    { "id": "persoonlijk", "label": "1. Persoonlijk" },
+    { "id": "levensloop", "label": "2. Levensloop" },
+    { "id": "gezondheid", "label": "3. Gezondheid" },
+    { "id": "huidig", "label": "4. Huidige situatie" },
+    { "id": "ervaring", "label": "5. Ervaring" },
+    { "id": "aanvullend", "label": "6. Aanvullend & Tekenen" }
+  ],
+  "formulier": {
+    "verplichtNotitie": "Alleen je naam, telefoonnummer, e-mailadres en het akkoordvakje onderaan zijn verplicht. Vul bij de overige vragen in wat voor jou goed voelt.",
+    "foutMelding": "Controleer alsjeblieft de gemarkeerde verplichte velden (naam, telefoonnummer, e-mailadres en het akkoordvakje onderaan).",
+    "secties": {
+      "persoonlijk": {
+        "nummer": "01",
+        "titel": "Persoonlijke gegevens",
+        "intro": "Hoe mag ik je aanspreken en waar kan ik je bereiken om onze afspraak af te stemmen?",
+        "velden": {
+          "naam": { "label": "Naam", "placeholder": "Voor- en achternaam" },
+          "leeftijd": { "label": "Leeftijd", "placeholder": "Bijv. 38 jaar" },
+          "woonplaats": { "label": "Woonplaats", "placeholder": "Bijv. Groningen" },
+          "telefoon": { "label": "Telefoonnummer (06-nummer)", "placeholder": "06 12 34 56 78" },
+          "email": { "label": "E-mailadres", "placeholder": "naam@voorbeeld.nl" },
+          "facebook": { "label": "Facebook (optioneel)", "placeholder": "Je naam of profiellink op Facebook" },
+          "instagram": { "label": "Instagram (optioneel)", "placeholder": "@jouwnaam" }
+        }
+      },
+      "levensloop": {
+        "nummer": "02",
+        "titel": "Levensloop & Achtergrond",
+        "intro": "Patronen en overtuigingen vinden vaak hun wortels in onze vroegste jaren. Deel hier per levensfase wat je weet of wat voor jou belangrijk voelt.",
+        "velden": {
+          "conceptie": {
+            "label": "Vanaf conceptie",
+            "toelichting": "Hoe verliep de zwangerschap van je moeder? Was je gewenst, was er sprake van spanning, rouw of bijzondere omstandigheden?",
+            "placeholder": "Wat je hierover weet of voelt..."
+          },
+          "geboorte": {
+            "label": "Geboorte",
+            "toelichting": "Hoe is je geboorte verlopen (bijv. natuurlijk, keizersnede, vroeggeboorte, couveuse) en hoe waren de eerste weken?",
+            "placeholder": "Verloop van je geboorte en eerste start..."
+          },
+          "kindertijd": {
+            "label": "Leeftijd 0–7 jaar",
+            "toelichting": "Hoe heb je je vroege kindertijd en het gezin waarin je opgroeide ervaren? Voelde het veilig en geborgen?",
+            "placeholder": "Herinneringen of indrukken uit je vroege jeugd..."
+          },
+          "tienerjaren": {
+            "label": "Tienerjaren",
+            "toelichting": "Hoe verliep je puberteit, schooltijd en het contact met leeftijdsgenoten of thuis?",
+            "placeholder": "Belangrijke ervaringen uit je tienerjaren..."
+          },
+          "volwassen": {
+            "label": "Volwassen leven (20+ tot heden)",
+            "toelichting": "Welke belangrijke gebeurtenissen, relaties, verlies of keerpunten hebben je volwassen leven gevormd?",
+            "placeholder": "In grote lijnen jouw pad tot nu toe..."
+          },
+          "traumaOuders": {
+            "label": "Trauma ouders",
+            "toelichting": "Zijn er bij je ouders of in je familielijn ingrijpende gebeurtenissen of onverwerkte stukken bekend die doorwerken?",
+            "placeholder": "Wat je weet over de achtergrond van je ouders..."
+          }
+        }
+      },
+      "gezondheid": {
+        "nummer": "03",
+        "titel": "Gezondheid & Medisch",
+        "intro": "Voor een veilige ceremonie of ademsessie is het essentieel om eventuele medische bijzonderheden en contra-indicaties zorgvuldig in beeld te hebben.",
+        "velden": {
+          "ziekenhuis": {
+            "label": "Ziekenhuisopnames / operaties",
+            "placeholder": "Ben je ooit opgenomen of geopereerd? Zo ja, waarvoor en wanneer?"
+          },
+          "hartproblemen": {
+            "label": "Hartproblemen of andere aandoeningen",
+            "toelichting": "Denk aan hart- en vaatziekten, hoge of lage bloeddruk, epilepsie, astma, glaucoom of een mogelijke zwangerschap.",
+            "placeholder": "Beschrijf eventuele fysieke aandoeningen of klachten..."
+          },
+          "verslaving": {
+            "label": "Verslaving of gevoeligheid voor verslaving",
+            "placeholder": "Speelt of speelde er een verslaving of verslavingsgevoeligheid?"
+          },
+          "medicatie": {
+            "label": "Medicatiegebruik",
+            "toelichting": "Vermeld alle medicatie die je gebruikt (met name antidepressiva zoals SSRI's/MAO-remmers, ADHD-medicatie, slaap- of kalmeringsmiddelen en bloeddrukmedicatie).",
+            "placeholder": "Welke medicijnen of supplementen gebruik je momenteel?"
+          },
+          "aandoeningen": {
+            "label": "Lichamelijke of geestelijke aandoeningen (ook familiair)",
+            "toelichting": "Bijv. depressie, burn-out, PTSS, persoonlijkheidsproblematiek, bipolaire stoornis of gevoeligheid voor psychoses (ook als dit in je familie voorkomt).",
+            "placeholder": "Eventuele diagnoses of gevoeligheden bij jezelf of in de familie..."
+          },
+          "huidigeBehandeling": {
+            "label": "Onder behandeling van therapeut of arts",
+            "placeholder": "Ben je op dit moment onder behandeling of begeleiding? Zo ja, bij wie en waarvoor?"
+          },
+          "eerdereBehandeling": {
+            "label": "Eerdere behandeling voor psychische klachten",
+            "placeholder": "Heb je in het verleden therapie, coaching of psychische hulp gehad?"
+          }
+        }
+      },
+      "huidig": {
+        "nummer": "04",
+        "titel": "Huidige situatie & Emoties",
+        "intro": "Hoe ziet je leven er op dit moment uit en wat brengt je naar deze sessie?",
+        "velden": {
+          "woonsituatie": {
+            "label": "Woonsituatie",
+            "placeholder": "Hoe woon je (alleen, met partner, gezin) en hoe ervaar je je huidige leefomgeving?"
+          },
+          "emoties": {
+            "label": "Dagelijkse emoties",
+            "placeholder": "Welke gevoelens of stemmingen komen in je dagelijks leven veel naar voren?"
+          },
+          "probleem": {
+            "label": "Eigen omschrijving probleem / klacht",
+            "placeholder": "Waar loop je tegenaan of welk patroon houdt je bezig?"
+          },
+          "oorzaak": {
+            "label": "Oorzaak, aanleiding of omstandigheden",
+            "placeholder": "Wat is volgens jou de aanleiding of waardoor wordt dit getriggerd?"
+          },
+          "verwachtingen": {
+            "label": "Verwachtingen van de sessie",
+            "placeholder": "Wat is je verlangen of intentie? Wat hoop je dat de sessie je brengt?"
+          }
+        }
+      },
+      "ervaring": {
+        "nummer": "05",
+        "titel": "Ervaring & Middelengebruik",
+        "intro": "Tot slot een paar korte vragen over je ervaring met middelen, plantmedicijnen en lichaamsgericht werk.",
+        "velden": {
+          "drugs": {
+            "label": "Drugsgebruik",
+            "toelichting": "Gebruik je alcohol, cannabis, tabak of recreatieve middelen (en hoe vaak)?",
+            "placeholder": "Huidig of eerder gebruik..."
+          },
+          "entheogenen": {
+            "label": "Gebruik entheogene middelen",
+            "toelichting": "Heb je eerder gereisd met truffels, paddenstoelen, ayahuasca of andere plantmedicijnen? Hoe heb je dat ervaren?",
+            "placeholder": "Eerdere ervaringen met plantmedicijnen..."
+          },
+          "lichaamswerk": {
+            "label": "Eerdere ervaring met lichaamswerk / ademwerk",
+            "toelichting": "Bijvoorbeeld verbonden ademhaling, BRTT, TRB, yoga, meditatie of somatische therapie.",
+            "placeholder": "Je ervaring met adem- of lichaamswerk..."
+          }
+        }
+      },
+      "aanvullend": {
+        "nummer": "06",
+        "titel": "Aanvullend & Ondertekening",
+        "intro": "Laat hieronder weten naar welke vorm je voorkeur uitgaat en wanneer je zou willen komen.",
+        "velden": {
+          "ceremonieVoorkeur": {
+            "label": "Waar gaat je voorkeur naar uit?",
+            "opties": [
+              "Samen afstemmen in een voorgesprek",
+              "Truffelceremonie",
+              "Paddenstoelenceremonie",
+              "Ayahuascaceremonie",
+              "Ademwerk"
+            ]
+          },
+          "datum": {
+            "label": "Gewenste datum of periode sessie",
+            "placeholder": "Bijv. voorkeursdagen, een specifieke maand of 'in overleg'"
+          },
+          "bijzonderheden": {
+            "label": "Overige bijzonderheden",
+            "placeholder": "Is er nog iets anders dat belangrijk is om te weten (bijv. dieetwensen, allergieën of vragen)?"
+          }
+        },
+        "ondertekening": {
+          "kop": "Tekenen en verzenden",
+          "toelichting": "Zet hieronder je handtekening met je muis of vinger (of vul je naam in) om je intake te bevestigen.",
+          "canvasLabel": "Handtekening (teken in het vlak)",
+          "wissenKnop": "Handtekening wissen",
+          "naamOndertekeningLabel": "Ondertekend door (naam)",
+          "naamOndertekeningPlaceholder": "Typ je volledige naam",
+          "datumLabel": "Datum",
+          "akkoordTekst": "Ik verklaar dat ik dit formulier naar waarheid heb ingevuld en geef toestemming voor het vertrouwelijk verwerken van mijn (gezondheids)gegevens ter voorbereiding op mijn sessie, zoals beschreven in de",
+          "akkoordLink": "privacyverklaring",
+          "verzendKnop": "Tekenen en verzenden"
+        }
+      }
+    },
+    "succes": {
+      "kop": "Dankjewel voor je vertrouwen",
+      "tekst": "Je intakeformulier is ingevuld. Hieronder zie je hoe we vanaf hier verder gaan:",
+      "stappen": [
+        {
+          "titel": "1. Zorgvuldige beoordeling",
+          "tekst": "Ik neem je antwoorden in alle rust en volledig vertrouwelijk door."
+        },
+        {
+          "titel": "2. Persoonlijk contact",
+          "tekst": "Binnen enkele dagen neem ik telefonisch of via WhatsApp contact met je op om kennis te maken en je intake samen door te spreken."
+        },
+        {
+          "titel": "3. Samen plannen & voorbereiden",
+          "tekst": "Als het van beide kanten goed en veilig voelt, leggen we de datum vast en ontvang je alle praktische voorbereidingsinformatie."
+        }
+      ],
+      "terugKnop": "Terug naar de homepage"
+    }
+  }
+}

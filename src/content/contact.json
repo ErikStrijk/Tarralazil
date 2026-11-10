@@ -1,0 +1,29 @@
+{
+  "seo": {
+    "titel": "Contact | Tarra Lanzilli in Sappemeer",
+    "beschrijving": "Neem vrijblijvend contact op met Nathalie van Tarra Lanzilli in Sappemeer voor een vraag of kennismaking."
+  },
+  "hero": {
+    "kop": "Zullen we kennismaken?",
+    "tekst": "Heb je een vraag of wil je eerst rustig kennismaken? Stuur me gerust een bericht via het formulier of WhatsApp. Je zit nergens aan vast."
+  },
+  "gegevens": {
+    "emailLabel": "E-mail",
+    "telefoonLabel": "Telefoon",
+    "instagramLabel": "Instagram"
+  },
+  "formulier": {
+    "naamLabel": "Je naam",
+    "naamPlaceholder": "Bijv. Sanne de Vries",
+    "emailLabel": "E-mailadres",
+    "emailPlaceholder": "naam@voorbeeld.nl",
+    "telefoonLabel": "Telefoonnummer (optioneel)",
+    "telefoonPlaceholder": "06 12 34 56 78",
+    "berichtLabel": "Je bericht",
+    "berichtPlaceholder": "Waar kan ik je mee helpen?",
+    "verzendKnop": "Bericht versturen",
+    "foutMelding": "Vul alsjeblieft de gemarkeerde velden in.",
+    "succesKop": "Dankjewel voor je bericht",
+    "succesTekst": "Ik heb je bericht ontvangen en neem zo snel mogelijk persoonlijk contact met je op."
+  }
+}

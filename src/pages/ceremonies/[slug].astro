@@ -1,0 +1,26 @@
+---
+import { getContent } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  const { ceremonies } = getContent('nl');
+  return ceremonies.map((c: any) => ({
+    params: { slug: c.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const doel = `/ceremonies/#${slug}`;
+---
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${doel}`} />
+    <link rel="canonical" href={doel} />
+    <title>Doorsturen…</title>
+    <script is:inline define:vars={{ doel }}>
+      window.location.replace(doel);
+    </script>
+  </head>
+  <body></body>
+</html>

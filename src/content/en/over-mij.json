@@ -1,0 +1,89 @@
+{
+  "seo": {
+    "titel": "About Nathalie | Tarra Lanzilli in Sappemeer",
+    "beschrijving": "Meet Nathalie, the heart behind Tarra Lanzilli in Sappemeer. Personal guidance in plant ceremonies and breathwork rooted in calm, warmth, and experience."
+  },
+  "hero": {
+    "label": "About Nathalie",
+    "kop": "The heart behind Tarra Lanzilli",
+    "rol": "Ceremony guide & breathwork coach",
+    "tekst": "I'm Nathalie. From my home practice in Sappemeer, I guide people, young and old, who feel ready to pause and gently meet what they have been carrying. Grounded, warm, and with full respect for your own pace.",
+    "badges": [
+      "6 years at Inner Journey",
+      "Certified Facilitator",
+      "Warm & personal guidance"
+    ],
+    "portretAlt": "Portrait of Nathalie, smiling, with long dark hair"
+  },
+  "achtergrond": {
+    "label": "Foundation",
+    "stats": [
+      {
+        "waarde": "Inner Journey",
+        "titel": "6 years experience & certified",
+        "tekst": "Trained and certified at Inner Journey, where I dedicated six years to guiding deep ceremonies and breathwork sessions."
+      },
+      {
+        "waarde": "Young & old",
+        "titel": "Attuned to who you are",
+        "tekst": "Guidance for both adults and young people, tailored to your stage of life and what feels supportive right now."
+      },
+      {
+        "waarde": "Sappemeer",
+        "titel": "Intimate & home-based",
+        "tekst": "No impersonal clinic or strict clock, but a quiet, homely sanctuary with undivided personal attention."
+      }
+    ]
+  },
+  "verhaal": {
+    "label": "My story",
+    "kop": "Why I do this work with so much love",
+    "quote": "Real movement doesn't come from trying harder, but from finding the stillness to feel what is truly alive within you.",
+    "tekst": [
+      "Much of how we react, feel, and move through life today has its roots in our earliest years. As children we naturally find ways to cope: perhaps you learned to always stay strong, to take care of others first, or to hold your own emotions inside. What protected you back then can start to feel heavy or restrictive later in life.",
+      "My own path with breathwork and plant medicine showed me what shifts when you stop fighting those patterns and dare to stay with them gently. Where the mind keeps analyzing and searching for answers, the body remembers what is still being held. Giving that space brought back a deep inner calm and steadiness.",
+      "After six meaningful, intensive years guiding sessions at Inner Journey, the wish grew to create an intimate place of my own. With Tarra Lanzilli I bring my craft and intuition together in Sappemeer — helping people release old weight and truly come home to their body."
+    ]
+  },
+  "waarden": {
+    "label": "How a session feels",
+    "kop": "What you can expect from me",
+    "intro": "This is how I walk alongside you, from our first contact until after your session.",
+    "items": [
+      {
+        "stap": "01",
+        "fase": "Beforehand",
+        "icoon": "kiem",
+        "titel": "Looking honestly at what fits now",
+        "tekst": "We talk at length first and I go through your intake carefully. I will also tell you honestly if something else suits you better."
+      },
+      {
+        "stap": "02",
+        "fase": "Arriving",
+        "icoon": "varen",
+        "titel": "Landing with tea, without a clock",
+        "tekst": "No tight schedule: we start with a cup of tea in a warm, homely space. You can arrive at your own pace."
+      },
+      {
+        "stap": "03",
+        "fase": "During the journey",
+        "icoon": "wortel",
+        "titel": "A steady anchor beside you",
+        "tekst": "I stay close, whatever comes up. I don't push or steer, but I'm there with a word, a hand, or quiet presence."
+      },
+      {
+        "stap": "04",
+        "fase": "Landing & beyond",
+        "icoon": "mycelium",
+        "titel": "Going home with both feet on the ground",
+        "tekst": "Afterwards there is time to come back, with something to eat and drink. We stay in touch in the days that follow."
+      }
+    ]
+  },
+  "cta": {
+    "kop": "Shall we get to know each other?",
+    "tekst": "Do you have questions, doubts, or would you simply like to hear my voice first? Feel free to send a message or schedule a no-obligation introduction.",
+    "knop": "Schedule an introduction",
+    "tweede": "View the ceremonies"
+  }
+}

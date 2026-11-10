@@ -1,37 +1,65 @@
 ---
-// Hero met foto (photos/hero.webp, aangeleverd door de eigenaar).
-// Rustig gehouden: de foto staat gedempt aan de rechterkant, de tekst heeft links een egale, warme ondergrond.
+// Hero met foto: de foto staat gedempt aan de rechterkant, de tekst heeft links een egale, warme ondergrond.
+import type { ImageMetadata } from 'astro';
 import { Picture } from 'astro:assets';
 import heroFoto from '../assets/hero.webp';
+
+interface Props {
+  beeld?: ImageMetadata;
+  positie?: string;
+  zacht?: boolean;
+}
+
+const {
+  beeld = heroFoto,
+  positie = 'object-[center_35%]',
+  zacht = false,
+} = Astro.props;
 ---
 <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-  <div class="hero-foto absolute -inset-y-[4%] inset-x-0 lg:left-auto lg:w-[56%]" data-parallax="0.06">
+  <div
+    class:list={[
+      'hero-foto absolute -inset-y-[4%] inset-x-0 lg:left-auto lg:w-[58%]',
+      { 'hero-foto-zacht': zacht },
+    ]}
+    data-parallax="0.05"
+  >
     <Picture
-      src={heroFoto}
+      src={beeld}
       formats={['avif', 'webp']}
       widths={[640, 960, 1280, 1920]}
-      sizes="(min-width: 1024px) 56vw, 100vw"
+      sizes="(min-width: 1024px) 58vw, 100vw"
       alt=""
       loading="eager"
       fetchpriority="high"
-      class="h-full w-full object-cover object-center"
+      class={`h-full w-full object-cover ${positie}`}
     />
   </div>
 
-  <!-- warme sluier: dempt het contrast van de foto, zodat het oog bij de tekst kan rusten -->
-  <div class="absolute inset-0 bg-[linear-gradient(180deg,rgb(46_30_16/.5)_0%,rgb(46_30_16/.65)_45%,rgb(46_30_16/.72)_100%)] lg:bg-[linear-gradient(90deg,rgb(46_30_16/.3),rgb(46_30_16/.15))]"></div>
-  <div class="absolute inset-x-0 bottom-0 h-[30%] bg-[linear-gradient(180deg,transparent,rgb(46_30_16/.7))]"></div>
-  <div class="absolute inset-x-0 top-0 h-40 bg-[linear-gradient(180deg,rgb(46_30_16/.55),transparent)]"></div>
+  <!-- warme sluier: dempt het felle licht, zodat tekst en navigatie rust krijgen -->
+  <div
+    class:list={[
+      'absolute inset-0',
+      zacht
+        ? 'bg-[linear-gradient(180deg,rgb(32_20_8/.86)_0%,rgb(46_30_16/.84)_50%,rgb(46_30_16/.92)_100%)] lg:bg-[linear-gradient(90deg,rgb(46_30_16/.97)_0%,rgb(46_30_16/.82)_50%,rgb(32_20_8/.68)_100%)]'
+        : 'bg-[linear-gradient(180deg,rgb(32_20_8/.78)_0%,rgb(46_30_16/.76)_50%,rgb(46_30_16/.88)_100%)] lg:bg-[linear-gradient(90deg,rgb(46_30_16/.95)_0%,rgb(46_30_16/.65)_48%,rgb(32_20_8/.38)_100%)]',
+    ]}
+  ></div>
+  <div class="absolute inset-x-0 bottom-0 h-[35%] bg-[linear-gradient(180deg,transparent,rgb(46_30_16/.85)_70%,rgb(46_30_16)_100%)]"></div>
+  <div class="absolute inset-x-0 top-0 h-36 bg-[linear-gradient(180deg,rgb(26_17_10/.72)_0%,rgb(26_17_10/.35)_55%,transparent_100%)]"></div>
 </div>
 
 <style>
   .hero-foto :global(img) {
-    filter: saturate(0.9) brightness(1.08);
+    filter: saturate(0.85) brightness(0.84) contrast(0.95);
+  }
+  .hero-foto-zacht :global(img) {
+    filter: saturate(0.75) brightness(0.68) contrast(0.92);
   }
   @media (min-width: 1024px) {
     .hero-foto {
-      -webkit-mask: linear-gradient(90deg, transparent 8%, #000 62%);
-      mask: linear-gradient(90deg, transparent 8%, #000 62%);
+      -webkit-mask: linear-gradient(90deg, transparent 12%, rgb(0 0 0 / 0.55) 48%, #000 78%);
+      mask: linear-gradient(90deg, transparent 12%, rgb(0 0 0 / 0.55) 48%, #000 78%);
     }
   }
 </style>

@@ -3,30 +3,27 @@
     "id": "mark",
     "naam": "Mark",
     "ceremonie": "Ceremonies & Process Guidance",
-    "thema": "Peeling back layers & self-love",
-    "foto": "mark",
-    "kernzin": "From moment one she saw right through me, straight to the core.",
-    "tekst": "From moment one she saw right through me, past all the learned and imposed behaviour, straight to the core. With her expertise we can keep peeling back more layers, I can let go of what is no longer needed and build up the love for myself.",
-    "verhaal": "For years I functioned on sheer willpower and control. During the ceremony I felt the physical relaxation of being truly seen without judgment for the first time in a long while. The insights continue to guide my daily choices and boundaries months later."
+    "categorie": "planten",
+    "ceremonieSlug": "truffelceremonie",
+    "tekst": "From the very first moment I felt at ease. With Nathalie's calm guidance I could finally let go of what was no longer needed and look at myself with more kindness.",
+    "verhaal": "During the session with Nathalie I noticed how liberating it feels not to have to fix anything and simply be with what is there. Her calm presence helped me let go of weight I had carried for a long time. That clarity still helps me every day in making choices and keeping my boundaries."
   },
   {
     "id": "sherrelle",
     "naam": "Sherrelle",
     "ceremonie": "Ceremonies & Breathwork",
-    "thema": "From skepticism to returning home",
-    "foto": "sherrelle",
-    "kernzin": "Even though it can be intense at times, each time I experience it as a gift to myself.",
-    "tekst": "I've been to Nathalie a number of times and although I was a bit sceptical about the ceremonies in the beginning, I feel very differently about them now. You really have to experience it to know what it's like. The safety and warmth Nathalie creates allow you to surrender completely.",
-    "verhaal": "Taking the step toward a ceremony was daunting for me, especially the fear of losing control. Nathalie took all the time needed beforehand to listen and clarify intentions. Afterwards I felt a liberating calm that I had missed for years."
+    "categorie": "combinatie",
+    "ceremonieSlug": "paddenstoelenceremonie",
+    "tekst": "At first I didn't quite know what to expect, but the warm and caring atmosphere with Nathalie made me feel safe right away. Each session feels like a gift to myself.",
+    "verhaal": "I found the idea of a ceremony quite exciting beforehand, but Nathalie took all the time to listen calmly and answer my questions. Her grounded presence gave me so much trust that I could truly relax. Afterwards I felt a wonderful, light sense of peace."
   },
   {
     "id": "anna",
     "naam": "Anna Woudsma",
     "ceremonie": "Cacao Ceremony & Breath",
-    "thema": "Softness & inner clarity",
-    "foto": "anna",
-    "kernzin": "A very special inner journey that gave me so much self-love and beautiful insights.",
-    "tekst": "At first I was quite sceptical about the ceremony. I didn't really know what to expect. Nathalie immediately created a warm, trusting environment where everything was welcomed. I went on a very special inner journey.",
-    "verhaal": "The blend of sacred holding, gentle music, and guided breath brought me out of my analytical head and directly into my heart. I was able to release persistent patterns of self-criticism and feel genuine peace again."
+    "categorie": "ademwerk",
+    "ceremonieSlug": "ademwerk",
+    "tekst": "Nathalie immediately creates a warm, familiar atmosphere where everything is welcome. A very special experience that gave me lovely insights and peace of mind.",
+    "verhaal": "The combination of the warm atmosphere, gentle music, and calm breathing brought me out of my busy head and back into my body. It helped me be kinder to myself and tune back into my own pace."
   }
 ]

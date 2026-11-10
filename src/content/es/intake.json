@@ -1,0 +1,219 @@
+{
+  "seo": {
+    "titel": "Formulario de admisión – Preparación para tu sesión | Tarra Lanzilli",
+    "beschrijving": "Completa con calma el formulario confidencial de admisión como preparación para tu ceremonia o sesión de respiración con Nathalie en Tarra Lanzilli en Sappemeer."
+  },
+  "hero": {
+    "label": "Preparación y Seguridad",
+    "kop": "Formulario de admisión – Preparación para tu sesión",
+    "tekst": "Una ceremonia o sesión de respiración comienza con una preparación cuidadosa. Con estas preguntas conozco mejor tu historia y tu salud para poder ofrecerte un espacio seguro y amorosamente adaptado a ti."
+  },
+  "stappenNav": [
+    { "id": "persoonlijk", "label": "1. Datos personales" },
+    { "id": "levensloop", "label": "2. Historia de vida" },
+    { "id": "gezondheid", "label": "3. Salud" },
+    { "id": "huidig", "label": "4. Situación actual" },
+    { "id": "ervaring", "label": "5. Experiencia" },
+    { "id": "aanvullend", "label": "6. Adicional y Firma" }
+  ],
+  "formulier": {
+    "verplichtNotitie": "Solo tu nombre, teléfono, correo electrónico y la casilla de consentimiento al final son obligatorios. En las demás preguntas, comparte lo que sientas adecuado.",
+    "foutMelding": "Por favor, revisa los campos obligatorios marcados (nombre, teléfono, correo electrónico y la casilla de consentimiento al final).",
+    "secties": {
+      "persoonlijk": {
+        "nummer": "01",
+        "titel": "Datos personales",
+        "intro": "¿Cómo puedo dirigirme a ti y dónde puedo localizarte para coordinar nuestra cita?",
+        "velden": {
+          "naam": { "label": "Nombre", "placeholder": "Nombre y apellidos" },
+          "leeftijd": { "label": "Edad", "placeholder": "Ej. 38 años" },
+          "woonplaats": { "label": "Ciudad / Localidad", "placeholder": "Ej. Groningen" },
+          "telefoon": { "label": "Número de teléfono", "placeholder": "06 12 34 56 78" },
+          "email": { "label": "Correo electrónico", "placeholder": "nombre@ejemplo.com" },
+          "facebook": { "label": "Facebook (opcional)", "placeholder": "Tu nombre o enlace en Facebook" },
+          "instagram": { "label": "Instagram (opcional)", "placeholder": "@tuusuario" }
+        }
+      },
+      "levensloop": {
+        "nummer": "02",
+        "titel": "Historia de vida y Antecedentes",
+        "intro": "Los patrones y creencias suelen tener sus raíces en nuestros primeros años. Comparte por etapa lo que sepas o lo que sientas importante.",
+        "velden": {
+          "conceptie": {
+            "label": "Desde la concepción",
+            "toelichting": "¿Cómo transcurrió el embarazo de tu madre? ¿Hubo tensión, duelo o circunstancias especiales?",
+            "placeholder": "Lo que sepas o sientas sobre esto..."
+          },
+          "geboorte": {
+            "label": "Nacimiento",
+            "toelichting": "¿Cómo fue tu nacimiento (ej. parto natural, cesárea, prematuro, incubadora) y cómo fueron las primeras semanas?",
+            "placeholder": "Transcurso de tu nacimiento y primeros días..."
+          },
+          "kindertijd": {
+            "label": "Edad 0–7 años",
+            "toelichting": "¿Cómo viviste tu primera infancia y la familia en la que creciste? ¿Te sentías seguro/a y protegido/a?",
+            "placeholder": "Recuerdos o impresiones de tu primera infancia..."
+          },
+          "tienerjaren": {
+            "label": "Adolescencia",
+            "toelichting": "¿Cómo fue tu adolescencia, la etapa escolar y el contacto con compañeros o en casa?",
+            "placeholder": "Experiencias importantes de tu adolescencia..."
+          },
+          "volwassen": {
+            "label": "Vida adulta (20+ hasta hoy)",
+            "toelichting": "¿Qué acontecimientos, relaciones, pérdidas o puntos de inflexión importantes han marcado tu vida adulta?",
+            "placeholder": "A grandes rasgos, tu camino hasta ahora..."
+          },
+          "traumaOuders": {
+            "label": "Trauma de los padres",
+            "toelichting": "¿Existen acontecimientos difíciles o temas no resueltos en tus padres o linaje familiar que sigan influyendo?",
+            "placeholder": "Lo que sepas sobre la historia de tus padres..."
+          }
+        }
+      },
+      "gezondheid": {
+        "nummer": "03",
+        "titel": "Salud y Antecedentes médicos",
+        "intro": "Para una ceremonia o sesión de respiración segura es fundamental conocer cualquier condición médica y posibles contraindicaciones.",
+        "velden": {
+          "ziekenhuis": {
+            "label": "Ingresos hospitalarios / cirugías",
+            "placeholder": "¿Has estado hospitalizado/a o te han operado alguna vez? ¿Por qué motivo y cuándo?"
+          },
+          "hartproblemen": {
+            "label": "Problemas cardíacos u otras afecciones físicas",
+            "toelichting": "Por ejemplo enfermedades cardiovasculares, tensión alta o baja, epilepsia, asma, glaucoma o posible embarazo.",
+            "placeholder": "Describe cualquier afección o molestia física..."
+          },
+          "verslaving": {
+            "label": "Adicción o sensibilidad a las adicciones",
+            "placeholder": "¿Existe o ha existido alguna adicción o sensibilidad a las adicciones?"
+          },
+          "medicatie": {
+            "label": "Uso de medicación",
+            "toelichting": "Indica toda la medicación que tomas (especialmente antidepresivos como ISRS/IMAO, medicación para TDAH, calmantes o medicación para la tensión).",
+            "placeholder": "¿Qué medicamentos o suplementos utilizas actualmente?"
+          },
+          "aandoeningen": {
+            "label": "Afecciones físicas o mentales (también familiares)",
+            "toelichting": "Ej. depresión, burnout, TEPT, trastorno bipolar o sensibilidad a la psicosis (también si se da en tu familia).",
+            "placeholder": "Diagnósticos o sensibilidades personales o familiares..."
+          },
+          "huidigeBehandeling": {
+            "label": "En tratamiento actual con terapeuta o médico",
+            "placeholder": "¿Estás actualmente en tratamiento o acompañamiento? ¿Con quién y por qué motivo?"
+          },
+          "eerdereBehandeling": {
+            "label": "Tratamiento previo por molestias psicológicas",
+            "placeholder": "¿Has recibido terapia, coaching o apoyo psicológico en el pasado?"
+          }
+        }
+      },
+      "huidig": {
+        "nummer": "04",
+        "titel": "Situación actual y Emociones",
+        "intro": "¿Cómo es tu vida en este momento y qué te trae a esta sesión?",
+        "velden": {
+          "woonsituatie": {
+            "label": "Situación de convivencia",
+            "placeholder": "¿Con quién vives (solo/a, en pareja, familia) y cómo sientes tu entorno actual?"
+          },
+          "emoties": {
+            "label": "Emociones cotidianas",
+            "placeholder": "¿Qué sentimientos o estados de ánimo predominan en tu día a día?"
+          },
+          "probleem": {
+            "label": "Descripción propia del problema / tema",
+            "placeholder": "¿Con qué te encuentras o qué patrón te inquieta?"
+          },
+          "oorzaak": {
+            "label": "Causa, motivo o circunstancias",
+            "placeholder": "¿Cuál crees que es el origen o qué lo desencadena?"
+          },
+          "verwachtingen": {
+            "label": "Expectativas de la sesión",
+            "placeholder": "¿Cuál es tu anhelo o intención? ¿Qué esperas que te aporte la sesión?"
+          }
+        }
+      },
+      "ervaring": {
+        "nummer": "05",
+        "titel": "Experiencia y Uso de sustancias",
+        "intro": "Por último, unas breves preguntas sobre tu experiencia con sustancias, plantas sagradas y trabajo corporal.",
+        "velden": {
+          "drugs": {
+            "label": "Uso de sustancias",
+            "toelichting": "¿Consumes alcohol, cannabis, tabaco o sustancias recreativas (y con qué frecuencia)?",
+            "placeholder": "Consumo actual o pasado..."
+          },
+          "entheogenen": {
+            "label": "Uso de sustancias enteógenas",
+            "toelichting": "¿Has viajado antes con trufas, setas, ayahuasca u otras medicinas de la tierra? ¿Cómo fue tu experiencia?",
+            "placeholder": "Experiencias previas con plantas sagradas..."
+          },
+          "lichaamswerk": {
+            "label": "Experiencia previa con trabajo corporal / respiración",
+            "toelichting": "Por ejemplo respiración conectada, BRTT, TRB, yoga, meditación o terapia somática.",
+            "placeholder": "Tu experiencia con respiración o trabajo corporal..."
+          }
+        }
+      },
+      "aanvullend": {
+        "nummer": "06",
+        "titel": "Información adicional y Firma",
+        "intro": "Indica a continuación qué tipo de sesión prefieres y cuándo te gustaría asistir.",
+        "velden": {
+          "ceremonieVoorkeur": {
+            "label": "¿Qué ceremonia o sesión prefieres?",
+            "opties": [
+              "Sentirlo juntos en una charla previa",
+              "Ceremonia de trufas",
+              "Ceremonia de setas",
+              "Ceremonia de ayahuasca",
+              "Trabajo de respiración"
+            ]
+          },
+          "datum": {
+            "label": "Fecha o periodo deseado para la sesión",
+            "placeholder": "Ej. días preferidos, un mes concreto o 'a consultar'"
+          },
+          "bijzonderheden": {
+            "label": "Otras particularidades",
+            "placeholder": "¿Hay algo más que sea importante saber (ej. dieta, alergias o preguntas)?"
+          }
+        },
+        "ondertekening": {
+          "kop": "Firmar y enviar",
+          "toelichting": "Dibuja tu firma abajo con el ratón o el dedo (o escribe tu nombre) para confirmar tu formulario.",
+          "canvasLabel": "Firma (dibuja en el recuadro)",
+          "wissenKnop": "Borrar firma",
+          "naamOndertekeningLabel": "Firmado por (nombre)",
+          "naamOndertekeningPlaceholder": "Escribe tu nombre completo",
+          "datumLabel": "Fecha",
+          "akkoordTekst": "Declaro que he rellenado este formulario con veracidad y doy mi consentimiento para el tratamiento confidencial de mis datos (de salud) como preparación para mi sesión, según se describe en la",
+          "akkoordLink": "política de privacidad",
+          "verzendKnop": "Firmar y enviar"
+        }
+      }
+    },
+    "succes": {
+      "kop": "Gracias por tu confianza",
+      "tekst": "Tu formulario de admisión ha sido completado. Así es como continuaremos a partir de aquí:",
+      "stappen": [
+        {
+          "titel": "1. Revisión cuidadosa",
+          "tekst": "Leeré tus respuestas con calma y total confidencialidad."
+        },
+        {
+          "titel": "2. Contacto personal",
+          "tekst": "En unos días me pondré en contacto contigo por teléfono o WhatsApp para conocernos y comentar juntos tu formulario."
+        },
+        {
+          "titel": "3. Planificación y preparación",
+          "tekst": "Cuando ambos sintamos que es el momento adecuado y seguro, fijaremos la fecha y recibirás toda la información práctica de preparación."
+        }
+      ],
+      "terugKnop": "Volver a la página principal"
+    }
+  }
+}

@@ -21,6 +21,18 @@ import nlErvaringen from '../content/ervaringen.json';
 import enErvaringen from '../content/en/ervaringen.json';
 import esErvaringen from '../content/es/ervaringen.json';
 
+import nlOver from '../content/over-mij.json';
+import enOver from '../content/en/over-mij.json';
+import esOver from '../content/es/over-mij.json';
+
+import nlContact from '../content/contact.json';
+import enContact from '../content/en/contact.json';
+import esContact from '../content/es/contact.json';
+
+import nlIntake from '../content/intake.json';
+import enIntake from '../content/en/intake.json';
+import esIntake from '../content/es/intake.json';
+
 export const defaultLang = 'nl' as const;
 export const languages = ['nl', 'en', 'es'] as const;
 export type Lang = (typeof languages)[number];
@@ -45,8 +57,8 @@ export const ogLocales: Record<Lang, string> = {
 
 export const uiStrings = {
   nl: {
-    links: 'Links',
-    aanbod: 'Aanbod',
+    links: 'Navigatie',
+    aanbod: 'Ceremonies',
     contact: 'Contact',
     intake: 'Intakeformulier',
     agenda: 'Bekijk de agenda',
@@ -61,16 +73,14 @@ export const uiStrings = {
     socialsKnopSr: 'Social media & contactopties openen',
     socialsSluitenSr: 'Social media menu sluiten',
     socialsTitel: 'Verbinden met Nathalie',
-    socialsSubtitel: 'Stel gerust je vraag of volg de praktijk online.',
     whatsappTitel: 'WhatsApp',
-    whatsappSub: 'Direct persoonlijk bericht',
     instagramTitel: 'Instagram',
-    instagramSub: '@tarralanzilli • Sfeer & ceremonie',
-    socialsReactietijd: 'Reactie meestal binnen één werkdag',
+    instagramSub: '@tarralanzilli',
+    emailTitel: 'E-mail',
   },
   en: {
-    links: 'Links',
-    aanbod: 'Offerings',
+    links: 'Navigation',
+    aanbod: 'Ceremonies',
     contact: 'Contact',
     intake: 'Intake form',
     agenda: 'View schedule',
@@ -85,15 +95,13 @@ export const uiStrings = {
     socialsKnopSr: 'Open social media & contact options',
     socialsSluitenSr: 'Close social media menu',
     socialsTitel: 'Connect with Nathalie',
-    socialsSubtitel: 'Feel free to ask a question or follow online.',
     whatsappTitel: 'WhatsApp',
-    whatsappSub: 'Send a direct message',
     instagramTitel: 'Instagram',
-    instagramSub: '@tarralanzilli • Atmosphere & updates',
-    socialsReactietijd: 'Usually replies within one business day',
+    instagramSub: '@tarralanzilli',
+    emailTitel: 'Email',
   },
   es: {
-    links: 'Enlaces',
+    links: 'Navegación',
     aanbod: 'Ceremonias',
     contact: 'Contacto',
     intake: 'Formulario de admisión',
@@ -109,12 +117,10 @@ export const uiStrings = {
     socialsKnopSr: 'Abrir redes sociales y opciones de contacto',
     socialsSluitenSr: 'Cerrar menú de redes sociales',
     socialsTitel: 'Conectar con Nathalie',
-    socialsSubtitel: 'Haz una pregunta o sigue el camino ceremonial.',
     whatsappTitel: 'WhatsApp',
-    whatsappSub: 'Mensaje directo y personal',
     instagramTitel: 'Instagram',
-    instagramSub: '@tarralanzilli • Ceremonias y sintonía',
-    socialsReactietijd: 'Respuesta habitual en un día hábil',
+    instagramSub: '@tarralanzilli',
+    emailTitel: 'Correo',
   },
 } as const;
 
@@ -159,6 +165,9 @@ export function getContent(lang: Lang) {
     site: lang === 'es' ? esSite : lang === 'en' ? enSite : nlSite,
     ceremonies: lang === 'es' ? esCeremonies : lang === 'en' ? enCeremonies : nlCeremonies,
     ervaringen: lang === 'es' ? esErvaringen : lang === 'en' ? enErvaringen : nlErvaringen,
+    overMij: lang === 'es' ? esOver : lang === 'en' ? enOver : nlOver,
+    contact: lang === 'es' ? esContact : lang === 'en' ? enContact : nlContact,
+    intake: lang === 'es' ? esIntake : lang === 'en' ? enIntake : nlIntake,
     ui: uiStrings[lang],
   };
 }

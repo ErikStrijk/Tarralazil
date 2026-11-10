@@ -1,4 +1,4 @@
-﻿// Beweging die ademt: parallax in de hero, secties die rustig infaden,
+// Beweging die ademt: parallax in de hero, secties die rustig infaden,
 // en de wortellijn die met het scrollen meegroeit.
 
 const rustig = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -8,13 +8,20 @@ const groeiers = document.querySelectorAll<HTMLElement>('[data-groei]');
 if (rustig.matches || !('IntersectionObserver' in window)) {
   groeiers.forEach((el) => el.classList.add('is-zichtbaar'));
 } else {
+  const vh = window.innerHeight || document.documentElement.clientHeight;
   const io = new IntersectionObserver(
     (items) => items.forEach((i) => {
       if (i.isIntersecting) { i.target.classList.add('is-zichtbaar'); io.unobserve(i.target); }
     }),
-    { rootMargin: '0px 0px -12% 0px', threshold: 0.08 }
+    { rootMargin: '0px 0px -4% 0px', threshold: 0.01 }
   );
-  groeiers.forEach((el) => io.observe(el));
+  groeiers.forEach((el) => {
+    if (el.getBoundingClientRect().top < vh * 0.96) {
+      el.classList.add('is-zichtbaar');
+    } else {
+      io.observe(el);
+    }
+  });
 }
 
 /* ---------- Parallax ---------- */
