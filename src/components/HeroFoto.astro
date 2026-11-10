@@ -8,18 +8,22 @@ interface Props {
   beeld?: ImageMetadata;
   positie?: string;
   zacht?: boolean;
+  /** Homepage: foto groter, helderder en minder gedempt */
+  sterk?: boolean;
 }
 
 const {
   beeld = heroFoto,
   positie = 'object-[center_35%]',
   zacht = false,
+  sterk = false,
 } = Astro.props;
 ---
 <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
   <div
     class:list={[
-      'hero-foto absolute -inset-y-[4%] inset-x-0 lg:left-auto lg:w-[58%]',
+      'hero-foto absolute -inset-y-[4%] inset-x-0 lg:left-auto',
+      sterk ? 'hero-foto-sterk lg:w-[70%]' : 'lg:w-[58%]',
       { 'hero-foto-zacht': zacht },
     ]}
     data-parallax="0.05"
@@ -28,7 +32,7 @@ const {
       src={beeld}
       formats={['avif', 'webp']}
       widths={[640, 960, 1280, 1920]}
-      sizes="(min-width: 1024px) 58vw, 100vw"
+      sizes={sterk ? '(min-width: 1024px) 70vw, 100vw' : '(min-width: 1024px) 58vw, 100vw'}
       alt=""
       loading="eager"
       fetchpriority="high"
@@ -40,7 +44,9 @@ const {
   <div
     class:list={[
       'absolute inset-0',
-      zacht
+      sterk
+        ? 'bg-[linear-gradient(180deg,rgb(32_20_8/.62)_0%,rgb(46_30_16/.55)_45%,rgb(46_30_16/.82)_100%)] lg:bg-[linear-gradient(90deg,rgb(46_30_16/.94)_0%,rgb(46_30_16/.55)_38%,rgb(32_20_8/.12)_100%)]'
+        : zacht
         ? 'bg-[linear-gradient(180deg,rgb(32_20_8/.86)_0%,rgb(46_30_16/.84)_50%,rgb(46_30_16/.92)_100%)] lg:bg-[linear-gradient(90deg,rgb(46_30_16/.97)_0%,rgb(46_30_16/.82)_50%,rgb(32_20_8/.68)_100%)]'
         : 'bg-[linear-gradient(180deg,rgb(32_20_8/.78)_0%,rgb(46_30_16/.76)_50%,rgb(46_30_16/.88)_100%)] lg:bg-[linear-gradient(90deg,rgb(46_30_16/.95)_0%,rgb(46_30_16/.65)_48%,rgb(32_20_8/.38)_100%)]',
     ]}
@@ -53,6 +59,9 @@ const {
   .hero-foto :global(img) {
     filter: saturate(0.85) brightness(0.84) contrast(0.95);
   }
+  .hero-foto-sterk :global(img) {
+    filter: saturate(0.95) brightness(0.95) contrast(1);
+  }
   .hero-foto-zacht :global(img) {
     filter: saturate(0.75) brightness(0.68) contrast(0.92);
   }
@@ -60,6 +69,10 @@ const {
     .hero-foto {
       -webkit-mask: linear-gradient(90deg, transparent 12%, rgb(0 0 0 / 0.55) 48%, #000 78%);
       mask: linear-gradient(90deg, transparent 12%, rgb(0 0 0 / 0.55) 48%, #000 78%);
+    }
+    .hero-foto-sterk {
+      -webkit-mask: linear-gradient(90deg, transparent 4%, rgb(0 0 0 / 0.75) 30%, #000 52%);
+      mask: linear-gradient(90deg, transparent 4%, rgb(0 0 0 / 0.75) 30%, #000 52%);
     }
   }
 </style>

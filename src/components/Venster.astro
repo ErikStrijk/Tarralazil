@@ -1,8 +1,9 @@
 ---
 // Foto in een zachte, onregelmatige vorm. Vervang alleen de foto (src).
+// Of geef een eigen <Image> mee als slot; dan worden src/alt genegeerd.
 interface Props {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
   vorm?: 1 | 2 | 3 | 4;
   blad?: string;
   class?: string;
@@ -21,5 +22,7 @@ const vormen: Record<number, string> = {
 const mask = `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><path d='${vormen[vorm]}'/></svg>`)}")`;
 ---
 <div class={`venster ${cls}`} style={`--venster-mask: ${mask}`}>
-  <img src={src} alt={alt} loading={laden} decoding="async" width={breedte} height={hoogte} />
+  {Astro.slots.has('default')
+    ? <slot />
+    : <img src={src} alt={alt ?? ''} loading={laden} decoding="async" width={breedte} height={hoogte} />}
 </div>

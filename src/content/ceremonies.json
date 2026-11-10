@@ -3,7 +3,11 @@
     "slug": "truffelceremonie",
     "titel": "Truffel­ceremonie",
     "kort": "Een reis naar binnen met truffels, in een rustige en veilige ruimte. Ik begeleid je voor, tijdens en na de ceremonie.",
-    "toelichting": "Een truffelceremonie is een zachte, aardse reis naar binnen. Waar het hoofd in het dagelijks leven vaak zoekt naar controle en verklaringen, nodigen truffels je uit om voorbij het denken te zakken en met mildheid te voelen wat er onder de oppervlakte leeft. In een warme, prikkelarme ruimte ben ik bij je om je te dragen bij alles wat zich aandient.",
+    "toelichting": [
+      "Een truffelceremonie is een zachte, aardse reis naar binnen. Waar je hoofd in het dagelijks leven vaak zoekt naar controle en verklaringen, nodigen truffels je uit om voorbij het denken te zakken en met mildheid te voelen wat er onder de oppervlakte leeft.",
+      "We beginnen rustig met een kop thee en een gesprek over je intentie. Daarna lig je comfortabel in een warme, prikkelarme ruimte, met zorgvuldig gekozen muziek en een oogmasker als je dat fijn vindt. Ik blijf de hele reis bij je, en na afloop is er alle tijd om te landen.",
+      "Een truffelceremonie past goed als je voor het eerst met plantmedicijn werkt, of als je verlangt naar meer rust, zelfinzicht en contact met je gevoel."
+    ],
     "icoon": "truffel",
     "soort": "ceremonie"
   },
@@ -11,15 +15,23 @@
     "slug": "paddenstoelenceremonie",
     "titel": "Paddenstoelen­ceremonie",
     "kort": "Een verdiepende reis die helpt om vastgeroeste patronen en oude emoties in een nieuw, ruimer perspectief te ervaren.",
-    "toelichting": "Net zoals het netwerk van een paddenstoel onder de grond alles met elkaar verbindt, brengt een paddenstoelenceremonie je in contact met diepere lagen van je bewustzijn. Het helpt om oude patronen, weggestopte gevoelens en innerlijke wijsheid in een nieuw, ruimer licht te zien — altijd in jouw eigen tempo.",
+    "toelichting": [
+      "Net zoals het netwerk van een paddenstoel onder de grond alles met elkaar verbindt, brengt een paddenstoelenceremonie je in contact met diepere lagen van je bewustzijn.",
+      "De reis is vaak intenser en beeldender dan bij truffels. Oude patronen, weggestopte gevoelens en innerlijke wijsheid kunnen zich laten zien in een nieuw, ruimer licht. Ik ben er met nuchtere aanwezigheid, zodat je je veilig genoeg voelt om je over te geven aan wat er komt.",
+      "Deze ceremonie past bij je als je al wat ervaring hebt met naar binnen keren, en klaar bent om een stap dieper te gaan. Altijd in jouw eigen tempo."
+    ],
     "icoon": "paddenstoel",
     "soort": "ceremonie"
   },
   {
-    "slug": "ayahuascaceremonie",
-    "titel": "Ayahuasca­ceremonie",
-    "kort": "Een eeuwenoude plantenbrouw uit het Amazonegebied. Dit vraagt om voorbereiding en vertrouwen; we voelen samen of dit jouw pad is.",
-    "toelichting": "Ayahuasca is een eeuwenoude plantenbrouw uit het Amazonegebied die diep doorwerkt op oude stukken, overtuigingen en familielijnen. Het is een krachtige ontmoeting met jezelf die vraagt om vertrouwen en overgave. Samen voelen we vooraf zorgvuldig aan of deze reis op dit moment bij je past.",
+    "slug": "mother-nature-ceremonie",
+    "titel": "Mother Nature­ceremonie",
+    "kort": "Een diepe plantenceremonie uit een eeuwenoude traditie. Dit vraagt om voorbereiding en vertrouwen; we voelen samen of dit jouw pad is.",
+    "toelichting": [
+      "De Mother Nature-ceremonie is een diepe plantenceremonie, geworteld in een eeuwenoude traditie. Ze werkt vaak door op oude stukken, overtuigingen en familielijnen, en is een krachtige ontmoeting met jezelf.",
+      "Omdat deze reis veel kan losmaken, nemen we de voorbereiding extra serieus. Vooraf spreken we elkaar uitgebreid, nemen we je intake en gezondheid zorgvuldig door, en krijg je advies over voeding en rust in de dagen ervoor. Tijdens de ceremonie ben ik continu bij je.",
+      "Samen voelen we eerlijk aan of deze reis op dit moment bij je past. Soms is een zachtere vorm eerst beter, en dat zeg ik je dan ook."
+    ],
     "icoon": "liaan",
     "soort": "ceremonie"
   },
@@ -27,7 +39,11 @@
     "slug": "ademwerk",
     "titel": "Ademwerk",
     "kort": "Met bewuste ademhaling breng je je aandacht van je hoofd naar je lichaam. Zonder planten, en vaak verrassend diep.",
-    "toelichting": "Je ademhaling weerspiegelt vaak hoe je door het leven beweegt. Wanneer je lang spanning hebt vastgehouden of jezelf hebt ingehouden, zet zich dat vast in je lichaam. Met verbonden ademhaling breng je je aandacht op een natuurlijke manier van je hoofd terug naar je lijf. Helemaal zonder planten, en vaak verrassend diep en bevrijdend.",
+    "toelichting": [
+      "Je ademhaling weerspiegelt vaak hoe je door het leven beweegt. Wanneer je lang spanning hebt vastgehouden of jezelf hebt ingehouden, zet zich dat vast in je lichaam.",
+      "Met verbonden ademhaling breng je je aandacht op een natuurlijke manier van je hoofd terug naar je lijf. Je ligt comfortabel, ik begeleid je ritme met mijn stem en muziek, en je lichaam mag doen wat het nodig heeft: trillen, huilen, lachen of diep tot rust komen.",
+      "Ademwerk is helemaal zonder planten en daardoor voor bijna iedereen toegankelijk. Het is een mooie eerste kennismaking, maar ook een krachtige vorm op zichzelf. Vaak verrassend diep en bevrijdend."
+    ],
     "icoon": "adem",
     "soort": "ademwerk"
   }

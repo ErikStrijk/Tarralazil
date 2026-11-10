@@ -3,7 +3,11 @@
     "slug": "truffelceremonie",
     "titel": "Truffle ceremony",
     "kort": "A journey inward with truffles, in a calm and safe space. I guide you before, during, and after the ceremony.",
-    "toelichting": "A truffle ceremony is a gentle, grounding journey inward. Where the mind often looks for control and explanations in daily life, truffles invite you to sink beneath analytical thought and softly feel what lives below the surface. In a warm, quiet space I stay with you through whatever arises.",
+    "toelichting": [
+      "A truffle ceremony is a gentle, grounding journey inward. Where your mind often looks for control and explanations, truffles invite you to sink beneath thinking and feel with kindness what lives below the surface.",
+      "We begin calmly with a cup of tea and a conversation about your intention. Then you lie comfortably in a warm, quiet space, with carefully chosen music and an eye mask if you like. I stay with you throughout the journey, and afterwards there is plenty of time to land.",
+      "A truffle ceremony suits you well if you are new to plant medicine, or if you long for more calm, self-insight and connection with your feelings."
+    ],
     "icoon": "truffel",
     "soort": "ceremonie"
   },
@@ -11,15 +15,23 @@
     "slug": "paddenstoelenceremonie",
     "titel": "Mushroom ceremony",
     "kort": "A deepening journey that helps you experience ingrained patterns and held-back emotions in a wider, gentler light.",
-    "toelichting": "Just as mycelium connects everything underground, a mushroom ceremony brings you into contact with deeper layers of your awareness. It helps you see old patterns, held-back emotions, and inner wisdom in a wider, gentler light — always at your own pace.",
+    "toelichting": [
+      "Just as mycelium connects everything underground, a mushroom ceremony brings you into contact with deeper layers of your consciousness.",
+      "The journey is often more intense and visual than with truffles. Old patterns, hidden feelings and inner wisdom can show themselves in a new, wider light. I am there with grounded presence, so you feel safe enough to surrender to whatever comes.",
+      "This ceremony suits you if you already have some experience with turning inward and feel ready to go a step deeper. Always at your own pace."
+    ],
     "icoon": "paddenstoel",
     "soort": "ceremonie"
   },
   {
-    "slug": "ayahuascaceremonie",
-    "titel": "Ayahuasca ceremony",
-    "kort": "An ancient plant brew from the Amazon. This requires preparation and trust; together we feel if this is your path.",
-    "toelichting": "Ayahuasca is an ancient plant brew from the Amazon that reaches deeply into old layers, beliefs, and family lines. It is a powerful encounter with yourself that asks for trust and surrender. Together we carefully sense beforehand whether this journey suits you right now.",
+    "slug": "mother-nature-ceremonie",
+    "titel": "Mother Nature ceremony",
+    "kort": "A deep plant ceremony from an ancient tradition. It asks for preparation and trust; together we sense whether this is your path.",
+    "toelichting": [
+      "The Mother Nature ceremony is a deep plant ceremony, rooted in an ancient tradition. It often reaches into old layers, beliefs and family lines, and is a powerful meeting with yourself.",
+      "Because this journey can release a lot, we take preparation extra seriously. We talk at length beforehand, go carefully through your intake and health, and you receive advice on food and rest in the days before. During the ceremony I am with you the whole time.",
+      "Together we honestly sense whether this journey fits you right now. Sometimes a gentler form is better first, and I will tell you so."
+    ],
     "icoon": "liaan",
     "soort": "ceremonie"
   },
@@ -27,7 +39,11 @@
     "slug": "ademwerk",
     "titel": "Breathwork",
     "kort": "With conscious breathing you bring your attention from your head to your body. Without plants, and often surprisingly deep.",
-    "toelichting": "Your breath often reflects how you move through life. When you have held on to tension or held yourself back for a long time, the body remembers. Through connected breathing you naturally bring your attention from your head back into your body. Entirely without plants, and often surprisingly deep and liberating.",
+    "toelichting": [
+      "Your breath often reflects how you move through life. When you have held on to tension or held yourself back for a long time, it settles in your body.",
+      "With connected breathing you naturally bring your attention from your head back to your body. You lie comfortably, I guide your rhythm with my voice and music, and your body may do what it needs: tremble, cry, laugh or come deeply to rest.",
+      "Breathwork involves no plants at all, which makes it accessible to almost everyone. It is a lovely first introduction, and also a powerful practice in its own right. Often surprisingly deep and freeing."
+    ],
     "icoon": "adem",
     "soort": "ademwerk"
   }

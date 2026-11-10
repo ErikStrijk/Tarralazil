@@ -69,30 +69,25 @@ const T = {
   <section class="licht relative bg-mos-100 pb-24 pt-20 text-woud-950 md:pb-28 md:pt-24" aria-label={T.label}>
     <LeafEdge kleur="#f2e4c2" seed={37} omgekeerd />
     <div class="container-woud">
-      <ul class="raster gap-y-12">
+      <ul class="raster gap-y-6 md:gap-y-8">
         {ervaringen.map((e) => {
           const ankerId = `verhaal-${e.id || e.naam.toLowerCase().replace(/\s+/g, '-')}`;
           const ceremonieHref = e.ceremonieSlug ? `${localePath('/ceremonies/', lang)}#${e.ceremonieSlug}` : localePath('/ceremonies/', lang);
+          const initiaal = e.naam.trim().charAt(0).toUpperCase();
 
           return (
             <li id={ankerId} class="flex scroll-mt-28 md:col-span-6" data-groei>
-              <article class="flex h-full w-full flex-col justify-between border-t border-jungle-800/20 pt-7">
-                <blockquote class="text-[1.02rem] leading-[1.75] text-woud-950/90 md:text-[1.05rem]">
-                  <p>“{e.verhaal || e.tekst}”</p>
+              <article class="verhaal-kaart">
+                <span class="verhaal-teken" aria-hidden="true">“</span>
+                <blockquote class="verhaal-tekst">
+                  <p>{e.verhaal || e.tekst}</p>
                 </blockquote>
 
-                <footer class="mt-5 flex items-center gap-3">
-                  <Icoon naam="kiem" class="h-5 w-5 flex-none text-jungle-800" />
+                <footer class="verhaal-voet">
+                  <span class="verhaal-initiaal" aria-hidden="true">{initiaal}</span>
                   <div class="min-w-0 flex-1">
-                    <h2 class="font-kop text-base leading-snug text-woud-950">
-                      {e.naam}
-                    </h2>
-                    <a
-                      href={ceremonieHref}
-                      class="mt-0.5 inline-block text-xs text-jungle-800/75 no-underline hover:text-woud-950 hover:underline"
-                    >
-                      {e.ceremonie}
-                    </a>
+                    <h2 class="font-kop text-[1.05rem] leading-snug text-woud-950">{e.naam}</h2>
+                    <a href={ceremonieHref} class="verhaal-label">{e.ceremonie}</a>
                   </div>
                 </footer>
               </article>
@@ -107,11 +102,11 @@ const T = {
   <section class="licht relative bg-dauw-50 pb-28 pt-20 text-center text-woud-950 md:pb-36 md:pt-28" aria-labelledby="verhalen-cta-kop">
     <LeafEdge kleur="#faf3e4" seed={79} />
     <div class="container-woud" data-groei>
-      <div class="maat-smal mx-auto">
-        <Icoon naam="kiem" class="mx-auto h-12 w-12 text-jungle-800" />
-        <h2 id="verhalen-cta-kop" class="sectie-kop mt-4 text-woud-950">{T.ctaKop}</h2>
-        <p class="mt-4 text-[1.0625rem] leading-[1.75] text-jungle-800 md:text-[1.15rem]">{T.ctaTekst}</p>
-        <div class="mt-9 flex flex-wrap justify-center gap-4">
+      <div class="afsluiting">
+        <Icoon naam="kiem" class="mx-auto h-10 w-10 text-jungle-800" />
+        <h2 id="verhalen-cta-kop" class="sectie-kop mt-3 text-balance text-woud-950">{T.ctaKop}</h2>
+        <p class="afsluiting-tekst mt-4">{T.ctaTekst}</p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a href={localePath('/contact/', lang)} class="knop knop-zon">
             {T.ctaKnop}
             <Fragment set:html={pijl} />
@@ -124,3 +119,90 @@ const T = {
     </div>
   </section>
 </Base>
+
+<style>
+  .verhaal-kaart {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 2.25rem 1.75rem 1.75rem;
+    border-radius: 1.5rem;
+    background: #fffaf0;
+    box-shadow:
+      0 22px 44px -30px rgb(46 30 16 / 0.35),
+      inset 0 0 0 1px rgb(110 46 20 / 0.1);
+    transition: transform 0.6s var(--ease-adem), box-shadow 0.6s var(--ease-adem);
+  }
+  @media (min-width: 768px) {
+    .verhaal-kaart { padding: 2.75rem 2.5rem 2.25rem; }
+  }
+  .verhaal-kaart:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 28px 50px -30px rgb(46 30 16 / 0.42),
+      inset 0 0 0 1px rgb(110 46 20 / 0.18);
+  }
+
+  /* Groot, zacht aanhalingsteken als sierelement */
+  .verhaal-teken {
+    display: block;
+    height: 2.1rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-kop);
+    font-size: 4.5rem;
+    line-height: 1;
+    color: rgb(110 46 20 / 0.28);
+  }
+
+  .verhaal-tekst {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: rgb(26 17 10 / 0.88);
+  }
+  @media (min-width: 768px) {
+    .verhaal-tekst { font-size: 1.1rem; }
+  }
+
+  .verhaal-voet {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgb(110 46 20 / 0.12);
+  }
+  .verhaal-initiaal {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 999px;
+    background: var(--mos-200);
+    color: var(--jungle-800);
+    font-family: var(--font-kop);
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+  .verhaal-label {
+    display: inline-block;
+    margin-top: 0.3rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    background: rgb(232 213 168 / 0.55);
+    color: var(--jungle-800);
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  .verhaal-label:hover { background: var(--mos-200); text-decoration: underline; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .verhaal-kaart, .verhaal-kaart:hover { transition: none; transform: none; }
+  }
+</style>

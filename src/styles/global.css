@@ -136,7 +136,20 @@
   /* Vaste maten: geen losse max-widths meer per sectie */
   .maat-kop { max-width: 44rem; }   /* kop + intro van een sectie */
   .maat-tekst { max-width: 58ch; }  /* lopende tekst */
-  .maat-smal { max-width: 40rem; }  /* gecentreerde afsluiting (CTA) */
+  .maat-smal { max-width: 40rem; }  /* gecentreerd blok */
+
+  /* Afsluitende CTA: gecentreerd en van boven naar beneden smaller
+     (kop → tekst → knoppen), met gebalanceerde regels. */
+  .afsluiting { max-width: 40rem; margin-inline: auto; text-align: center; }
+  .afsluiting-tekst {
+    max-width: 34rem;
+    margin-inline: auto;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: rgb(26 17 10 / 0.8);
+    text-wrap: balance;
+  }
+  @media (min-width: 768px) { .afsluiting-tekst { font-size: 1.125rem; } }
 
   /* Knoppen: rustig, zonder gloed */
   .knop {

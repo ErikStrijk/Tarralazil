@@ -1,6 +1,5 @@
 ---
 // Ervaringen van deelnemers — lichte, snel scanbare weergave zonder nep-AI-portretten
-import Icoon from './Icoon.astro';
 import { getContent, getLangFromUrl, localePath, type Lang } from '../lib/i18n';
 
 export interface ErvaringItem {
@@ -55,21 +54,15 @@ const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="cu
 
       return (
         <li class="flex md:col-span-4">
-          <article class="flex h-full w-full flex-col justify-between border-t border-dauw-50/15 pt-7">
-            <blockquote class="text-[1.02rem] leading-[1.75] text-dauw-200">
+          <article class="flex h-full w-full flex-col justify-between border-t border-zonlicht-400/50 pt-6">
+            <blockquote class="text-[1.05rem] leading-[1.75] text-dauw-50 md:line-clamp-5">
               <p>“{e.tekst}”</p>
             </blockquote>
 
-            <footer class="mt-5 flex items-center gap-3">
-              <Icoon naam="kiem" class="h-5 w-5 flex-none text-zonlicht-200" />
-              <div class="min-w-0 flex-1">
-                <a href={verhaalAnker} class="block font-kop text-base leading-snug text-dauw-50 no-underline hover:text-zonlicht-200">
-                  {e.naam}
-                </a>
-                <a href={ceremonieHref} class="mt-0.5 inline-block text-xs text-dauw-200/75 no-underline hover:text-dauw-50 hover:underline">
-                  {e.ceremonie}
-                </a>
-              </div>
+            <footer class="mt-6 text-sm leading-snug">
+              <a href={verhaalAnker} class="font-kop text-zonlicht-200 no-underline hover:text-dauw-50">{e.naam}</a>
+              <span class="text-dauw-200/40" aria-hidden="true"> · </span>
+              <a href={ceremonieHref} class="text-dauw-200/70 no-underline hover:text-dauw-50">{e.ceremonie}</a>
             </footer>
           </article>
         </li>

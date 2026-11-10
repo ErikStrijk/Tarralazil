@@ -30,11 +30,11 @@ const heeftRechts = Astro.slots.has('rechts');
 <section
   class:list={[
     'relative isolate flex items-center overflow-hidden bg-woud-800 pb-20 pt-32',
-    groot ? 'md:min-h-[68svh] md:pb-28 md:pt-40' : 'md:min-h-[46svh] md:pb-24 md:pt-40',
+    groot ? 'md:min-h-[80svh] md:pb-32 md:pt-40' : 'md:min-h-[46svh] md:pb-24 md:pt-40',
   ]}
   aria-labelledby={id}
 >
-  <HeroFoto beeld={beeld} positie={beeldPositie} zacht={zachtBeeld || heeftRechts} />
+  <HeroFoto beeld={beeld} positie={beeldPositie} zacht={zachtBeeld || heeftRechts} sterk={groot} />
 
   <div class="container-woud relative">
     {heeftRechts ? (

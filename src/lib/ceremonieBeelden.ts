@@ -8,7 +8,7 @@ import ademwerk from '../assets/ceremonie-ademwerk-ven.webp';
 export const ceremonieBeelden: Record<string, ImageMetadata> = {
   truffelceremonie: truffel,
   paddenstoelenceremonie: paddenstoel,
-  ayahuascaceremonie: ayahuasca,
+  'mother-nature-ceremonie': ayahuasca,
   ademwerk: ademwerk,
 };
 

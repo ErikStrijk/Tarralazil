@@ -58,71 +58,34 @@ const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="cu
         </div>
       </div>
 
-      <!-- Fundament: drie rustige kolommen onder het verhaal -->
+      <!-- Fundament: drie kolommen, elk met een donker tegeltje (Inner Journey-lotus, bijgesneden zonder woordmerk; daarna botanische iconen) -->
       {o.achtergrond?.stats && (
-        <dl class="mt-16 grid gap-x-10 gap-y-8 border-t border-jungle-800/15 pt-10 md:mt-20 md:grid-cols-3" data-groei>
+        <dl class="mt-16 grid gap-x-10 gap-y-10 border-t border-jungle-800/15 pt-12 md:mt-20 md:grid-cols-3" data-groei>
           {o.achtergrond.stats.map((s: { waarde: string; titel: string; tekst: string }, idx: number) => (
             <div>
               <dt>
-                <span class="flex items-center gap-3">
-                  <span class="font-kop text-[1.2rem] text-jungle-800">{s.waarde}</span>
-                  {idx === 0 && (
-                    <span class="inline-flex flex-none items-center rounded-lg bg-woud-800 px-2.5 py-1">
+                <span class="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-woud-800 shadow-[0_10px_24px_-14px_rgb(46_30_16/.7)]">
+                  {idx === 0 ? (
+                    <span class="block h-[27px] w-[42px] overflow-hidden">
                       <Image
                         src={innerJourneyLogo}
-                        alt=""
-                        widths={[80, 160]}
-                        sizes="56px"
-                        class="h-5 w-auto"
+                        alt="Inner Journey"
+                        widths={[132, 264]}
+                        sizes="68px"
+                        class="ml-[-13px] h-auto w-[68px] max-w-none"
                       />
                     </span>
+                  ) : (
+                    <Icoon naam={idx === 1 ? 'kiem' : 'varen'} class="h-9 w-9 text-zonlicht-200" />
                   )}
                 </span>
-                <span class="mt-1 block font-kop text-base text-woud-950">{s.titel}</span>
+                <span class="block font-kop text-[1.2rem] leading-tight text-jungle-800">{s.waarde}</span>
+                <span class="mt-1.5 block font-kop text-base text-woud-950">{s.titel}</span>
               </dt>
-              <dd class="mt-2 text-[0.95rem] leading-[1.65] text-woud-950/80">{s.tekst}</dd>
+              <dd class="mt-2.5 text-[0.95rem] leading-[1.65] text-woud-950/80">{s.tekst}</dd>
             </div>
           ))}
         </dl>
-      )}
-    </div>
-  </section>
-
-  <!-- 3. Wat je van mij mag verwachten: stap voor stap door een sessie -->
-  <section id="verwachten" class="relative scroll-mt-20 bg-woud-800 pb-24 pt-24 md:pb-32 md:pt-32" aria-labelledby="waarden-kop">
-    <LeafEdge kleur="#2e1e10" seed={29} />
-    <div class="container-woud">
-      <header class="maat-kop" data-groei>
-        <h2 id="waarden-kop" class="sectie-kop text-dauw-50">{o.waarden.kop}</h2>
-        <p class="lead mt-4">{o.waarden.intro}</p>
-      </header>
-
-      <!-- Rustige, verticale volgorde: nummer + fase links, verhaal rechts -->
-      <ol class="mt-12 border-b border-dauw-50/10 md:mt-16">
-        {o.waarden.items.map((w: any) => (
-          <li class="raster gap-y-3 border-t border-dauw-50/10 py-9 md:py-11" data-groei>
-            <div class="md:col-span-3">
-              {w.stap && <p class="font-kop text-[1.5rem] leading-none text-zonlicht-200/75">{w.stap}</p>}
-              {w.fase && <p class="mt-2 text-sm tracking-wide text-dauw-200/70">{w.fase}</p>}
-            </div>
-            <div class="md:col-span-9 lg:col-span-7">
-              <h3 class="text-[1.3rem] leading-snug text-dauw-50 md:text-[1.4rem]">{w.titel}</h3>
-              <p class="maat-tekst mt-3 text-[1.02rem] leading-[1.8] text-dauw-200">{w.tekst}</p>
-              {w.detail && (
-                <p class="mt-4 text-[0.95rem] italic text-dauw-200/65">{w.detail}</p>
-              )}
-            </div>
-          </li>
-        ))}
-      </ol>
-
-      {o.waarden.belofte && (
-        <div class="raster mt-12 md:mt-16" data-groei>
-          <div class="md:col-span-9 md:col-start-4 lg:col-span-7">
-            <h3 class="text-[1.3rem] leading-snug text-dauw-50 md:text-[1.4rem]">{o.waarden.belofte.kop}</h3>
-            <p class="maat-tekst mt-3 text-[1.02rem] leading-[1.8] text-dauw-200">{o.waarden.belofte.tekst}</p>
-          </div>
-        </div>
       )}
     </div>
   </section>
@@ -131,11 +94,11 @@ const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="cu
   <section class="licht relative bg-dauw-50 pb-28 pt-20 text-center text-woud-950 md:pb-36 md:pt-28" aria-labelledby="cta-kop">
     <LeafEdge kleur="#faf3e4" seed={73} />
     <div class="container-woud" data-groei>
-      <div class="maat-smal mx-auto">
-        <Icoon naam="kiem" class="mx-auto h-12 w-12 text-jungle-800" />
-        <h2 id="cta-kop" class="sectie-kop mt-4 text-woud-950">{o.cta.kop}</h2>
-        <p class="mt-4 text-[1.0625rem] leading-[1.75] text-jungle-800 md:text-[1.15rem]">{o.cta.tekst}</p>
-        <div class="mt-9 flex flex-wrap justify-center gap-4">
+      <div class="afsluiting">
+        <Icoon naam="kiem" class="mx-auto h-10 w-10 text-jungle-800" />
+        <h2 id="cta-kop" class="sectie-kop mt-3 text-balance text-woud-950">{o.cta.kop}</h2>
+        <p class="afsluiting-tekst mt-4">{o.cta.tekst}</p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a href={localePath('/contact/', lang)} class="knop knop-zon">{o.cta.knop}<Fragment set:html={pijl} /></a>
           <a href={localePath('/ceremonies/', lang)} class="knop knop-rand">{o.cta.tweede}</a>
         </div>

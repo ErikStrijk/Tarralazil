@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import PageHero from './PageHero.astro';
 import LeafEdge from './LeafEdge.astro';
@@ -9,7 +8,6 @@ import Ervaringen from './Ervaringen.astro';
 import { getContent, localePath, type Lang } from '../lib/i18n';
 import introBeeld from '../assets/intro-wortels-beuk.webp';
 import portret from '../assets/tarra-portret.webp';
-import innerJourneyLogo from '../assets/inner-journey-logo.webp';
 
 interface Props {
   lang: Lang;
@@ -54,13 +52,15 @@ const introTweedeZin = introRestZinnen.join(' ');
           </div>
 
           {intro.punten && (
-            <ul class="maat-tekst mt-8 border-t border-jungle-800/15">
+            <ul class="kaart-licht mt-9 divide-y divide-jungle-800/10 px-5 md:px-7">
               {intro.punten.map((punt: { titel: string; tekst: string }) => (
-                <li class="flex items-start gap-3.5 border-b border-jungle-800/15 py-4">
-                  <Icoon naam="kiem" class="mt-1 h-5 w-5 flex-none text-jungle-800" />
-                  <div class="min-w-0">
-                    <h3 class="font-kop text-[1rem] leading-snug text-woud-950 md:text-[1.05rem]">{punt.titel}</h3>
-                    <p class="mt-1 text-[0.92rem] leading-[1.6] text-woud-950/80">{punt.tekst}</p>
+                <li class="flex items-start gap-4 py-5">
+                  <span class="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-mos-200/75 text-jungle-800" aria-hidden="true">
+                    <Icoon naam="kiem" class="h-5 w-5" />
+                  </span>
+                  <div class="min-w-0 pt-0.5">
+                    <h3 class="font-kop text-[1.05rem] leading-snug text-woud-950 md:text-[1.12rem]">{punt.titel}</h3>
+                    <p class="mt-1.5 text-[0.95rem] leading-[1.6] text-woud-950/75">{punt.tekst}</p>
                   </div>
                 </li>
               ))}
@@ -82,6 +82,11 @@ const introTweedeZin = introRestZinnen.join(' ');
       <div class="raster items-center gap-y-12">
         <figure class="mx-auto w-full max-w-[17rem] md:col-span-5 md:ml-0 md:max-w-[20rem]" data-groei>
           <Venster src={portret.src} alt={waarom.portret.alt} vorm={3} breedte={portret.width} hoogte={portret.height} class="aspect-[347/368] w-full" />
+          {overMij.hero.badges?.[0] && (
+            <figcaption class="mt-4 text-center text-sm text-dauw-200/70 md:text-left">
+              {overMij.hero.badges[0]} · {overMij.hero.badges[1]}
+            </figcaption>
+          )}
         </figure>
 
         <div class="md:col-span-7" data-groei>
@@ -89,21 +94,8 @@ const introTweedeZin = introRestZinnen.join(' ');
           <div class="maat-tekst mt-5 space-y-4 text-[1.0625rem] leading-[1.78] text-dauw-200 md:text-[1.125rem]">
             {waarom.tekst.map((p: string) => <p>{p}</p>)}
           </div>
-          <div class="mt-7 flex flex-wrap items-center gap-5">
+          <div class="mt-8">
             <a href={localePath('/over-mij/', lang)} class="knop knop-rand">{waarom.knop}<Fragment set:html={pijl} /></a>
-            <div class="inline-flex items-center gap-3.5 text-dauw-50">
-              <Image
-                src={innerJourneyLogo}
-                alt="Inner Journey"
-                widths={[110, 220]}
-                sizes="76px"
-                class="h-9 w-auto flex-none"
-              />
-              <div class="border-l border-dauw-50/15 pl-3.5 text-xs leading-snug sm:text-[0.82rem]">
-                <p class="font-semibold text-dauw-50">{overMij.hero.badges?.[0]}</p>
-                <p class="text-zonlicht-200">{overMij.hero.badges?.[1]}</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -119,20 +111,26 @@ const introTweedeZin = introRestZinnen.join(' ');
         <p class="maat-tekst mt-4 text-[1.0625rem] leading-[1.75] text-woud-950/80">{home.ceremonies.tekst}</p>
       </header>
 
+      <!-- Zelfde kaart als Ervaringen en Verhalen: kaart-licht, tekst boven, dunne lijn + rond icoon onder -->
       <ul class="raster mt-12 md:mt-14">
         {ceremonies.map((d: any) => (
-          <li class="aanbod group md:col-span-6" data-groei>
-            <Icoon naam={d.icoon as "truffel" | "paddenstoel" | "liaan" | "adem"} class="h-10 w-10 flex-none text-jungle-800" />
-            <div>
-              <h3 class="text-[1.4rem] leading-tight text-woud-950 md:text-[1.55rem]">
-                <a href={`${localePath('/ceremonies/', lang)}#${d.slug}`} class="aanbod-link no-underline">{d.titel}</a>
-              </h3>
-              <p class="maat-tekst mt-2.5 text-[1rem] leading-[1.75] text-woud-950/80">{d.kort}</p>
-              <p class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-jungle-800" aria-hidden="true">
-                {home.ceremonies.kaartKnop}
-                <span class="aanbod-pijl inline-block h-4 w-4"><Fragment set:html={pijl} /></span>
-              </p>
-            </div>
+          <li class="flex md:col-span-6" data-groei>
+            <article class="aanbod kaart-licht relative flex h-full w-full flex-col justify-between p-7 md:p-8">
+              <div>
+                <h3 class="text-[1.4rem] leading-tight text-woud-950 md:text-[1.5rem]">
+                  <a href={`${localePath('/ceremonies/', lang)}#${d.slug}`} class="aanbod-link no-underline">{d.titel}</a>
+                </h3>
+                <p class="maat-tekst mt-3 text-[1.02rem] leading-[1.75] text-woud-950/80">{d.kort}</p>
+              </div>
+
+              <footer class="mt-7 flex items-center gap-3 border-t border-jungle-800/12 pt-5" aria-hidden="true">
+                <span class="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-mos-200/75 text-jungle-800">
+                  <Icoon naam={d.icoon as "truffel" | "paddenstoel" | "liaan" | "adem"} class="h-5 w-5" />
+                </span>
+                <span class="flex-1 text-sm font-semibold text-jungle-800">{home.ceremonies.kaartKnop}</span>
+                <span class="aanbod-pijl inline-block h-4 w-4 text-jungle-800"><Fragment set:html={pijl} /></span>
+              </footer>
+            </article>
           </li>
         ))}
       </ul>
@@ -155,11 +153,11 @@ const introTweedeZin = introRestZinnen.join(' ');
   <section class="licht relative bg-dauw-50 pb-28 pt-20 text-woud-950 md:pb-36 md:pt-28" aria-labelledby="cta-kop">
     <LeafEdge kleur="#faf3e4" seed={71} />
     <div class="container-woud" data-groei>
-      <div class="maat-smal mx-auto text-center">
-        <Icoon naam="kiem" class="mx-auto h-12 w-12 text-jungle-800" />
-        <h2 id="cta-kop" class="sectie-kop mt-4 text-woud-950">{cta.kop}</h2>
-        <p class="mx-auto mt-4 text-[1.0625rem] leading-[1.75] text-jungle-800 md:text-[1.15rem]">{cta.tekst}</p>
-        <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
+      <div class="afsluiting">
+        <Icoon naam="kiem" class="mx-auto h-10 w-10 text-jungle-800" />
+        <h2 id="cta-kop" class="sectie-kop mt-3 text-balance text-woud-950">{cta.kop}</h2>
+        <p class="afsluiting-tekst mt-4">{cta.tekst}</p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a href={localePath('/contact/', lang)} class="knop knop-zon">{cta.knop}<Fragment set:html={pijl} /></a>
           <a href={localePath('/intake/', lang)} class="knop knop-rand">{cta.intakeKnop}</a>
         </div>
@@ -169,24 +167,10 @@ const introTweedeZin = introRestZinnen.join(' ');
 </Base>
 
 <style>
-  .aanbod {
-    position: relative;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1.25rem;
-    align-items: start;
-    padding: 1.75rem 1.5rem;
-    border: 1px solid rgb(110 46 20 / 0.14);
-    border-radius: 1.35rem;
-    background: var(--dauw-50);
-    box-shadow: 0 10px 28px -16px rgb(46 30 16 / 0.08);
-    transition: background-color 0.5s var(--ease-adem), border-color 0.5s var(--ease-adem);
-  }
-  .aanbod > div { min-width: 0; }
+  /* Basis komt uit .kaart-licht (global.css); hier alleen de klikbare kaart */
+  .aanbod { transition: box-shadow 0.5s var(--ease-adem); }
   .aanbod h3 { hyphens: auto; overflow-wrap: break-word; }
-  @media (max-width: 479px) { .aanbod { grid-template-columns: 1fr; gap: 1rem; } }
-  @media (min-width: 768px) { .aanbod { padding: 2.15rem; gap: 1.4rem; } }
-  .aanbod:hover { background: #fffaf0; border-color: rgb(110 46 20 / 0.4); }
+  .aanbod:hover { box-shadow: 0 10px 28px -16px rgb(46 30 16 / 0.14), inset 0 0 0 1px rgb(110 46 20 / 0.35); }
   .aanbod-link::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
   .aanbod-link:focus-visible { outline: none; }
   .aanbod:has(.aanbod-link:focus-visible) { outline: 2px solid var(--jungle-800); outline-offset: 4px; }
