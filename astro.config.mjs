@@ -18,6 +18,7 @@ export default defineConfig({
     '/agenda/': '/ceremonies/',
     '/diensten/': '/ceremonies/',
     '/over-ons/': '/over-mij/',
+    '/ceremonies/ayahuascaceremonie/': '/ceremonies/#mother-nature-ceremonie',
   },
   integrations: [sitemap()],
   vite: {

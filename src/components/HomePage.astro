@@ -18,6 +18,7 @@ const { home, ceremonies, overMij } = getContent(lang);
 const { hero, intro, waarom, cta } = home;
 
 const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24h30M28 14c3 5 7 8 11 10-4 2-8 5-11 10"/></svg>';
+const blad = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Z"/><path d="M5 19 13 11"/></svg>';
 
 const heroEyebrow = {
   nl: 'Ceremonies & Ademwerk · Sappemeer',
@@ -102,7 +103,7 @@ const introTweedeZin = introRestZinnen.join(' ');
     </div>
   </section>
 
-  <!-- 4. Aanbod: hoe ik je kan begeleiden (4 overzichtelijke kaarten) -->
+  <!-- 4. Aanbod: hoe ik je kan begeleiden (overzichtelijke opsomming) -->
   <section class="licht relative bg-mos-100 pb-24 pt-24 text-woud-950 md:pb-28 md:pt-28" aria-labelledby="ceremonies-kop">
     <LeafEdge kleur="#f2e4c2" seed={31} />
     <div class="container-woud">
@@ -111,26 +112,20 @@ const introTweedeZin = introRestZinnen.join(' ');
         <p class="maat-tekst mt-4 text-[1.0625rem] leading-[1.75] text-woud-950/80">{home.ceremonies.tekst}</p>
       </header>
 
-      <!-- Zelfde kaart als Ervaringen en Verhalen: kaart-licht, tekst boven, dunne lijn + rond icoon onder -->
-      <ul class="raster mt-12 md:mt-14">
+      <!-- Overzichtelijke opsomming: icoon, naam, kort kenmerk; hele regel klikbaar -->
+      <ul class="aanbod-lijst mt-10 md:mt-12" data-groei>
         {ceremonies.map((d: any) => (
-          <li class="flex md:col-span-6" data-groei>
-            <article class="aanbod kaart-licht relative flex h-full w-full flex-col justify-between p-7 md:p-8">
-              <div>
-                <h3 class="text-[1.4rem] leading-tight text-woud-950 md:text-[1.5rem]">
-                  <a href={`${localePath('/ceremonies/', lang)}#${d.slug}`} class="aanbod-link no-underline">{d.titel}</a>
-                </h3>
-                <p class="maat-tekst mt-3 text-[1.02rem] leading-[1.75] text-woud-950/80">{d.kort}</p>
-              </div>
-
-              <footer class="mt-7 flex items-center gap-3 border-t border-jungle-800/12 pt-5" aria-hidden="true">
-                <span class="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-mos-200/75 text-jungle-800">
-                  <Icoon naam={d.icoon as "truffel" | "paddenstoel" | "liaan" | "adem"} class="h-5 w-5" />
-                </span>
-                <span class="flex-1 text-sm font-semibold text-jungle-800">{home.ceremonies.kaartKnop}</span>
-                <span class="aanbod-pijl inline-block h-4 w-4 text-jungle-800"><Fragment set:html={pijl} /></span>
-              </footer>
-            </article>
+          <li>
+            <a href={`${localePath('/ceremonies/', lang)}#${d.slug}`} class="aanbod-regel">
+              <span class="aanbod-icoon" aria-hidden="true">
+                <Icoon naam={d.icoon as "truffel" | "paddenstoel" | "liaan" | "adem"} class="h-6 w-6" />
+              </span>
+              <span class="min-w-0 flex-1">
+                <span class="block font-kop text-[1.3rem] leading-tight text-woud-950 md:text-[1.4rem]">{d.titel}</span>
+                {d.kenmerk && <span class="mt-1 block text-[0.95rem] text-woud-950/70">{d.kenmerk}</span>}
+              </span>
+              <span class="aanbod-pijl h-5 w-5 flex-none text-jungle-800" aria-hidden="true"><Fragment set:html={pijl} /></span>
+            </a>
           </li>
         ))}
       </ul>
@@ -159,7 +154,7 @@ const introTweedeZin = introRestZinnen.join(' ');
         <p class="afsluiting-tekst mt-4">{cta.tekst}</p>
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a href={localePath('/contact/', lang)} class="knop knop-zon">{cta.knop}<Fragment set:html={pijl} /></a>
-          <a href={localePath('/intake/', lang)} class="knop knop-rand">{cta.intakeKnop}</a>
+          <a href={localePath('/intake/', lang)} class="knop knop-rand"><Fragment set:html={blad} />{cta.intakeKnop}</a>
         </div>
       </div>
     </div>
@@ -167,13 +162,37 @@ const introTweedeZin = introRestZinnen.join(' ');
 </Base>
 
 <style>
-  /* Basis komt uit .kaart-licht (global.css); hier alleen de klikbare kaart */
-  .aanbod { transition: box-shadow 0.5s var(--ease-adem); }
-  .aanbod h3 { hyphens: auto; overflow-wrap: break-word; }
-  .aanbod:hover { box-shadow: 0 10px 28px -16px rgb(46 30 16 / 0.14), inset 0 0 0 1px rgb(110 46 20 / 0.35); }
-  .aanbod-link::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
-  .aanbod-link:focus-visible { outline: none; }
-  .aanbod:has(.aanbod-link:focus-visible) { outline: 2px solid var(--jungle-800); outline-offset: 4px; }
-  .aanbod-pijl { transition: transform 0.5s var(--ease-adem); }
-  .aanbod:hover .aanbod-pijl { transform: translateX(4px); }
+  /* Aanbod als rustige, klikbare opsomming */
+  .aanbod-lijst {
+    display: grid;
+    border-top: 1px solid rgb(110 46 20 / 0.16);
+  }
+  @media (min-width: 768px) {
+    .aanbod-lijst { grid-template-columns: 1fr 1fr; column-gap: 3rem; }
+  }
+  .aanbod-lijst > li { border-bottom: 1px solid rgb(110 46 20 / 0.16); }
+  .aanbod-regel {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    padding: 1.35rem 0.25rem;
+    text-decoration: none;
+    border-radius: 0.75rem;
+    transition: background-color 0.4s var(--ease-adem);
+  }
+  .aanbod-regel:hover { background: rgb(250 243 228 / 0.55); }
+  .aanbod-regel:focus-visible { outline: 2px solid var(--jungle-800); outline-offset: 2px; }
+  .aanbod-icoon {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    background: var(--mos-200);
+    color: var(--jungle-800);
+  }
+  .aanbod-pijl { display: inline-block; transition: transform 0.5s var(--ease-adem); }
+  .aanbod-regel:hover .aanbod-pijl { transform: translateX(4px); }
 </style>

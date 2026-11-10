@@ -172,22 +172,26 @@
   .knop-zon:hover, .knop-zon:focus-visible {
     background: var(--zonlicht-200);
   }
+  /* Secundaire knop: duidelijke rand en zachte vulling; bij hover helemaal gevuld */
   .knop-rand {
     color: var(--dauw-50);
-    box-shadow: inset 0 0 0 1.5px rgb(250 243 228 / 0.55);
+    background: rgb(250 243 228 / 0.06);
+    box-shadow: inset 0 0 0 1.5px rgb(250 243 228 / 0.8);
   }
   .knop-rand:hover, .knop-rand:focus-visible {
-    box-shadow: inset 0 0 0 1.5px var(--zonlicht-400);
-    color: var(--zonlicht-200);
+    color: var(--woud-950);
+    background: var(--dauw-50);
+    box-shadow: inset 0 0 0 1.5px var(--dauw-50);
   }
   .licht .knop-rand {
-    color: var(--jungle-800);
-    box-shadow: inset 0 0 0 1.5px rgb(110 46 20 / 0.55);
+    color: var(--woud-950);
+    background: rgb(110 46 20 / 0.06);
+    box-shadow: inset 0 0 0 1.5px rgb(110 46 20 / 0.75);
   }
   .licht .knop-rand:hover, .licht .knop-rand:focus-visible {
-    color: var(--woud-950);
+    color: var(--dauw-50);
+    background: var(--jungle-800);
     box-shadow: inset 0 0 0 1.5px var(--jungle-800);
-    background: rgb(110 46 20 / 0.06);
   }
   .knop svg { width: 1.1em; height: 1.1em; flex: none; transition: transform 0.6s var(--ease-adem); }
   .knop:hover svg { transform: translateX(3px); }

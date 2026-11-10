@@ -16,6 +16,7 @@ const { lang } = Astro.props;
 const { ceremonies } = getContent(lang);
 
 const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24h30M28 14c3 5 7 8 11 10-4 2-8 5-11 10"/></svg>';
+const blad = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Z"/><path d="M5 19 13 11"/></svg>';
 
 const T = {
   nl: {
@@ -26,8 +27,8 @@ const T = {
     sub: 'Of je nu kiest voor de aardse zachtheid van truffels, de diepgang van paddenstoelen of Mother Nature, of de directe kracht van je eigen adem: elke sessie vindt plaats in alle rust en met persoonlijke begeleiding.',
     agendaKop: 'Twijfel je wat bij je past?',
     agendaTekst: 'Je hoeft vooraf nog niet precies te weten welke vorm het beste aansluit. In een vrijblijvend voorgesprek luister ik naar waar je staat en kijken we samen wat op dit moment klopt voor jou.',
-    contactKnop: 'Kennismaking aanvragen',
-    intakeKnop: 'Intakeformulier invullen',
+    contactKnop: 'Plan een kennismaking',
+    intakeKnop: 'Start je intake',
   },
   en: {
     seoTitel: 'Ceremonies & Breathwork in Sappemeer | Tarra Lanzilli',
@@ -37,8 +38,8 @@ const T = {
     sub: 'Whether you choose the grounded gentleness of truffles, the depth of mushrooms or Mother Nature, or the direct power of your own breath: every session takes place in calm and with personal guidance.',
     agendaKop: 'Not sure what suits you best?',
     agendaTekst: 'You do not need to know beforehand which form fits best. In a no-obligation conversation I listen to where you are and we explore together what feels right for you at this moment.',
-    contactKnop: 'Request an introduction',
-    intakeKnop: 'Fill in the intake form',
+    contactKnop: 'Schedule an introduction',
+    intakeKnop: 'Start your intake',
   },
   es: {
     seoTitel: 'Ceremonias y Respiración en Sappemeer | Tarra Lanzilli',
@@ -48,8 +49,8 @@ const T = {
     sub: 'Ya elijas la suavidad terrenal de las trufas, la profundidad de las setas o de Mother Nature, o la fuerza directa de tu propia respiración: cada sesión se vive con calma y acompañamiento personal.',
     agendaKop: '¿Dudas sobre qué va mejor contigo?',
     agendaTekst: 'No necesitas saber de antemano qué forma se adapta mejor a ti. En una charla sin compromiso escucho en qué momento estás y vemos juntos qué es lo más adecuado para ti.',
-    contactKnop: 'Solicitar una charla',
-    intakeKnop: 'Rellenar el formulario',
+    contactKnop: 'Agenda una conversación',
+    intakeKnop: 'Empieza tu admisión',
   },
 }[lang];
 ---
@@ -112,7 +113,7 @@ const T = {
         <p class="afsluiting-tekst mt-4">{T.agendaTekst}</p>
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a href={localePath('/contact/', lang)} class="knop knop-zon">{T.contactKnop}<Fragment set:html={pijl} /></a>
-          <a href={localePath('/intake/', lang)} class="knop knop-rand">{T.intakeKnop}</a>
+          <a href={localePath('/intake/', lang)} class="knop knop-rand"><Fragment set:html={blad} />{T.intakeKnop}</a>
         </div>
       </div>
     </div>
