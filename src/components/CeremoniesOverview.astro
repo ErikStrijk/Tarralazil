@@ -68,11 +68,11 @@ const T = {
   <section id="overzicht" class="licht relative bg-mos-100 pb-24 pt-20 text-woud-950 md:pb-28 md:pt-24" aria-label={T.label}>
     <LeafEdge kleur="#f2e4c2" seed={33} omgekeerd />
     <div class="container-woud">
-      <ul class="raster">
+      <ul class="raster gap-y-14">
         {ceremonies.map((c: any) => (
           <li id={c.slug} class="flex scroll-mt-28 md:col-span-6" data-groei>
-            <article class="kaart-licht cer-kaart flex h-full w-full flex-col overflow-hidden">
-              <div class="aspect-[16/10] overflow-hidden">
+            <article class="flex h-full w-full flex-col">
+              <div class="aspect-[16/10] overflow-hidden rounded-[1.35rem]">
                 {ceremonieBeelden[c.slug] && (
                   <Image
                     src={ceremonieBeelden[c.slug]}
@@ -83,11 +83,9 @@ const T = {
                   />
                 )}
               </div>
-              <div class="flex flex-1 flex-col p-7 md:p-8">
+              <div class="flex flex-1 flex-col pt-6">
                 <div class="flex items-center gap-3">
-                  <span class="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-mos-200/80 text-jungle-800" aria-hidden="true">
-                    <Icoon naam={c.icoon} class="h-5 w-5" />
-                  </span>
+                  <Icoon naam={c.icoon} class="h-8 w-8 flex-none text-jungle-800" />
                   <h2 class="text-[1.45rem] leading-tight text-woud-950 md:text-[1.6rem]">{c.titel}</h2>
                 </div>
                 <p class="mt-4 text-[1.02rem] leading-[1.75] text-woud-950/85">

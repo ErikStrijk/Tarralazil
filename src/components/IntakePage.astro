@@ -618,7 +618,7 @@ const vandaag = new Date().toISOString().split('T')[0];
 
           <ol class="mt-9 grid gap-5 md:grid-cols-3">
             {succes.stappen.map((s: { titel: string; tekst: string }) => (
-              <li class="rounded-2xl border border-dauw-50/12 bg-woud-800/70 p-6">
+              <li class="border-t border-dauw-50/15 pt-5">
                 <h3 class="text-lg text-zonlicht-200">{s.titel}</h3>
                 <p class="mt-2 text-sm leading-relaxed text-dauw-200">{s.tekst}</p>
               </li>

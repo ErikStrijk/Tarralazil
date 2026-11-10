@@ -38,7 +38,6 @@ const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="cu
 
 <div class="ervaringen-sectie">
   <header class="maat-kop">
-    {home.ervaringen.label && <p class="eyebrow mb-2.5">{home.ervaringen.label}</p>}
     <h2 id="ervaringen-kop" class="sectie-kop text-dauw-50">
       {kop}
     </h2>
@@ -49,22 +48,20 @@ const pijl = '<svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="cu
     )}
   </header>
 
-  <ul class="raster mt-12 md:mt-14">
+  <ul class="raster mt-12 gap-y-10 md:mt-14">
     {getoondeErvaringen.map((e) => {
       const verhaalAnker = e.id ? `${verhalenUrl}#verhaal-${e.id}` : verhalenUrl;
       const ceremonieHref = e.ceremonieSlug ? `${localePath('/ceremonies/', lang)}#${e.ceremonieSlug}` : localePath('/ceremonies/', lang);
 
       return (
         <li class="flex md:col-span-4">
-          <article class="kaart-donker flex h-full w-full flex-col justify-between p-7 md:p-8">
+          <article class="flex h-full w-full flex-col justify-between border-t border-dauw-50/15 pt-7">
             <blockquote class="text-[1.02rem] leading-[1.75] text-dauw-200">
               <p>“{e.tekst}”</p>
             </blockquote>
 
-            <footer class="mt-7 flex items-center gap-3 border-t border-dauw-50/10 pt-5">
-              <span class="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-zonlicht-400/12 text-zonlicht-200" aria-hidden="true">
-                <Icoon naam="kiem" class="h-5 w-5" />
-              </span>
+            <footer class="mt-5 flex items-center gap-3">
+              <Icoon naam="kiem" class="h-5 w-5 flex-none text-zonlicht-200" />
               <div class="min-w-0 flex-1">
                 <a href={verhaalAnker} class="block font-kop text-base leading-snug text-dauw-50 no-underline hover:text-zonlicht-200">
                   {e.naam}

@@ -45,7 +45,6 @@ const introTweedeZin = introRestZinnen.join(' ');
     <div class="container-woud">
       <div class="raster items-start gap-y-12">
         <div class="md:col-span-7">
-          {intro.label && <p class="eyebrow mb-2.5">{intro.label}</p>}
           <h2 id="intro-kop" class="sectie-kop text-[clamp(1.85rem,3.4vw,2.8rem)] text-woud-950">
             <span class="block">{introEersteZin}</span>
             {introTweedeZin && <span class="mt-1 block text-jungle-800">{introTweedeZin}</span>}
@@ -55,12 +54,10 @@ const introTweedeZin = introRestZinnen.join(' ');
           </div>
 
           {intro.punten && (
-            <ul class="mt-7 grid gap-3">
+            <ul class="maat-tekst mt-8 border-t border-jungle-800/15">
               {intro.punten.map((punt: { titel: string; tekst: string }) => (
-                <li class="kaart-licht flex items-start gap-3.5 px-5 py-3.5 md:py-4">
-                  <span class="mt-0.5 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-mos-200/80 text-jungle-800" aria-hidden="true">
-                    <Icoon naam="kiem" class="h-4.5 w-4.5" />
-                  </span>
+                <li class="flex items-start gap-3.5 border-b border-jungle-800/15 py-4">
+                  <Icoon naam="kiem" class="mt-1 h-5 w-5 flex-none text-jungle-800" />
                   <div class="min-w-0">
                     <h3 class="font-kop text-[1rem] leading-snug text-woud-950 md:text-[1.05rem]">{punt.titel}</h3>
                     <p class="mt-1 text-[0.92rem] leading-[1.6] text-woud-950/80">{punt.tekst}</p>
@@ -88,14 +85,13 @@ const introTweedeZin = introRestZinnen.join(' ');
         </figure>
 
         <div class="md:col-span-7" data-groei>
-          <p class="eyebrow mb-2.5">{overMij.hero.label}</p>
           <h2 id="waarom-kop" class="sectie-kop text-dauw-50">{waarom.kop}</h2>
           <div class="maat-tekst mt-5 space-y-4 text-[1.0625rem] leading-[1.78] text-dauw-200 md:text-[1.125rem]">
             {waarom.tekst.map((p: string) => <p>{p}</p>)}
           </div>
           <div class="mt-7 flex flex-wrap items-center gap-5">
             <a href={localePath('/over-mij/', lang)} class="knop knop-rand">{waarom.knop}<Fragment set:html={pijl} /></a>
-            <div class="inline-flex items-center gap-3.5 rounded-2xl bg-woud-950/60 px-4 py-2.5 text-dauw-50 ring-1 ring-dauw-50/10">
+            <div class="inline-flex items-center gap-3.5 text-dauw-50">
               <Image
                 src={innerJourneyLogo}
                 alt="Inner Journey"
@@ -119,7 +115,6 @@ const introTweedeZin = introRestZinnen.join(' ');
     <LeafEdge kleur="#f2e4c2" seed={31} />
     <div class="container-woud">
       <header class="maat-kop" data-groei>
-        <p class="eyebrow mb-2.5">{heroEyebrow.split('·')[0].trim()}</p>
         <h2 id="ceremonies-kop" class="sectie-kop text-woud-950">{home.ceremonies.kop}</h2>
         <p class="maat-tekst mt-4 text-[1.0625rem] leading-[1.75] text-woud-950/80">{home.ceremonies.tekst}</p>
       </header>
